@@ -30,14 +30,6 @@ public class P2Controller : MonoBehaviour
         moveDirection = context.ReadValue<Vector2>();
     }
 
-    public void Fire(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("fired");
-        }
-    }
-
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.performed)
