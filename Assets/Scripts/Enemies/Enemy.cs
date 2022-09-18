@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    public EnemyProperties properties; //max health, damage, etc
+    private int health;
+    public int Health => health;
+    
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -20,6 +24,13 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die() {
         Destroy(this);
+    }
+
+    public virtual void TakeDamage(int damage) {
+        health -= damage;
+        if(health <= 0) {
+            Die();
+        }
     }
 
 }
