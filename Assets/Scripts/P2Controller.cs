@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class P2Controller : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sprite;
 
     [SerializeField]
     private float speed = 4f;
@@ -18,6 +19,15 @@ public class P2Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if (moveDirection.x > 0)
+            sprite.flipX = false;
+        else if (moveDirection.x < 0)
+            sprite.flipX = true;
     }
 
     private void FixedUpdate()

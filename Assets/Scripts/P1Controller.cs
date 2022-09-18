@@ -57,6 +57,7 @@ public class P1Controller : MonoBehaviour
             {
                 heldObject.SetParent(null);
                 isHolding = false;
+                speed *= 2;
                 heldObject = null;
                 Debug.Log("object dropped");
             }
@@ -68,6 +69,7 @@ public class P1Controller : MonoBehaviour
             if (context.started)
             {
                 isHolding = true;
+                speed /= 2;
                 heldObject.SetParent(transform);
                 Debug.Log("object picked up");
             }
