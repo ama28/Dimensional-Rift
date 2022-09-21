@@ -15,14 +15,20 @@ public class SpawnManager : MonoBehaviour
     // incrememnt whenever we spawn an enemy
     private int spawnCounter = 0;
     // boolean to detect when all enemies are dead
-    private bool isDead = false;
+    //private bool isDead = false;
     // choke points for where to spawn enemies
     public Transform[] spawnPoints;
 
     // list of enemies
     public Capsule[] enemies;
 
+    // list of instantiated enemies;
+    private List<Capsule> instanced;
+
     // Start is called before the first frame update
+    void Awake() {
+        instanced = new List<Capsule>();
+    }
     void Start()
     {
         StartCoroutine(SpawnLoop());
@@ -30,16 +36,21 @@ public class SpawnManager : MonoBehaviour
     // checks to see if all enemies are dead
     // needs a isDead() script for the enemy game object
     void checkDead() {
-        isDead = true;
-        foreach(Capsule enemy in enemies) {
-            isDead = isDead && enemy.isDead();
+        int i = 0;
+        while(i < instanced.Count) {
+            if(instanced[i].isDead()) {
+                Destroy(instanced[i].gameObject);
+                instanced.RemoveAt(i);
+                i = i - 1;
+            }
+            i = i + 1;
         }
     }
     // Update is called once per frame
     void Update()
     {
         // all enemies are dead
-        if(isDead) {
+        if(instanced.Count == 0) {
             spawnCounter = 0;
             levelCounter += 1;
             StartCoroutine(SpawnLoop());
@@ -49,21 +60,19 @@ public class SpawnManager : MonoBehaviour
      IEnumerator SpawnLoop()
      {
         // spawn enemies one at a time up to max spawns enemies every 0.5 seconds
-        isDead = false;
+        // isDead = false;
         maxSpawns = levelCounter + 1;
         for(int i = 0; i < maxSpawns; i++) {
             SpawnEnemy(i % 4);
             spawnCounter += 1;
             yield return new WaitForSeconds(0.5f);
         }
-
-        yield return new WaitForSeconds(5);
         // check if dead every two seconds
         // add in once we actually have enemies instead of ovals
 
-        while(!isDead) {
+        while(instanced.Count > 0) {
             checkDead();
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
         }
      }
     
@@ -72,6 +81,6 @@ public class SpawnManager : MonoBehaviour
      void SpawnEnemy(int enemy_index)
      {
          Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-         Instantiate(enemies[enemy_index], _sp.position, _sp.rotation); 
+         instanced.Add(Instantiate(enemies[enemy_index], _sp.position, _sp.rotation)); 
      }
  }
