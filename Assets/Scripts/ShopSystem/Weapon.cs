@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float damage;
+    public GameObject bullet;
+    public float fireRate;
+    public float ammo;
 }
