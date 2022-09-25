@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141508837}
   - component: {fileID: 141508838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,12 +328,13 @@ GameObject:
   m_Component:
   - component: {fileID: 253785261}
   - component: {fileID: 253785262}
+  - component: {fileID: 253785268}
   - component: {fileID: 253785266}
   - component: {fileID: 253785264}
   - component: {fileID: 253785263}
-  - component: {fileID: 253785265}
+  - component: {fileID: 253785269}
   - component: {fileID: 253785267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HomingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +444,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.1
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
@@ -477,7 +478,57 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &253785265
+--- !u!50 &253785266
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253785260}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!114 &253785267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253785260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83eb9ccdc424c436d800dc2be94d059f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+--- !u!58 &253785268
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253785260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &253785269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,39 +543,6 @@ MonoBehaviour:
   version: 1
   unwrap: 1
   splitAtEveryPortal: 0
---- !u!50 &253785266
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253785260}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &253785267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253785260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83eb9ccdc424c436d800dc2be94d059f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &320652186
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +722,7 @@ GameObject:
   - component: {fileID: 480004896}
   - component: {fileID: 480004897}
   - component: {fileID: 480004898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -958,7 +976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484440823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrabDetector
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -1519,7 +1537,7 @@ GameObject:
   - component: {fileID: 613064878}
   - component: {fileID: 613064881}
   - component: {fileID: 613064882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2282,7 +2300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+sFoUJVWgIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk0HiEtCb61DSA9JmNBOLr4s1hprkCWPPgIkw3/vSraxSycnxNu3T28/5A8mlK0xd9osjeCPmiP7PmLhzL6M+uADHmCr1Vq8Y8d5FdyVgQSR8wJOaMInIc3qCp0R+Q+1lYE8JtArUWhTLfgWU22dJbgAaZFCRruQrQj6GLED/VzNQ8qRTtObcHqn03w8OtExR+XQ9NSO2NEalle5hKpGHiz35OtpJ9vQFBXTMsZfk6CupRS29cLcsY61plBbT5UQgQug2qKBa/pbotiWLggOk5+LwqJrTRk43glDLWpU2U/d9K0Cu2ucvYH04Z5ZEk01mo//ha8mMVwYXT10107G4QpXinz3AsccrBv0dQjf9b4nsT97kDvYSHwtUT3ppdFecQo640Oqtzi96/+eK0tLzHc93li9AH39+XRCDadY/CGVotqcG0/AWurY7jh7NDSaX2Q4boZtJQgNLv5Y/A3b4Qq1gXthrKNQW6UK9jbam0Bli9izUI13qTYKzVChRgXSHVek4y5HeBH7POsewmtpb29j3SO4SIlwzx+PL0IrvT9Py5Z6/4i2fPZOCoV9q0PgiRqVaqWaDRuW1KWtvSkgH6RtveD/7ha7gcls/i1Pbqcw55DcXs1wM0n47c1smsyvE3rzcfmEojpBrhqjbXtobKoXV7Ro3UdktDRQx23nBvZL8V5p2zOFKvQ6N4jquVE4G0dDl9C75AsuqEFrdE6oOHD2kTGp8x3y7CyUxUoXB2cg61UyVos37QKSsTR+NTIW4PMyrwy+CdyHyzuxEzv9BVBLAwQUAAAICAAAmJ/rPwtkbm0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0knmioZmlabKJhVGiZUqiiYWuWWqSoUmKhbmZkYmlsUlKqlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAmJ/rBaFCVVoCAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/rPwtkbm0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
+    dataString: UEsDBBQAAAgIAACYn+sHegeVYQIAABsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GBgdwby0hpAcCE9rJxRdhrbEGWfJIMl8Z/ntXso1dOvHF8u7b3fd2V/4kXJoSUqv0QnO2VAzI9wFxZ/Jt0Dlf4UR3Sm74BVrMB2c2dyDqMe/UcoX20IUZVYDVPP0hd8KBAzRWkmdKF3O2g5ky1qA5o8IAurSyLlqi6XNATvh6iF3IGU/DiTtd8BQHgyseU5AWdAdtgS2sRlUyFbQogTnKHXgUN+hR8Bi4J4w9XKKoBhk8jlwVJQQ3DSdiz6XXvClz0OBEM05RoufxhJ858F1uHd1+7CrLDNiGm6bnZ66xU3VS8lPV7Suo2dcED1RUrsw48pzqnMv/3A+hd2daFa9t2TBwJWzO0/07PafU2F57++bnjnfo23SkYk+3Aj5ykG9qoVUlGTqtrlxoZWD43H3elM1ySPedvaZ6Z6zKr4fkNFy9+NNM8GLr+x7Vho1Qvtt+BUDjZH4hYb8gpkmBVsfij4HfdNffpMbxwrWx6GpUSkdvqyrtoGTue+bUVHamtATdz1CCpMKe15jH3o/wzvd11At1l6ap3vjau3AX4s0dPgjuXGt1vE3L5Oq4BJOvKiu4hK7VzvGGjZopKesN60tqwzaVzmjaC9tVnP27W2RCw3H8lEbTIY0ZjaYPY9iGEZtOxsMoHkV49f3ycYk6qVjXRJv24Nhkl1ziorX/ksFC09JvO9P0uOCXQpkOyWWmNqkGkKs6w404aCyC15LNGccGbcBaLv3AyWdChEr3wJJbosQrnZ+spkmXJSElPyjrLAmZ+Z9HQpz5tsxrDQcOR1e8TXYl179QSwMEFAAACAgAAJif6z8LZG5tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJ5oqGZpWmyiYVRomVKoomFrllqkqFJioW5mZGJpbFJSqpSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif6wd6B5VhAgAAGwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif6z8LZG5tAAAAeAAAAAkAJAAAAAAAAAAAAAAArgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABmAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -2310,11 +2328,43 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -2570,7 +2620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1109358173}
   - component: {fileID: 1109358174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2619,7 +2669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1235896202}
   - component: {fileID: 1235896203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
