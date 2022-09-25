@@ -15,29 +15,25 @@ public class GameManager : Singleton<GameManager>
     }
     private GameStateType gameState;
 
-    public SpawnManager spawnManager;
-
-    public Wave wave; //temp
-
-    public int Round => round; //Round is read-only outside of GameManager - shorthand for get & no set
-    private int round = 0;
-
-    public int Level => level;
-    private int level = 1;
-
-    public int currency = 0;
+    public uint Round => round; //Round is read-only outside of GameManager - shorthand for get & no set
+    private uint round = 0;
 
     //Events
     //These events will be called when the game state is changed. When an event is called, all subscribed
     //functions fire. To subscribe a function to an event, write "EventName += FnName" inside an OnEnable 
     //function, and "EventName -= FnName" inside an OnDisable() function.
     public static event Action OnBuildPhaseStart;
-    public static event Action<Wave> OnActionPhaseStart;
+    public static event Action OnActionPhaseStart;
     public static event Action OnGameOver;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     //Fire proper events on state change
-    public void SetGameState(GameStateType newState) {
+    void SetGameState(GameStateType newState) {
         if(newState == gameState) return;
 
         switch(newState) {
@@ -46,12 +42,11 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
             case(GameStateType.BuildPhase): {
-                level++;
                 OnBuildPhaseStart?.Invoke();
                 break;
             }
             case(GameStateType.ActionPhase): {
-                OnActionPhaseStart?.Invoke(wave);
+                OnActionPhaseStart?.Invoke();
                 break;
             }
             case(GameStateType.GameOver): {
