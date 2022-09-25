@@ -20,15 +20,11 @@ public class SpawnManager : MonoBehaviour
     public Wave currentWave;
 
     // list of instantiated enemies;
-    private List<Enemy> instanced;
+    [SerializeField] private List<Enemy> instanced;
 
     // Start is called before the first frame update
     void Awake() {
         instanced = new List<Enemy>();
-    }
-    void Start()
-    {
-        StartCoroutine(SpawnLoop());
     }
 
     //Start wave when action phase starts
@@ -41,6 +37,12 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void StartWave(Wave wave) {
+        Debug.Log(wave.GetTotalEnemyCount());
+        if(instanced.Count > 0) {
+            Debug.LogError("Wave started with enemies still spawned!");
+            instanced.ForEach(x => x.TakeDamage(1000));
+            instanced.Clear();
+        }
         currentWave = wave;
         spawnCounter = 0;
         StartCoroutine(SpawnLoop());
@@ -59,10 +61,9 @@ public class SpawnManager : MonoBehaviour
     {
         // spawn enemies one at a time up to max spawns enemies every 0.5 seconds
         // currentWave.maxSpawns = GameManager.Instance.Level + 1; //this will be set in the Wave Object
-        for(int i = 0; i < currentWave.GetTotalEnemyCount(); i++) {
+        for(; spawnCounter < currentWave.GetTotalEnemyCount(); spawnCounter++) {
             SpawnEnemy(currentWave.ChooseEnemy());
-            spawnCounter += 1;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(currentWave.spawnDelay);
         }
     }
     
@@ -70,6 +71,7 @@ public class SpawnManager : MonoBehaviour
     // unsure if we need to adapt it to work for more than a small amount of spawn points
      void SpawnEnemy(Enemy enemy)
      {
+        Debug.Log("spawn " + spawnCounter);
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Enemy newEnemy = Instantiate(enemy, _sp.position, _sp.rotation);
         newEnemy.id = spawnCounter; //give enemies an id so when they die we can remove more easily

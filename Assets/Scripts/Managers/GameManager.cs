@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     public SpawnManager spawnManager;
 
-    public Wave wave; //temp
+    [SerializeField] WaveList waveList; 
 
     public int Round => round; //Round is read-only outside of GameManager - shorthand for get & no set
     private int round = 0;
@@ -36,6 +36,10 @@ public class GameManager : Singleton<GameManager>
     public static event Action OnGameOver;
 
 
+    void Start() {
+        SetGameState(GameStateType.ActionPhase);
+    }
+
     //Fire proper events on state change
     public void SetGameState(GameStateType newState) {
         if(newState == gameState) return;
@@ -51,7 +55,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
             case(GameStateType.ActionPhase): {
-                OnActionPhaseStart?.Invoke(wave);
+                OnActionPhaseStart?.Invoke(waveList.waves[round]);
                 break;
             }
             case(GameStateType.GameOver): {
