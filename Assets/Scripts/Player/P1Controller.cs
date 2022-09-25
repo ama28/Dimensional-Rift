@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class P1Controller : PlayerFarmer
 {
+    private Rigidbody2D rb;
     public Transform grabDetector;
 
     [SerializeField]
@@ -18,7 +19,7 @@ public class P1Controller : PlayerFarmer
     private Transform heldObject;
 
     // Start is called before the first frame update
-    public override void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -36,7 +37,7 @@ public class P1Controller : PlayerFarmer
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * stats.speed, moveDirection.y * stats.speed);
+        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -54,7 +55,7 @@ public class P1Controller : PlayerFarmer
             {
                 heldObject.SetParent(null);
                 isHolding = false;
-                stats.speed *= 2;
+                speed *= 2;
                 heldObject = null;
                 Debug.Log("object dropped");
             }
@@ -66,7 +67,7 @@ public class P1Controller : PlayerFarmer
             if (context.started)
             {
                 isHolding = true;
-                stats.speed /= 2;
+                speed /= 2;
                 heldObject.SetParent(transform);
                 Debug.Log("object picked up");
             }

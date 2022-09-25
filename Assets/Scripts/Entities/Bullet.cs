@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private float speed;
-    
-    public HitInfo hitInfo; //damage etc
 
     // Start is called before the first frame update
     void Start()

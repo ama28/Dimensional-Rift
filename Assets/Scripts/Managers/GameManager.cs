@@ -35,14 +35,6 @@ public class GameManager : Singleton<GameManager>
     public static event Action<Wave> OnActionPhaseStart;
     public static event Action OnGameOver;
 
-    public PlayerFarmer playerFarmer;
-    public PlayerShooter playerShooter;
-
-    public override void Awake() {
-        base.Awake();
-        playerFarmer = FindObjectOfType<PlayerFarmer>();
-        playerShooter = FindObjectOfType<PlayerShooter>();
-    }
 
     void Start() {
         SetGameState(GameStateType.ActionPhase);
