@@ -15,8 +15,13 @@ public class GameManager : Singleton<GameManager>
     }
     private GameStateType gameState;
 
-    public uint Round => round; //Round is read-only outside of GameManager - shorthand for get & no set
-    private uint round = 0;
+    public SpawnManager spawnManager;
+
+    public int Round => round; //Round is read-only outside of GameManager - shorthand for get & no set
+    private int round = 0;
+
+    public int Level => level;
+    private int level;
 
     //Events
     //These events will be called when the game state is changed. When an event is called, all subscribed
@@ -26,14 +31,9 @@ public class GameManager : Singleton<GameManager>
     public static event Action OnActionPhaseStart;
     public static event Action OnGameOver;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     //Fire proper events on state change
-    void SetGameState(GameStateType newState) {
+    public void SetGameState(GameStateType newState) {
         if(newState == gameState) return;
 
         switch(newState) {
@@ -42,6 +42,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
             case(GameStateType.BuildPhase): {
+                level++;
                 OnBuildPhaseStart?.Invoke();
                 break;
             }

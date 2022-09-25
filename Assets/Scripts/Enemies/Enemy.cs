@@ -6,6 +6,8 @@ public abstract class Enemy : MonoBehaviour
 {
     public float health = 1;
 
+    public int id = -1; //id, should be set on initialization
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -26,6 +28,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
+        GameManager.Instance.spawnManager.RemoveEnemy(id);
         Destroy(this);
     }
 
