@@ -383,9 +383,9 @@ MonoBehaviour:
   - {fileID: 57953827}
   - {fileID: 791463748}
   currentWave:
-    maxSpawns: 4
     enemies:
-    - {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+    - enemy: {fileID: 0}
+      count: 0
 --- !u!4 &241419759
 Transform:
   m_ObjectHideFlags: 0
@@ -416,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 241419758}
+  waveList: {fileID: 11400000, guid: dea95d0e56d5a45b2b4592e470286870, type: 2}
 --- !u!1 &320652186
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ using UnityEngine;
 
         public List<EnemyInfo> enemies;
 
+        public float spawnDelay = 0.5f;
+
         public int GetTotalEnemyCount() {
             int total = 0;
             enemies.ForEach(x => total += x.count);
