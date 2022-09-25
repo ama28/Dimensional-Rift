@@ -5,13 +5,12 @@ using UnityEngine.InputSystem;
 
 public class P2Controller : PlayerShooter
 {
-    private Rigidbody2D rb;
     private SpriteRenderer sprite;
 
     private Vector2 moveDirection;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
@@ -27,7 +26,7 @@ public class P2Controller : PlayerShooter
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -39,7 +38,7 @@ public class P2Controller : PlayerShooter
     {
         if (context.performed)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, stats.jumpForce);
         }
     }
 }
