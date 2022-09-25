@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShooter : MonoBehaviour
+public class PlayerShooter : Player
 {
-    public float speed = 4f;
-    public float jumpForce = 4f;
+    public class ShooterStats : PlayerStats {
+        public float jumpForce = 4f;
+    }
+
+    public ShooterStats stats = new ShooterStats();
+
+    public virtual void Start() {
+        health = stats.maxHealth;
+        invulnerable = true;
+    }
 }

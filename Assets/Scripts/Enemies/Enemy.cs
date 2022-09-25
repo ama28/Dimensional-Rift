@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : Being
 {
-    public float health = 1;
 
     public int id = -1; //id, should be set on initialization
 
@@ -40,4 +39,5 @@ public abstract class Enemy : MonoBehaviour
             Die();
         }
     }
+
 }
