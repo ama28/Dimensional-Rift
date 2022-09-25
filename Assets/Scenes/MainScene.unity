@@ -386,6 +386,8 @@ MonoBehaviour:
     enemies:
     - enemy: {fileID: 0}
       count: 0
+    spawnDelay: 0.5
+  instanced: []
 --- !u!4 &241419759
 Transform:
   m_ObjectHideFlags: 0
@@ -401,7 +403,7 @@ Transform:
   - {fileID: 57953827}
   - {fileID: 791463748}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &241419760
 MonoBehaviour:
@@ -417,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 241419758}
   waveList: {fileID: 11400000, guid: dea95d0e56d5a45b2b4592e470286870, type: 2}
+  currency: 0
 --- !u!1 &320652186
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,8 +618,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81289481aaa343bdaf16b8e31b23fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDetector: {fileID: 484440823}
   speed: 4
+  curHealth: 6
+  maxHealth: 6
+  grabDetector: {fileID: 484440823}
   rayDist: 0.5
   rotationSpeed: 5000
   isHolding: 0
@@ -2157,7 +2162,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -2812,67 +2817,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &5393616832922594344
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5393616833037949060, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_Name
-      value: HomingEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949060, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5393616833037949061, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
 --- !u!1001 &7790684197925283522
 PrefabInstance:
   m_ObjectHideFlags: 0

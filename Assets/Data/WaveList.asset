@@ -15,4 +15,5 @@ MonoBehaviour:
   waves:
   - enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 3
+      count: 5
+    spawnDelay: 0.5
