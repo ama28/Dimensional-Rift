@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06c0b4cd94c04f2ab3dfa333dadfeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4691203068273349001, guid: 4f29b6af3ade4537fa0ff63d9c4bd1b5, type: 3}
+  bullet: {fileID: 4691203068273349001, guid: cda450f48f57d453ca6427ebcd231e3a, type: 3}
   timeBetweenFiring: 0.1
 --- !u!212 &6796674200991469289
 SpriteRenderer:

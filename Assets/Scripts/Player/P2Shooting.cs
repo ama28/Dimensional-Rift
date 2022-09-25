@@ -13,6 +13,15 @@ public class P2Shooting : MonoBehaviour
     public bool canFire = true;
     private float timer = 0;
     public float timeBetweenFiring;
+    
+    private int gunIdx;
+
+    public List<Gun> guns;
+
+    void awake()
+    {
+        gunIdx = 0;
+    }
 
     // Start is called before the first frame update
     void Start()
