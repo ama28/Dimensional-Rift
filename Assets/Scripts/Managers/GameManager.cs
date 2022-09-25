@@ -25,6 +25,8 @@ public class GameManager : Singleton<GameManager>
     public int Level => level;
     private int level = 1;
 
+    public int currency = 0;
+
     //Events
     //These events will be called when the game state is changed. When an event is called, all subscribed
     //functions fire. To subscribe a function to an event, write "EventName += FnName" inside an OnEnable 

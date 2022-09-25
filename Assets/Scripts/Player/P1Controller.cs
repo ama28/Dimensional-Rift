@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P1Controller : MonoBehaviour
+public class P1Controller : PlayerFarmer
 {
     private Rigidbody2D rb;
     public Transform grabDetector;
 
-    [SerializeField]
-    private float speed = 4f;
     [SerializeField]
     private float rayDist;
     [SerializeField]

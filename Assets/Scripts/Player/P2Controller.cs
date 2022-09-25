@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P2Controller : MonoBehaviour
+public class P2Controller : PlayerShooter
 {
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-
-    [SerializeField]
-    private float speed = 4f;
-    [SerializeField]
-    private float jumpForce = 4f;
 
     private Vector2 moveDirection;
 
