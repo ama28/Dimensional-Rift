@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
     public Canvas shopUI;
     public List<ShopOption> shopOptions = new List<ShopOption>() { };
-    public GameObject[] cardSlots;
+    public List<Transform> cardSlots;
 
     private void Start()
     {
         shopUI.enabled = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+            OpenShop();
     }
 
     void RandomizeShopOptions()
@@ -28,6 +35,20 @@ public class ShopManager : MonoBehaviour
 
     void OpenShop()
     {
+        RandomizeShopOptions();
+
+        foreach (Transform child in shopUI.transform)
+        {
+            cardSlots.Add(child);
+        }
+
+        for (int i = 0; i < cardSlots.Count; i++)
+        {
+            //cardSlots[i].GetChild(0).GetComponent<Image>().sprite = shopOptions[i].frame;
+            //cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
+            cardSlots[i].GetChild(2).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+        }
+
         shopUI.enabled = true;
     }
 }
