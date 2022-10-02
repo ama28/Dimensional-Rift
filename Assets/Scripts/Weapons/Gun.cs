@@ -13,8 +13,8 @@ public class Gun : MonoBehaviour
 
     void Awake()
     {
-      canFire_ = true;
-      timer_ = 0;
+       canFire_ = true;
+       timer_ = 0;
     }
 
     public bool CanFire()
