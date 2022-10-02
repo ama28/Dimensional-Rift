@@ -13,7 +13,6 @@ public class CoinSpawnHandler : MonoBehaviour
     public int maxCoins;
     public float preventSpawnRadius = 1f;
     private int currCoins;
-    private Collider2D collider;
     public GameObject newCoin;
 
     // Start is called before the first frame update
@@ -52,7 +51,7 @@ public class CoinSpawnHandler : MonoBehaviour
 
     private bool PreventSpawnOverlap(Vector3 spawnPosition){
         LayerMask m = LayerMask.GetMask("Wall");
-        collider = Physics2D.OverlapCircle(spawnPosition, preventSpawnRadius, m);
+        Collider2D collider = Physics2D.OverlapCircle(spawnPosition, preventSpawnRadius, m);
         // Debug.Log(collider);
         if(collider == null){
             return true;
