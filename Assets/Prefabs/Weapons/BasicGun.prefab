@@ -50,7 +50,7 @@ MonoBehaviour:
     range: 10
     damage: 1
     bulletSpeed: 10
-    knockback: 1
+    knockback: 10
     pierce: 1
     splashRange: 0
     accuracy: 0

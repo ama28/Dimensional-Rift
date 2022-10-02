@@ -10,7 +10,7 @@ public class GunInfo
     public float damage = 1;
     public float bulletSpeed = 10f;
 
-    public float knockback = 1.0f;
+    public float knockback = 10.0f;
     public int pierce = 1;
     public float splashRange = 0.0f; //TODO: implement
     public float accuracy = 0.0f; //TODO: implement

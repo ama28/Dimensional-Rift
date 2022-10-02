@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunInfo:
     fireRate: 0.3
-    range: 0
+    range: 5
     damage: 2
     bulletSpeed: 5
     knockback: 10

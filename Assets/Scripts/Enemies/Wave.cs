@@ -22,7 +22,7 @@ using UnityEngine;
         }
 
         public Enemy ChooseEnemy() {
-            return enemies[0].enemy;
+            return enemies[0].enemy; //TODO: RANDOMIZE ENEMIES
         }
 
 

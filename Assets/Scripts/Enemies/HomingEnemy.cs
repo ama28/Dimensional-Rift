@@ -23,7 +23,6 @@ public class HomingEnemy : Enemy
         target = FindObjectOfType<PlayerFarmer>();
         meleeHit.source = this;
         meleeHit.sourceTransform = transform;
-        health = 1;
     }
 
     protected override void Update()
@@ -55,11 +54,8 @@ public class HomingEnemy : Enemy
     public override void TakeDamage(HitInfo hit)
     {
         base.TakeDamage(hit);
-        Debug.Log("in takedam");
         //knockback
         if(hit.sourceTransform) {
-
-            Debug.Log("in knockback");
             Vector3 angle = transform.position - hit.sourceTransform.position;
             TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
         }
@@ -68,14 +64,11 @@ public class HomingEnemy : Enemy
     // KB script, temporarily disables pathfinding
     public override void TakeKnockback(Vector2 kb)
     {
+        //if (kb.x > 1 && kb.y > 1) //unsure what this was for @liam?
+        aiPath.canMove = false;
         base.TakeKnockback(kb);
-
-        if (kb.x > 1 && kb.y > 1)
-        {
-            aiPath.canMove = false;
-            StopCoroutine(RecoverFromKnockback());
-            StartCoroutine(RecoverFromKnockback());
-        }
+        StopCoroutine(RecoverFromKnockback());
+        StartCoroutine(RecoverFromKnockback());
     }
 
     // works with TakeKnockback(kb) to reenable pathfinding
