@@ -51,7 +51,7 @@ public class CoinSpawnHandler : MonoBehaviour
 
 
     private bool PreventSpawnOverlap(Vector3 spawnPosition){
-        LayerMask m = LayerMask.GetMask("Map");
+        LayerMask m = LayerMask.GetMask("Wall");
         collider = Physics2D.OverlapCircle(spawnPosition, preventSpawnRadius, m);
         // Debug.Log(collider);
         if(collider == null){
@@ -59,5 +59,5 @@ public class CoinSpawnHandler : MonoBehaviour
         }
         return false;
     }
-
+    
 }
