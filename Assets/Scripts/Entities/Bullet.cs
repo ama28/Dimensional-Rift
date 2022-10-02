@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     public HitInfo hitInfo; //damage etc
+    public Being source; //should be set when fired
 
     // fancy parameter things
     [SerializeField]
@@ -32,6 +33,15 @@ public class Bullet : MonoBehaviour
         Vector3 rotation = transform.position - mousePos;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
+
+        SetHitInfo();
+    }
+
+    protected virtual void SetHitInfo() {
+        hitInfo.damage = damage;
+        hitInfo.source = source;
+        hitInfo.sourceTransform = transform;
+        hitInfo.knockbackScalar = knockback;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -45,12 +55,12 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
+        Being being = other.GetComponent<Being>();
+        if (being != null)
         {
             // we shot an enemy!
-            enemy.TakeDamage(damage);
-            enemy.TakeKnockback(rb.velocity * knockback);
+            SetHitInfo();
+            being.TakeDamage(hitInfo);
 
             pierce--;
             if (pierce <= 0)

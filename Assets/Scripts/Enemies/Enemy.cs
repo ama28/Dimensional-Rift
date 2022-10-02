@@ -33,9 +33,9 @@ public abstract class Enemy : Being
         Destroy(gameObject);
     }
 
-    public virtual void TakeDamage(int damage)
+    public override void TakeDamage(HitInfo hit)
     {
-        health -= damage;
+        base.TakeDamage(hit);
         if (health <= 0)
         {
             Die();

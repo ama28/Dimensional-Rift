@@ -15,9 +15,9 @@ public class PlayerFarmer : Player
         health = stats.maxHealth;
     }
 
-    public void TakeDamage(HitInfo hit) {
+    public override void TakeDamage(HitInfo hit) {
+        base.TakeDamage(hit);
         if(!invulnerable) {
-            health -= hit.damage;
             //knockback
             Vector2 knockback = (transform.position - hit.source.transform.position).normalized;
             knockback *= hit.knockbackScalar * 1000;

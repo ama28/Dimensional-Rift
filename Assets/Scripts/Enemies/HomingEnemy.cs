@@ -22,6 +22,7 @@ public class HomingEnemy : Enemy
         aiPath = GetComponent<AIPath>();
         target = FindObjectOfType<PlayerFarmer>();
         meleeHit.source = this;
+        meleeHit.sourceTransform = transform;
         health = 1;
     }
 
@@ -49,6 +50,13 @@ public class HomingEnemy : Enemy
         if(collision.gameObject.CompareTag(target.tag)) {
             target.TakeDamage(meleeHit);
         }
+    }
+
+    public override void TakeDamage(HitInfo hit)
+    {
+        base.TakeDamage(hit);
+        Vector3 angle = transform.position - hit.sourceTransform.position;
+        TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
     }
 
     // KB script, temporarily disables pathfinding

@@ -14,4 +14,9 @@ public class PlayerShooter : Player
         health = stats.maxHealth;
         invulnerable = true;
     }
+
+    public override void TakeDamage(HitInfo hit)
+    {
+        return;
+    }
 }
