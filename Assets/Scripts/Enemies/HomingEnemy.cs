@@ -55,7 +55,11 @@ public class HomingEnemy : Enemy
     public override void TakeDamage(HitInfo hit)
     {
         base.TakeDamage(hit);
+        Debug.Log("in takedam");
+        //knockback
         if(hit.sourceTransform) {
+
+            Debug.Log("in knockback");
             Vector3 angle = transform.position - hit.sourceTransform.position;
             TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
         }

@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField]
+    public GunInfo gunInfo = new GunInfo();
+    
     public GameObject bullet;
-    public float timeBetweenFiring;
+    public Being owner;
 
     private bool canFire_;
     private float timer_;
@@ -15,6 +18,11 @@ public class Gun : MonoBehaviour
     {
        canFire_ = true;
        timer_ = 0;
+    }
+
+    protected virtual void Start()
+    {
+        bullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
     }
 
     public bool CanFire()
@@ -38,7 +46,7 @@ public class Gun : MonoBehaviour
         if (!canFire_)
         {
             timer_ += Time.deltaTime;
-            if (timer_ > timeBetweenFiring)
+            if (timer_ > gunInfo.fireRate)
             {
                 canFire_ = true;
                 timer_ = 0;

@@ -53,9 +53,13 @@ public class P2Shooting : MonoBehaviour
     {
         if (context.performed && guns[gunIdx].CanFire())
         {
-            GameObject bullet = guns[gunIdx].Fire();
-            Vector3 position = guns[gunIdx].transform.position;
-            Instantiate(bullet, position, Quaternion.identity);
+            GameObject bulletObj = guns[gunIdx].Fire();
+            Bullet bullet = bulletObj.GetComponent<Bullet>();
+            Vector3 position = guns[gunIdx].transform.position; 
+            GameObject newBullet = Instantiate(bulletObj, position, Quaternion.identity);
+            newBullet.GetComponent<Bullet>().SetUpBullet(guns[gunIdx].owner, guns[gunIdx].gunInfo);
+            AimBullet(newBullet);
+            Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
             Debug.Log("fired");
         }
     }
@@ -76,8 +80,21 @@ public class P2Shooting : MonoBehaviour
             return false;
         } 
         Gun newGun = Instantiate(gunMap[gun], transform);
+        newGun.owner = GameManager.Instance.playerShooter;
         newGun.gameObject.SetActive(false);
         guns.Add(newGun);
         return true;
+    }
+
+    private void AimBullet(GameObject bullet) { //TODO: add accuracy param
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - bullet.transform.position;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * bullet.GetComponent<Bullet>().speed;
+
+        Vector3 rotation = bullet.transform.position - mousePos;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
     }
 }

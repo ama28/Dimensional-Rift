@@ -13,8 +13,11 @@ public class Being : MonoBehaviour
     protected bool invulnerable = false;
 
     public virtual void TakeDamage(HitInfo hit) {
+
+        Debug.Log("in takedam low");
         if(!invulnerable) {
             health -= hit.damage;
+            Debug.Log(hit.damage);
         }
     }
 

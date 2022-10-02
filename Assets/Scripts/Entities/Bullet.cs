@@ -5,36 +5,36 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Vector3 mousePos;
-    private Camera mainCam;
     private Rigidbody2D rb;
     public HitInfo hitInfo; //damage etc
     public Being source; //should be set when fired
 
     // fancy parameter things
+    public float speed;
+    public float range = 0f;
     [SerializeField]
-    private float speed;
-    [SerializeField]
-    private int damage = 1;
+    private float damage = 1f;
     [SerializeField]
     private float knockback;
     [SerializeField]
     private int pierce = 1;
+    [SerializeField]
+    private float splashRange = 0.0f; 
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        rb = GetComponent<Rigidbody2D>();
-
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - transform.position;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
-
-        Vector3 rotation = transform.position - mousePos;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
-
         SetHitInfo();
+    }
+
+    public virtual void SetUpBullet(Being source, GunInfo gunInfo) {
+        this.source = source;
+        this.speed = gunInfo.bulletSpeed;
+        this.damage = gunInfo.damage;
+        this.knockback = gunInfo.knockback;
+        this.pierce = gunInfo.pierce;
+        splashRange = gunInfo.splashRange;
+        range = gunInfo.range;
     }
 
     protected virtual void SetHitInfo() {
@@ -61,6 +61,8 @@ public class Bullet : MonoBehaviour
             // we shot an enemy!
             SetHitInfo();
             being.TakeDamage(hitInfo);
+
+            //TODO: splash damage
 
             pierce--;
             if (pierce <= 0)
