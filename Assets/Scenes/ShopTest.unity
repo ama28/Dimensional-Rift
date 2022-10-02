@@ -1577,6 +1577,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e0cdc322-6013-4714-9d33-efe929c091e0
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109358174}
+        m_TargetAssemblyTypeName: P2Shooting, Assembly-CSharp
+        m_MethodName: ToggleWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 739cee18-3235-4854-a101-749402466a29
+    m_ActionName: Player/ToggleWeapon[/Mouse/rightButton,/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1830,6 +1846,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &653028514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653028516}
+  - component: {fileID: 653028515}
+  m_Layer: 0
+  m_Name: ActionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &653028515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653028514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &653028516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653028514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 804.56213, y: 423.812, z: -2.5380554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683684246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0e391287dac4a6d9e6e2b07f4fea69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allGuns: []
+  allGuns:
+  - {fileID: 1040084708749336714, guid: f8238d46dc68c0f0199237c7437e106c, type: 3}
+  - {fileID: 1040084708749336714, guid: 014ce3556b5bf6133afffc7da66f5bd8, type: 3}
 --- !u!1 &1142936837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,7 +3185,8 @@ MonoBehaviour:
     title: Placeholder C
     description: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   optionCount: 3
-  cardPrefab: {fileID: 0}
+  shopUI: {fileID: 1155734203}
+  cardPrefab: {fileID: 5716630063055159895, guid: fbbebd29c20694632b0b46d6b9e9a8e8, type: 3}
 --- !u!4 &2063553500
 Transform:
   m_ObjectHideFlags: 0

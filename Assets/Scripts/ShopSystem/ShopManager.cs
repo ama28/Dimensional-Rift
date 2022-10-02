@@ -11,8 +11,8 @@ public class ShopManager : MonoBehaviour
     private List<ShopOption> shopOptions;// = new List<ShopOption>()
     [SerializeField]
     private int optionCount = 3;
-    private List<Transform> cardSlots;
-    private Canvas shopUI;
+    private List<Transform> cardSlots = new List<Transform>();
+    public Canvas shopUI;
     public GameObject cardPrefab;
 
     private void Start()

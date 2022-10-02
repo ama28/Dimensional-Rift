@@ -7,7 +7,7 @@ public class P2Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
-    
+
     private Dictionary<string, Gun> gunMap;
     private int gunIdx;
 
