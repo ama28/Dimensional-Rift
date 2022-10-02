@@ -7,13 +7,24 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public Canvas shopUI;
-    public List<ShopOption> shopOptions = new List<ShopOption>() { };
-    public List<Transform> cardSlots;
+    [SerializeField]
+    private List<ShopOption> shopOptions;// = new List<ShopOption>()
+    [SerializeField]
+    private int optionCount = 3;
+    private List<Transform> cardSlots;
+    private Canvas shopUI;
+    public GameObject cardPrefab;
 
     private void Start()
     {
         shopUI.enabled = false;
+
+        //populate shopUI with the cards
+        for (int i = 0; i < optionCount; i++)
+        {
+            GameObject temp = Instantiate(cardPrefab, shopUI.GetComponentInChildren<HorizontalLayoutGroup>().transform);
+            cardSlots.Add(temp.transform);
+        }
     }
 
     private void Update()
@@ -37,16 +48,19 @@ public class ShopManager : MonoBehaviour
     {
         RandomizeShopOptions();
 
-        foreach (Transform child in shopUI.transform)
-        {
-            cardSlots.Add(child);
-        }
-
         for (int i = 0; i < cardSlots.Count; i++)
         {
-            //cardSlots[i].GetChild(0).GetComponent<Image>().sprite = shopOptions[i].frame;
-            //cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
-            cardSlots[i].GetChild(2).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+            //frame
+            cardSlots[i].GetChild(0).GetComponent<Image>().sprite = shopOptions[i].frame;
+
+            //header
+            cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
+
+            //title
+            cardSlots[i].GetChild(2).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+
+            //description
+            cardSlots[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
         }
 
         shopUI.enabled = true;
