@@ -5,10 +5,13 @@ using UnityEngine;
 public class CoinSpawnHandler : MonoBehaviour
 {
 
-    public float ySpawnBound;
-    public float xSpawnBound;
+    public float yMin;
+    public float yMax;
+    public float xMin;
+    public float xMax;
     public float spawnRate;
     public int maxCoins;
+    public float preventSpawnRadius = 1f;
     private int currCoins;
     public GameObject newCoin;
 
@@ -25,15 +28,35 @@ public class CoinSpawnHandler : MonoBehaviour
 
     // Method for spawning coin
     public void SpawnCoin(){
-        if(currCoins < maxCoins){
-            GameObject nc = Instantiate(newCoin, this.transform) as GameObject; // Spawn new coin 
-            nc.transform.localPosition = new Vector3(Random.Range(-xSpawnBound, xSpawnBound), 
-                                                    Random.Range(-ySpawnBound, ySpawnBound), 0);
-                                                    // Change coin location to random position within 
-                                                    // x and y spawn bounds of position of CoinSpawnHandler
-            currCoins++;
+
+        Vector3 spawnLoc = new Vector3(Random.Range(xMin, xMax), 
+                                    Random.Range(yMin, yMax), 0);
+
+        while(!PreventSpawnOverlap(spawnLoc)){
+            // Keep changing spawn location until valid spawn
+            spawnLoc = new Vector3(Random.Range(xMin, xMax), 
+                                    Random.Range(yMin, yMax), 0);
+            if(PreventSpawnOverlap(spawnLoc)){
+                break;
+            }
         }
 
+        if(currCoins < maxCoins){
+            GameObject nc = Instantiate(newCoin, this.transform) as GameObject; // Spawn new coin 
+            nc.transform.position = spawnLoc;
+            currCoins++;
+        }
     }
 
+
+    private bool PreventSpawnOverlap(Vector3 spawnPosition){
+        LayerMask m = LayerMask.GetMask("Wall");
+        Collider2D collider = Physics2D.OverlapCircle(spawnPosition, preventSpawnRadius, m);
+        // Debug.Log(collider);
+        if(collider == null){
+            return true;
+        }
+        return false;
+    }
+    
 }

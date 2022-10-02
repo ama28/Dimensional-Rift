@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 222312611}
   - component: {fileID: 222312613}
   - component: {fileID: 222312612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,6 +325,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2680100560441291926, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
+      propertyPath: xMax
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680100560441291926, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
+      propertyPath: xMin
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680100560441291926, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
+      propertyPath: yMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680100560441291926, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
+      propertyPath: yMin
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680100560441291926, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
+      propertyPath: maxCoins
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680100560441291926, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
+      propertyPath: spawnRate
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2680100560441291927, guid: 5e0e7c960680849448e802cff3a814dd, type: 3}
       propertyPath: m_Name
       value: CoinSpawner
@@ -386,7 +410,7 @@ GameObject:
   - component: {fileID: 320652187}
   - component: {fileID: 320652189}
   - component: {fileID: 320652188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,8 +597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81289481aaa343bdaf16b8e31b23fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  playerType: 0
+  rb: {fileID: 0}
   grabDetector: {fileID: 484440823}
-  speed: 4
   rayDist: 0.5
   rotationSpeed: 5000
   isHolding: 0
@@ -1099,7 +1125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520127434}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1140,7 +1166,7 @@ GameObject:
   - component: {fileID: 521498099}
   - component: {fileID: 521498101}
   - component: {fileID: 521498100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1277,7 @@ GameObject:
   - component: {fileID: 559400800}
   - component: {fileID: 559400802}
   - component: {fileID: 559400801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1421,8 +1447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be81f92e971ff420492f06cf942d06cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  jumpForce: 8
+  health: 0
+  playerType: 0
+  rb: {fileID: 0}
 --- !u!114 &613064881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,7 +1720,7 @@ GameObject:
   - component: {fileID: 641618715}
   - component: {fileID: 641618717}
   - component: {fileID: 641618716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2107,7 +2134,7 @@ GameObject:
   - component: {fileID: 961287764}
   - component: {fileID: 961287766}
   - component: {fileID: 961287765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2245,7 @@ GameObject:
   - component: {fileID: 978453784}
   - component: {fileID: 978453786}
   - component: {fileID: 978453785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2363,10 +2390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0e391287dac4a6d9e6e2b07f4fea69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4691203068273349001, guid: cda450f48f57d453ca6427ebcd231e3a, type: 3}
-  gun: {fileID: 1235896202}
-  canFire: 0
-  timeBetweenFiring: 0.3
+  allGuns: []
 --- !u!1 &1235896201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,7 +2554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348724389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.18, y: 0.47, z: 0}
+  m_LocalPosition: {x: -9.46, y: 0.3, z: 0}
   m_LocalScale: {x: 0.55915797, y: 0.55915797, z: 0.55915797}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2576,7 +2600,7 @@ GameObject:
   - component: {fileID: 1839884998}
   - component: {fileID: 1839885000}
   - component: {fileID: 1839884999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
