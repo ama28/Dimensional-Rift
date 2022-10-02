@@ -6,10 +6,12 @@ public abstract class Enemy : MonoBehaviour
 {
     public float health = 1;
 
+    protected Rigidbody2D rb;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Update()
@@ -26,7 +28,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     public virtual void TakeDamage(int damage)
@@ -36,5 +38,10 @@ public abstract class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public virtual void TakeKnockback(Vector2 kb)
+    {
+        rb.AddForce(kb);
     }
 }
