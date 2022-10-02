@@ -15,9 +15,6 @@ public abstract class Player : Being
     public PlayerType playerType;
 
     public Rigidbody2D rb;
-
-    protected bool invulnerable = false;
-
     public virtual void Awake() {
         rb = GetComponent<Rigidbody2D>();
     }
