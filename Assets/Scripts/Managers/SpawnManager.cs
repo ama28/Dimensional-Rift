@@ -40,7 +40,7 @@ public class SpawnManager : MonoBehaviour
         Debug.Log(wave.GetTotalEnemyCount());
         if(instanced.Count > 0) {
             Debug.LogError("Wave started with enemies still spawned!");
-            instanced.ForEach(x => x.TakeDamage(1000));
+            instanced.ForEach(x => x.TakeDamage(new HitInfo() {damage = 1000})); //could cause issues if ppl don't do proper null checks
             instanced.Clear();
         }
         currentWave = wave;

@@ -55,8 +55,10 @@ public class HomingEnemy : Enemy
     public override void TakeDamage(HitInfo hit)
     {
         base.TakeDamage(hit);
-        Vector3 angle = transform.position - hit.sourceTransform.position;
-        TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
+        if(hit.sourceTransform) {
+            Vector3 angle = transform.position - hit.sourceTransform.position;
+            TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
+        }
     }
 
     // KB script, temporarily disables pathfinding
