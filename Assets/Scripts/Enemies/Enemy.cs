@@ -7,10 +7,12 @@ public abstract class Enemy : Being
 
     public int id = -1; //id, should be set on initialization
 
+    protected Rigidbody2D rb;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Update()
@@ -28,7 +30,7 @@ public abstract class Enemy : Being
     protected virtual void Die()
     {
         GameManager.Instance.spawnManager.RemoveEnemy(id);
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     public virtual void TakeDamage(int damage)
@@ -40,4 +42,8 @@ public abstract class Enemy : Being
         }
     }
 
+    public virtual void TakeKnockback(Vector2 kb)
+    {
+        rb.AddForce(kb);
+    }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 
 
-public class coinHandler : MonoBehaviour
+public class Coin : Collectible
 {
 
-    public void OnTriggerEnter2D(Collider2D c){
+    public override void OnTriggerEnter2D(Collider2D c){
         // If player collects coin
         if(c.gameObject.tag == "Player"){
             GameObject.Find("CoinSpawner").GetComponent<CoinSpawnHandler>().SpawnCoin(); // Spawn new coin
             GameObject.Find("CoinSpawner").GetComponent<CoinSpawnHandler>().DecrementCoinCount(); // Decrement coin
-            Destroy(this.gameObject); // Destroy this coin
         }
+
+        //destroys coin
+        base.OnTriggerEnter2D(c);
     }
 }

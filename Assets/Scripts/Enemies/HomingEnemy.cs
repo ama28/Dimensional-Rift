@@ -17,6 +17,8 @@ public class HomingEnemy : Enemy
     // Start is called before the first frame update
     protected override void Start()
     {
+        base.Start();
+
         aiPath = GetComponent<AIPath>();
         target = FindObjectOfType<PlayerFarmer>();
         meleeHit.source = this;
@@ -42,10 +44,40 @@ public class HomingEnemy : Enemy
 
     }
 
+    // damaging player (melee)
     protected void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.CompareTag(target.tag)) {
             target.TakeDamage(meleeHit);
         }
     }
 
+    // KB script, temporarily disables pathfinding
+    public override void TakeKnockback(Vector2 kb)
+    {
+        base.TakeKnockback(kb);
+
+        if (kb.x > 1 && kb.y > 1)
+        {
+            aiPath.canMove = false;
+            StopCoroutine(RecoverFromKnockback());
+            StartCoroutine(RecoverFromKnockback());
+        }
+    }
+
+    // works with TakeKnockback(kb) to reenable pathfinding
+    // after a bit
+    protected IEnumerator RecoverFromKnockback()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        float t = 0;
+        while (t < 1f)
+        {
+            if (rb.velocity.x < 1f && rb.velocity.y < 1f) { t = 1f; }
+            t += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        aiPath.canMove = true;
+    }
 }
