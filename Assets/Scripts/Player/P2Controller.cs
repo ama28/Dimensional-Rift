@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class P2Controller : MonoBehaviour
+public class P2Controller : PlayerShooter
 {
-    private Rigidbody2D rb;
     private SpriteRenderer sprite;
-
-    [SerializeField]
-    private float speed = 4f;
-    [SerializeField]
-    private float jumpForce = 4f;
 
     private Vector2 moveDirection;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
@@ -32,7 +26,7 @@ public class P2Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -44,7 +38,7 @@ public class P2Controller : MonoBehaviour
     {
         if (context.performed)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, stats.jumpForce);
         }
     }
 }

@@ -2,17 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : Being
 {
+
+    public int id = -1; //id, should be set on initialization
+
+    protected Rigidbody2D rb;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
+
+    }
+
+    protected abstract void Attack();
+    protected virtual void Move()
+    {
+        //pathfinding shiz, possibly do setup in here and then specific behaviors in derived class
+
+    }
+
+    protected virtual void Die()
+    {
+        GameManager.Instance.spawnManager.RemoveEnemy(id);
+        Destroy(gameObject);
+    }
+
+    public override void TakeDamage(HitInfo hit)
+    {
+        base.TakeDamage(hit);
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public virtual void TakeKnockback(Vector2 kb)
+    {
+        rb.AddForce(kb);
     }
 }

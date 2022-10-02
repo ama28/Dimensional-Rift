@@ -8,10 +8,8 @@ public class SpawnManager : MonoBehaviour
     // https://answers.unity.com/questions/1754348/how-do-i-add-multiple-different-enemies-to-a-wave.html
     // https://frankgwarman.medium.com/using-coroutines-in-unity-and-c-creating-a-spawn-manager-442a7b6096cd
 
+    //level counter has been moved to game manager
 
-    private int levelCounter = 1;
-    // values that can be changed depending on what game designers want
-    private int maxSpawns = 1;
     // incrememnt whenever we spawn an enemy
     private int spawnCounter = 0;
     // boolean to detect when all enemies are dead
@@ -19,68 +17,64 @@ public class SpawnManager : MonoBehaviour
     // choke points for where to spawn enemies
     public Transform[] spawnPoints;
 
-    // list of enemies
-    public Capsule[] enemies;
+    public Wave currentWave;
 
     // list of instantiated enemies;
-    private List<Capsule> instanced;
+    [SerializeField] private List<Enemy> instanced;
 
     // Start is called before the first frame update
     void Awake() {
-        instanced = new List<Capsule>();
+        instanced = new List<Enemy>();
     }
-    void Start()
-    {
+
+    //Start wave when action phase starts
+    void OnEnable() {
+        GameManager.OnActionPhaseStart += StartWave;
+    }
+
+    void OnDisable() {
+        GameManager.OnActionPhaseStart -= StartWave;
+    }
+
+    public void StartWave(Wave wave) {
+        Debug.Log(wave.GetTotalEnemyCount());
+        if(instanced.Count > 0) {
+            Debug.LogError("Wave started with enemies still spawned!");
+            instanced.ForEach(x => x.TakeDamage(1000));
+            instanced.Clear();
+        }
+        currentWave = wave;
+        spawnCounter = 0;
         StartCoroutine(SpawnLoop());
     }
-    // checks to see if all enemies are dead
-    // needs a isDead() script for the enemy game object
-    void checkDead() {
-        int i = 0;
-        while(i < instanced.Count) {
-            if(instanced[i].isDead()) {
-                Destroy(instanced[i].gameObject);
-                instanced.RemoveAt(i);
-                i = i - 1;
-            }
-            i = i + 1;
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
+
+    //is called from enemy function on death
+    public void RemoveEnemy(int id) {
+        instanced.RemoveAll(x => x.id == id);
         // all enemies are dead
         if(instanced.Count == 0) {
-            spawnCounter = 0;
-            levelCounter += 1;
-            StartCoroutine(SpawnLoop());
+            GameManager.Instance.SetGameState(GameManager.GameStateType.BuildPhase);
         }
     }
 
-     IEnumerator SpawnLoop()
-     {
+    IEnumerator SpawnLoop()
+    {
         // spawn enemies one at a time up to max spawns enemies every 0.5 seconds
-        // isDead = false;
-        maxSpawns = levelCounter + 1;
-        for(int i = 0; i < maxSpawns; i++) {
-            SpawnEnemy(i % 4);
-            spawnCounter += 1;
-            yield return new WaitForSeconds(0.5f);
+        // currentWave.maxSpawns = GameManager.Instance.Level + 1; //this will be set in the Wave Object
+        for(; spawnCounter < currentWave.GetTotalEnemyCount(); spawnCounter++) {
+            SpawnEnemy(currentWave.ChooseEnemy());
+            yield return new WaitForSeconds(currentWave.spawnDelay);
         }
-        // check if dead every two seconds
-        // add in once we actually have enemies instead of ovals
-
-        while(instanced.Count > 0) {
-            checkDead();
-            yield return new WaitForSeconds(0.5f);
-        }
-     }
+    }
     
     // picks a random spawnpoint to spawn enemy
     // unsure if we need to adapt it to work for more than a small amount of spawn points
-     void SpawnEnemy(int enemy_index)
+     void SpawnEnemy(Enemy enemy)
      {
-         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-         instanced.Add(Instantiate(enemies[enemy_index], _sp.position, _sp.rotation)); 
+        Debug.Log("spawn " + spawnCounter);
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Enemy newEnemy = Instantiate(enemy, _sp.position, _sp.rotation);
+        newEnemy.id = spawnCounter; //give enemies an id so when they die we can remove more easily
+        instanced.Add(newEnemy); 
      }
  }

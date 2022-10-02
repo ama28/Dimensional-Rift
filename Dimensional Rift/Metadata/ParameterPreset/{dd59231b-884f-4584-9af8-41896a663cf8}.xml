@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{dd59231b-884f-4584-9af8-41896a663cf8}">
+		<property name="name">
+			<value>Enemies</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7dfecdd5-d2c8-4d42-a8bf-3250fb928a41}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b1692fdf-3173-44af-871a-32e4c7b74180}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b1692fdf-3173-44af-871a-32e4c7b74180}">
+		<property name="maximum">
+			<value>10</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>4.7000002861022949</value>
+		</property>
+	</object>
+</objects>

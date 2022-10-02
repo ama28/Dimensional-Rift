@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cec57314-23f0-4573-aadb-5f145a65be69}">
+		<property name="assetPath">
+			<value>Phoenix V5.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>335.2881179138322</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3548ecec-3b23-4eb2-840e-208bd7149baa}</destination>
+		</relationship>
+	</object>
+</objects>
