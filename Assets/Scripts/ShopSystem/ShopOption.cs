@@ -10,6 +10,7 @@ public class ShopOption : System.Object
     public Sprite header;
     public string title;
     public string description;
+    public ShopAction cardAction;
 
     //add stat changes / new items / effects
 
