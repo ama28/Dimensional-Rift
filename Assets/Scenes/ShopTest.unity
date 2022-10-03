@@ -1846,54 +1846,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &653028514
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 653028516}
-  - component: {fileID: 653028515}
-  m_Layer: 0
-  m_Name: ActionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &653028515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653028514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionType: 0
-  firstIndex: 0
-  secondIndex: 0
-  label: 
---- !u!4 &653028516
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653028514}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.937866, y: -47.18799, z: -2.5380554}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2063553500}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683684246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,6 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0e391287dac4a6d9e6e2b07f4fea69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guns: []
   allGuns:
   - {fileID: 1040084708749336714, guid: f8238d46dc68c0f0199237c7437e106c, type: 3}
   - {fileID: 1040084708749336714, guid: 014ce3556b5bf6133afffc7da66f5bd8, type: 3}
@@ -3086,23 +3039,28 @@ MonoBehaviour:
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     title: Banana Farm
     description: A structure that passively generates income over time
+    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
   - frame: {fileID: 3625043607559282579, guid: a6874607e32664147b63c697fa125996, type: 3}
     header: {fileID: 0}
     title: Laser Gun
     description: Weapon that fires a constant stream of energy; uses a lot of ammo
+    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
   - frame: {fileID: -2413806693520163455, guid: f867407f50f15402cbcd84a92ea002fa, type: 3}
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Placeholder A
-    description: pizza pizza pizza pizza pizza
+    title: UPGRADE
+    description: UPGRADE SUPER GUN
+    cardAction: {fileID: 8584795362128480328, guid: dc1f9ee0cde574d528e8da497041bb75, type: 3}
   - frame: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     title: Placeholder B
     description: This is the description of the upgrade asdlfkjadslkfjklsd ajflkdsajfl;sdajkflsd;ajfl;ksdajfklasdjklfa
       wee woo wee woo ayayayayayay
+    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
   - frame: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     title: Placeholder C
     description: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
   optionCount: 3
   shopUI: {fileID: 1155734203}
   cardPrefab: {fileID: 5716630063055159895, guid: fbbebd29c20694632b0b46d6b9e9a8e8, type: 3}
@@ -3119,7 +3077,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1155734204}
-  - {fileID: 653028516}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

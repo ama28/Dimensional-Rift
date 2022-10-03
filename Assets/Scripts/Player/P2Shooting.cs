@@ -11,6 +11,7 @@ public class P2Shooting : MonoBehaviour
     private Dictionary<string, Gun> gunMap;
     private int gunIdx;
 
+    [SerializeField]
     private List<Gun> guns;
 
     // All guns in the game
@@ -25,7 +26,7 @@ public class P2Shooting : MonoBehaviour
         }
 
         EquipGun("BasicGun");
-        EquipGun("SuperGun");
+        //EquipGun("SuperGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
     }

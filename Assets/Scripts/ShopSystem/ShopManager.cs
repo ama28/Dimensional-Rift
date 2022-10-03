@@ -8,7 +8,7 @@ using TMPro;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField]
-    private List<ShopOption> shopOptions;// = new List<ShopOption>()
+    private List<ShopOption> shopOptions;
     [SerializeField]
     private int optionCount = 3;
     private List<Transform> cardSlots = new List<Transform>();
@@ -50,6 +50,9 @@ public class ShopManager : MonoBehaviour
 
         for (int i = 0; i < cardSlots.Count; i++)
         {
+            Instantiate(shopOptions[i].cardAction, cardSlots[i]);
+            cardSlots[i].GetComponent<ActionManger>().myAction = GetComponentInChildren<CardAction>();
+
             //frame
             cardSlots[i].GetChild(0).GetComponent<Image>().sprite = shopOptions[i].frame;
 
