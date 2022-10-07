@@ -7,6 +7,8 @@ TagManager:
   - Movable
   - PlayerFarmer
   - PlayerShooter
+  - Player2
+  - ShopUI
   layers:
   - Default
   - TransparentFX

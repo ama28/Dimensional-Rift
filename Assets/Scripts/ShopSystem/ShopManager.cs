@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using TMPro;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : Singleton<ShopManager>
 {
     [SerializeField]
     private List<ShopOption> shopOptions;
@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        shopUI = GameObject.FindGameObjectWithTag("ShopUI").GetComponent<Canvas>();
         shopUI.enabled = false;
 
         //populate shopUI with the cards
@@ -27,10 +28,16 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            OpenShop();
+        if (GameManager.Instance.Level != 0)
+            GameManager.OnBuildPhaseStart += OpenShop;
+    }
+
+    private void OnDisable()
+    {
+        if (GameManager.Instance.Level != 0)
+            GameManager.OnBuildPhaseStart -= OpenShop;
     }
 
     void RandomizeShopOptions()
@@ -44,8 +51,10 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    void OpenShop()
+    public void OpenShop()
     {
+        Debug.Log("pizza");
+        Time.timeScale = 0f;
         RandomizeShopOptions();
 
         for (int i = 0; i < cardSlots.Count; i++)
@@ -54,16 +63,16 @@ public class ShopManager : MonoBehaviour
             cardSlots[i].GetComponent<ActionManger>().myAction = GetComponentInChildren<CardAction>();
 
             //frame
-            cardSlots[i].GetChild(0).GetComponent<Image>().sprite = shopOptions[i].frame;
+            cardSlots[i].GetChild(3).GetComponent<Image>().sprite = shopOptions[i].frame;
 
             //header
-            cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
+            cardSlots[i].GetChild(2).GetComponent<Image>().sprite = shopOptions[i].header;
 
             //title
-            cardSlots[i].GetChild(2).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+            cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
 
             //description
-            cardSlots[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+            cardSlots[i].GetChild(1).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
         }
 
         shopUI.enabled = true;

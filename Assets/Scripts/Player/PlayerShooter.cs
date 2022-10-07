@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShooter : Player
 {
     public class ShooterStats : PlayerStats {
-        public float jumpForce = 4f;
+        public float jumpForce = 6f;
     }
 
     public ShooterStats stats = new ShooterStats();

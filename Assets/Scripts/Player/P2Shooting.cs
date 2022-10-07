@@ -60,7 +60,6 @@ public class P2Shooting : MonoBehaviour
             GameObject newBullet = Instantiate(bulletObj, position, Quaternion.identity);
             newBullet.GetComponent<Bullet>().SetUpBullet(guns[gunIdx].owner, guns[gunIdx].gunInfo);
             AimBullet(newBullet);
-            Debug.Log("fired");
         }
     }
 

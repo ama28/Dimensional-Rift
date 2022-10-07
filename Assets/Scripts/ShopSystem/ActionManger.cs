@@ -9,5 +9,7 @@ public class ActionManger : MonoBehaviour
     public void Activate()
     {
         myAction.performAction();
+        gameObject.GetComponentInParent<Canvas>().enabled = false;
+        Time.timeScale = 1f;
     }
 }
