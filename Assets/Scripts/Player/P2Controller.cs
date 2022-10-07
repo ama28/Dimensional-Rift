@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class P2Controller : PlayerShooter
 {
     private SpriteRenderer sprite;
+    private new BoxCollider2D collider;
+    private bool grounded = false;
 
     private Vector2 moveDirection;
 
@@ -14,6 +16,7 @@ public class P2Controller : PlayerShooter
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        collider = gameObject.transform.GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -27,6 +30,8 @@ public class P2Controller : PlayerShooter
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, (collider.size.y / 2) - 0.3f, LayerMask.GetMask("Wall"));
+        grounded = hit.collider;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -36,7 +41,7 @@ public class P2Controller : PlayerShooter
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && grounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, stats.jumpForce);
         }
