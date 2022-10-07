@@ -45,6 +45,7 @@ public class CardAction : MonoBehaviour
                 boostStat();
                 break;
         }
+        Debug.Log(actionType);
     }
 
     void equipWeapon()
@@ -69,6 +70,17 @@ public class CardAction : MonoBehaviour
             switch (playerStat)
             {
                 case "moveSpeed":
+                    break;
+                case "jumpHeight":
+                    break;
+            }
+        }
+        else
+        {
+            switch (playerStat)
+            {
+                case "speed":
+                    player2.GetComponent<P2Controller>().stats.speed += playerStatChange;
                     break;
                 case "jumpHeight":
                     break;

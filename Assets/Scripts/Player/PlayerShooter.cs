@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerShooter : Player
 {
+    [System.Serializable]
     public class ShooterStats : PlayerStats {
         public float jumpForce = 6f;
     }

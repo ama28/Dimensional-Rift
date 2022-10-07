@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Player : Being
 {
+    [System.Serializable]
     public class PlayerStats {
         public float speed = 4f;
         public float maxHealth = 6f;
