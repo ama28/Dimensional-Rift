@@ -10,6 +10,8 @@ using UnityEngine;
             public Enemy enemy;
             public int count;
         }
+        [HideInInspector]
+        public int waveNumber;
 
         [Header("Enemy Info")]
         public List<EnemyInfo> enemies;

@@ -44,6 +44,6 @@ public abstract class Enemy : Being
 
     public virtual void TakeKnockback(Vector2 kb)
     {
-        rb.AddForce(kb);
+        rb.AddForce(kb * 50);
     }
 }

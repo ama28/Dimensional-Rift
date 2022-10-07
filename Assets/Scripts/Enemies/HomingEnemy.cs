@@ -65,20 +65,22 @@ public class HomingEnemy : Enemy
         //if (kb.x > 1 && kb.y > 1) //unsure what this was for @liam?
         aiPath.canMove = false;
         base.TakeKnockback(kb);
-        StopCoroutine(RecoverFromKnockback());
-        StartCoroutine(RecoverFromKnockback());
+        StopCoroutine(RecoverFromKnockback(kb));
+        StartCoroutine(RecoverFromKnockback(kb));
     }
 
     // works with TakeKnockback(kb) to reenable pathfinding
     // after a bit
-    protected IEnumerator RecoverFromKnockback()
+    protected IEnumerator RecoverFromKnockback(Vector2 kb)
     {
         yield return new WaitForSeconds(0.1f);
 
         float t = 0;
-        while (t < 1f)
+        while (t < 1f) //for the first second,
         {
-            if (rb.velocity.x < 1f && rb.velocity.y < 1f) { t = 1f; }
+            //or until speed in the direciton of the knockback! is below 0.7f,
+            if ((Vector2.Dot(rb.velocity, kb.normalized) * rb.velocity.magnitude) < 1f) { t = 1f; } 
+            rb.AddForce(-400f * Time.deltaTime * rb.velocity); //resist the movement
             t += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
