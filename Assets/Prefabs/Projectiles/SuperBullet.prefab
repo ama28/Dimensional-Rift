@@ -101,9 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   speed: 10
+  range: 10
   damage: 1
   knockback: 0
   pierce: 1
+  splashRange: 0
+  damageDamping: 0
 --- !u!50 &199976865268941402
 Rigidbody2D:
   serializedVersion: 4

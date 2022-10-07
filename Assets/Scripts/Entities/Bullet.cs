@@ -79,6 +79,10 @@ public class Bullet : MonoBehaviour
         GameObject other = collision.gameObject;
         Being being = other.GetComponent<Being>();
 
+        // don't count collision if bullet hits owner
+        if (being == source)
+            return;
+
         if(other.tag == "PlayerFarmer"
                 && source.tag == "PlayerShooter") {
             return;
