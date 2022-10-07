@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerFarmer : Player
 {
+    [System.Serializable]
     public class FarmerStats : PlayerStats {
         public float invulnerabilityTime = 1.0f;
     }

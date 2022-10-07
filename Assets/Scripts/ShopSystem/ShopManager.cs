@@ -11,6 +11,7 @@ public class ShopManager : Singleton<ShopManager>
     private List<ShopOption> shopOptions;
     [SerializeField]
     private int optionCount = 3;
+    [SerializeField]
     private List<Transform> cardSlots = new List<Transform>();
     public Canvas shopUI;
     public GameObject cardPrefab;
@@ -49,6 +50,14 @@ public class ShopManager : Singleton<ShopManager>
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            OpenShop();
+        }
+    }
+
     public void OpenShop()
     {
         if (GameManager.Instance.Level != 0)
@@ -59,7 +68,7 @@ public class ShopManager : Singleton<ShopManager>
             for (int i = 0; i < cardSlots.Count; i++)
             {
                 Instantiate(shopOptions[i].cardAction, cardSlots[i]);
-                cardSlots[i].GetComponent<ActionManger>().myAction = GetComponentInChildren<CardAction>();
+                cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
 
                 //frame
                 cardSlots[i].GetChild(3).GetComponent<Image>().sprite = shopOptions[i].frame;
