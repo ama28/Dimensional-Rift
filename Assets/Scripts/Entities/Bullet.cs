@@ -49,8 +49,8 @@ public class Bullet : MonoBehaviour
         GameObject other = collision.gameObject;
         Being being = other.GetComponent<Being>();
 
-        if(being == GameManager.Instance.playerFarmer 
-                && source == GameManager.Instance.playerShooter) {
+        if(other.tag == "PlayerFarmer"
+                && source.tag == "PlayerShooter") {
             return;
         }
 

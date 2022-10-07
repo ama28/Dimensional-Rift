@@ -29,6 +29,7 @@ public class PlayerFarmer : Player
 
     IEnumerator Invulnerability() {
         invulnerable = true;
+        //TODO: blink sprite while invulnerable
         yield return new WaitForSeconds(stats.invulnerabilityTime);
         invulnerable = false;
     }

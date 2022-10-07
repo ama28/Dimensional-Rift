@@ -23,8 +23,8 @@ public class CardAction : MonoBehaviour
 
     void Start()
     {
-        player1 = GameObject.FindGameObjectWithTag("Player");
-        player2 = GameObject.FindGameObjectWithTag("Player2");
+        player1 = GameManager.Instance.playerFarmer.gameObject;
+        player2 = GameManager.Instance.playerShooter.gameObject;
         p2Shooting = player2.GetComponentInChildren<P2Shooting>();
     }
 
