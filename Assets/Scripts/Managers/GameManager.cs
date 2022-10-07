@@ -46,6 +46,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start() {
         SetGameState(GameStateType.BuildPhase);
+        Time.timeScale = 1f;
     }
 
     void Update() {

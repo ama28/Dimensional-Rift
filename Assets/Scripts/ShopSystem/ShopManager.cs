@@ -30,14 +30,12 @@ public class ShopManager : Singleton<ShopManager>
 
     private void OnEnable()
     {
-        if (GameManager.Instance.Level != 0)
-            GameManager.OnBuildPhaseStart += OpenShop;
+        GameManager.OnBuildPhaseStart += OpenShop;
     }
 
     private void OnDisable()
     {
-        if (GameManager.Instance.Level != 0)
-            GameManager.OnBuildPhaseStart -= OpenShop;
+        GameManager.OnBuildPhaseStart -= OpenShop;
     }
 
     void RandomizeShopOptions()
@@ -53,28 +51,30 @@ public class ShopManager : Singleton<ShopManager>
 
     public void OpenShop()
     {
-        Debug.Log("pizza");
-        Time.timeScale = 0f;
-        RandomizeShopOptions();
-
-        for (int i = 0; i < cardSlots.Count; i++)
+        if (GameManager.Instance.Level != 0)
         {
-            Instantiate(shopOptions[i].cardAction, cardSlots[i]);
-            cardSlots[i].GetComponent<ActionManger>().myAction = GetComponentInChildren<CardAction>();
+            Time.timeScale = 0f;
+            RandomizeShopOptions();
 
-            //frame
-            cardSlots[i].GetChild(3).GetComponent<Image>().sprite = shopOptions[i].frame;
+            for (int i = 0; i < cardSlots.Count; i++)
+            {
+                Instantiate(shopOptions[i].cardAction, cardSlots[i]);
+                cardSlots[i].GetComponent<ActionManger>().myAction = GetComponentInChildren<CardAction>();
 
-            //header
-            cardSlots[i].GetChild(2).GetComponent<Image>().sprite = shopOptions[i].header;
+                //frame
+                cardSlots[i].GetChild(3).GetComponent<Image>().sprite = shopOptions[i].frame;
 
-            //title
-            cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+                //header
+                cardSlots[i].GetChild(2).GetComponent<Image>().sprite = shopOptions[i].header;
 
-            //description
-            cardSlots[i].GetChild(1).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+                //title
+                cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+
+                //description
+                cardSlots[i].GetChild(1).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+            }
+
+            shopUI.enabled = true;
         }
-
-        shopUI.enabled = true;
     }
 }
