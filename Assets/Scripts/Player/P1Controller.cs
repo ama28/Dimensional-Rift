@@ -17,10 +17,13 @@ public class P1Controller : PlayerFarmer
     public bool isHolding = false;
     private Transform heldObject;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     public override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -37,6 +40,7 @@ public class P1Controller : PlayerFarmer
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * stats.speed, moveDirection.y * stats.speed);
+        animator.SetFloat("Speed", rb.velocity.magnitude);
     }
 
     public void Move(InputAction.CallbackContext context)
