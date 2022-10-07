@@ -19,11 +19,11 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] WaveList waveList; 
 
-    public int Round => round; //Round is read-only outside of GameManager - shorthand for get & no set
-    private int round = 0;
+    // public int Round => round; 
+    // private int round = 0;
 
-    public int Level => level;
-    private int level = 1;
+    public int Level => level; //Round is read-only outside of GameManager - shorthand for get & no set
+    private int level = 0;
 
     public int currency = 0;
 
@@ -45,7 +45,18 @@ public class GameManager : Singleton<GameManager>
     }
 
     void Start() {
-        SetGameState(GameStateType.ActionPhase);
+        SetGameState(GameStateType.BuildPhase);
+    }
+
+    void Update() {
+
+        //for debug
+        if(Input.GetKeyDown(KeyCode.H)) {
+            if(gameState == GameStateType.BuildPhase) {
+                Debug.Log("starting level " + level);
+                SetGameState(GameStateType.ActionPhase);
+            }
+        }
     }
 
     //Fire proper events on state change
@@ -63,7 +74,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
             case(GameStateType.ActionPhase): {
-                OnActionPhaseStart?.Invoke(waveList.waves[round]);
+                OnActionPhaseStart?.Invoke(waveList.waves[level]);
                 break;
             }
             case(GameStateType.GameOver): {

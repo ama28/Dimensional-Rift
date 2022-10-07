@@ -63,7 +63,7 @@ public class SpawnManager : MonoBehaviour
         // currentWave.maxSpawns = GameManager.Instance.Level + 1; //this will be set in the Wave Object
         for(; spawnCounter < currentWave.GetTotalEnemyCount(); spawnCounter++) {
             SpawnEnemy(currentWave.ChooseEnemy());
-            yield return new WaitForSeconds(currentWave.spawnDelay);
+            yield return new WaitForSeconds(currentWave.enemySpawnDelay);
         }
     }
     

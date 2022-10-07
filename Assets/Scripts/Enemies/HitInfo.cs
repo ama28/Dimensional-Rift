@@ -5,7 +5,8 @@ using UnityEngine;
 //info when dealing damage
 public struct HitInfo {
     public Being source;
-    public Transform sourceTransform; //may be bullet or person, for angle
+    //TODO: change to a force unit vector instead of a position
+    public Vector3 sourcePos; //may be bullet or person, for angle, separate in case source is dead
     public float damage;
     public float knockbackScalar;
 }

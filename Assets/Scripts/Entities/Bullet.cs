@@ -40,13 +40,19 @@ public class Bullet : MonoBehaviour
     protected virtual void SetHitInfo() {
         hitInfo.damage = damage;
         hitInfo.source = source;
-        hitInfo.sourceTransform = transform;
+        hitInfo.sourcePos = transform.position;
         hitInfo.knockbackScalar = knockback;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject other = collision.gameObject;
+        Being being = other.GetComponent<Being>();
+
+        if(being == GameManager.Instance.playerFarmer 
+                && source == GameManager.Instance.playerShooter) {
+            return;
+        }
 
         if (other.layer == LayerMask.NameToLayer("Wall"))
         {
@@ -55,7 +61,6 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Being being = other.GetComponent<Being>();
         if (being != null)
         {
             // we shot an enemy!

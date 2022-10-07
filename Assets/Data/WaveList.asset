@@ -15,5 +15,21 @@ MonoBehaviour:
   waves:
   - enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 5
+      count: 0
+    spawnDelay: 1
+    maxCoinTotal: 1
+  - enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      count: 3
+    spawnDelay: 1
+    maxCoinTotal: 3
+  - enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      count: 10
+    spawnDelay: 0.9
+    maxCoinTotal: 5
+  - enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      count: 20
     spawnDelay: 0.5
+    maxCoinTotal: 8

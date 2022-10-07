@@ -11,9 +11,13 @@ using UnityEngine;
             public int count;
         }
 
+        [Header("Enemy Info")]
         public List<EnemyInfo> enemies;
 
-        public float spawnDelay = 0.5f;
+        public float enemySpawnDelay = 0.5f;
+        [Header("Coin Info")]
+        public int maxCoinTotal = 1;
+        public float coinSpawnTimer = 3.0f;
 
         public int GetTotalEnemyCount() {
             int total = 0;

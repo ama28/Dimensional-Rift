@@ -19,7 +19,7 @@ public class PlayerFarmer : Player
         base.TakeDamage(hit);
         if(!invulnerable) {
             //knockback
-            Vector2 knockback = (transform.position - hit.source.transform.position).normalized;
+            Vector2 knockback = (transform.position - hit.sourcePos).normalized;
             knockback *= hit.knockbackScalar * 1000;
             Debug.Log(knockback);
             rb.AddForce(knockback);
