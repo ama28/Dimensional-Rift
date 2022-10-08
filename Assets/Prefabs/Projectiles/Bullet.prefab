@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: f867407f50f15402cbcd84a92ea002fa, type: 3}
-  m_Color: {r: 1, g: 0.98475426, b: 0, a: 1}
+  m_Color: {r: 0.065147735, g: 0.06815169, b: 0.2264151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,9 +103,10 @@ MonoBehaviour:
   speed: 10
   range: 10
   damage: 1
-  knockback: 1
+  knockback: 4
   pierce: 1
   splashRange: 0
+  damageDamping: 0
 --- !u!50 &199976865268941402
 Rigidbody2D:
   serializedVersion: 4
