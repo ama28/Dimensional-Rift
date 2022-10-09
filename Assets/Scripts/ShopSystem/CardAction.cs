@@ -69,7 +69,7 @@ public class CardAction : MonoBehaviour
         {
             switch (playerStat)
             {
-                case "moveSpeed":
+                case "speed":
                     break;
                 case "jumpHeight":
                     break;
