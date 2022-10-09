@@ -41,11 +41,12 @@ public class P2Shooting : MonoBehaviour
     void Update()
     {
         //gun rotation follows mouse
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector3 rotation = mousePos - transform.position;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = mouseWorldPoint + (Camera.main.transform.forward * 10.0f);
+        Vector2 rotation = (mousePos - transform.position).normalized;
+        float rotZ = Vector2.SignedAngle(Vector2.right, rotation);
+        transform.eulerAngles = new Vector3(0, 0, rotZ);
+        Debug.DrawRay(mousePos, Vector3.right * 100, Color.red);
 
         guns[gunIdx].UpdateTimer();
     }
@@ -87,8 +88,9 @@ public class P2Shooting : MonoBehaviour
 
     private void AimBullet(GameObject bullet) { //TODO: add accuracy param
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        
+        Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = mouseWorldPoint + (Camera.main.transform.forward * 10.0f);
         Vector3 direction = mousePos - bullet.transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * bullet.GetComponent<Bullet>().speed;
 
