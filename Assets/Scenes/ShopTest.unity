@@ -6116,6 +6116,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 271150914354983736, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 271150914354983739, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -6646,6 +6650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2991813378053330874, guid: a738a92fca7f64a1e9e6f43dbe915fbe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a12bc80f78924c20a1fe0540b73927f, type: 2}
     - target: {fileID: 7550548916916877945, guid: a738a92fca7f64a1e9e6f43dbe915fbe, type: 3}
       propertyPath: m_Name
       value: PlayerFarmer
