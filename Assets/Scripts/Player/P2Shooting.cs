@@ -42,7 +42,7 @@ public class P2Shooting : MonoBehaviour
     {
         //gun rotation follows mouse
         Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos = mouseWorldPoint + (Camera.main.transform.forward * 10.0f);
+        mousePos = mouseWorldPoint + (mainCam.transform.forward * 10.0f);
         Vector2 rotation = (mousePos - transform.position).normalized;
         float rotZ = Vector2.SignedAngle(Vector2.right, rotation);
         transform.eulerAngles = new Vector3(0, 0, rotZ);
@@ -90,7 +90,7 @@ public class P2Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         
         Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos = mouseWorldPoint + (Camera.main.transform.forward * 10.0f);
+        mousePos = mouseWorldPoint + (mainCam.transform.forward * 10.0f);
         Vector3 direction = mousePos - bullet.transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * bullet.GetComponent<Bullet>().speed;
 
