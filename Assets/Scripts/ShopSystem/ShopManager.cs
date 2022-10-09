@@ -63,11 +63,18 @@ public class ShopManager : Singleton<ShopManager>
         if (GameManager.Instance.Level != 0)
         {
             Time.timeScale = 0f;
+
             RandomizeShopOptions();
 
             for (int i = 0; i < cardSlots.Count; i++)
             {
+                if (cardSlots[i].GetComponentInChildren<CardAction>() != null)
+                {
+                    DestroyImmediate(cardSlots[i].GetComponentInChildren<CardAction>().gameObject);
+                }
+
                 Instantiate(shopOptions[i].cardAction, cardSlots[i]);
+
                 cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
 
                 //frame
