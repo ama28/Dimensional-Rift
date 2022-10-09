@@ -8,6 +8,7 @@ public class HomingEnemy : Enemy
     protected AIPath aiPath;
     protected PlayerFarmer target;
 
+    [SerializeField]
     protected HitInfo meleeHit = new HitInfo() {
         damage = 1f, 
         knockbackScalar = 3f
@@ -54,9 +55,6 @@ public class HomingEnemy : Enemy
     public override void TakeDamage(HitInfo hit)
     {
         base.TakeDamage(hit);
-        //knockback
-        Vector3 angle = transform.position - hit.sourcePos;
-        TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
     }
 
     // KB script, temporarily disables pathfinding

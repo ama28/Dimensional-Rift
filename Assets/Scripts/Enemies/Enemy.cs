@@ -39,7 +39,12 @@ public abstract class Enemy : Being
         if (health <= 0)
         {
             Die();
+            return;
         }
+
+        //knockback
+        Vector3 angle = transform.position - hit.sourcePos;
+        TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
     }
 
     public virtual void TakeKnockback(Vector2 kb)

@@ -30,6 +30,9 @@ public class P1Controller : PlayerFarmer
     {
         Debug.DrawRay(grabDetector.position, transform.up * rayDist, Color.green);
 
+        animator.SetFloat("Speed", rb.velocity.magnitude);
+        animator.SetBool("Push", isHolding);
+
         if (moveDirection != Vector2.zero && !isHolding)
         {
             Quaternion rotationGoal = Quaternion.LookRotation(Vector3.forward, moveDirection);
@@ -40,7 +43,6 @@ public class P1Controller : PlayerFarmer
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * stats.speed, moveDirection.y * stats.speed);
-        animator.SetFloat("Speed", rb.velocity.magnitude);
     }
 
     public void Move(InputAction.CallbackContext context)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //info when dealing damage
+[System.Serializable]
 public struct HitInfo {
     public Being source;
     //TODO: change to a force unit vector instead of a position
