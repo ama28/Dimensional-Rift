@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.8729, y: -72.1}
-  m_SizeDelta: {x: 126.7, y: 60.4346}
+  m_AnchoredPosition: {x: -2.8729, y: -65.1}
+  m_SizeDelta: {x: 126.7, y: 87.4923}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6882874309900733867
 CanvasRenderer:
@@ -199,8 +199,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is the description of the upgrade asdlfkjadslkfjklsd ajflkdsajfl;sdajkflsd;ajfl;ksdajfklasdjklfa
-    wee woo wee woo ayayayayayay
+  m_text: 'This is the description of the upgrade asdlf kjadslkfjklsd ajflkds ajfl
+    ;sdajkfl sd;ajfl ;ksda jfklasdjklfa wee woo wee woo ayayayayay
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -512,7 +514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0881, y: 108.4}
+  m_AnchoredPosition: {x: -1.0881, y: 103.9}
   m_SizeDelta: {x: 152.1762, y: 32.8325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4785994218934838736
@@ -543,9 +545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Laser Gun
-
-'
+  m_text: Hellion Pistol
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -572,8 +572,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
