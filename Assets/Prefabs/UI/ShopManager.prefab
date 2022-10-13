@@ -46,35 +46,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopOptions:
-  - frame: {fileID: 21300000, guid: 44f0af48822764f6b87d4f1c43f85c28, type: 3}
+  - isForFarmer: 1
+    cardTier: 0
     header: {fileID: 0}
-    title: Banana Farm
-    description: A structure that passively generates income over time
-    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
-  - frame: {fileID: 21300000, guid: 44f0af48822764f6b87d4f1c43f85c28, type: 3}
+    title: Placeholder
+    description: this does nothing omegalul
+    cardAction: {fileID: 8584795362128480328, guid: dc1f9ee0cde574d528e8da497041bb75, type: 3}
+  - isForFarmer: 0
+    cardTier: 2
     header: {fileID: 0}
-    title: Laser Gun
-    description: Weapon that fires a constant stream of energy; uses a lot of ammo
+    title: Super Gun
+    description: Equip a super gun that shoots super sized super bullets
     cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
-  - frame: {fileID: 21300000, guid: 44f0af48822764f6b87d4f1c43f85c28, type: 3}
+  - isForFarmer: 0
+    cardTier: 1
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     title: UPGRADE
-    description: UPGRADE SUPER GUN
+    description: UPGRADE SUPER GUN (pls dont press this if u dont have it it will
+      break)
     cardAction: {fileID: 8584795362128480328, guid: dc1f9ee0cde574d528e8da497041bb75, type: 3}
-  - frame: {fileID: 21300000, guid: 44f0af48822764f6b87d4f1c43f85c28, type: 3}
+  - isForFarmer: 1
+    cardTier: 0
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Placeholder B
-    description: This is the description of the upgrade asdlfkjadslkfjklsd ajflkdsajfl;sdajkflsd;ajfl;ksdajfklasdjklfa
-      wee woo wee woo ayayayayayay
-    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
-  - frame: {fileID: 21300000, guid: 44f0af48822764f6b87d4f1c43f85c28, type: 3}
+    title: Another Placeholder
+    description: reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    cardAction: {fileID: 8584795362128480328, guid: dc1f9ee0cde574d528e8da497041bb75, type: 3}
+  - isForFarmer: 1
+    cardTier: 2
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Placeholder C
-    description: REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-    cardAction: {fileID: 8584795362128480328, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
+    title: I AM SPEED
+    description: shooter goes straight godmode speedster
+    cardAction: {fileID: 8584795362128480328, guid: a514241f9a718407ebf4d3f3be72139c, type: 3}
   optionCount: 3
+  cardSlots: []
   shopUI: {fileID: 271150914354983736}
   cardPrefab: {fileID: 5716630063055159895, guid: fbbebd29c20694632b0b46d6b9e9a8e8, type: 3}
+  farmerFrames:
+  - {fileID: 21300000, guid: 797828d43adda455882b0700e84f3229, type: 3}
+  - {fileID: 21300000, guid: e9737460e52a34a12badf4cbae939f37, type: 3}
+  - {fileID: 21300000, guid: b153af8c2568a48c6863dec4a6ac7afb, type: 3}
+  shooterFrames:
+  - {fileID: 21300000, guid: 6d4325b8372ae4b5d8ed1c94a991ff75, type: 3}
+  - {fileID: 21300000, guid: 0d3d88678ecc244cc93effd7d74126db, type: 3}
+  - {fileID: 21300000, guid: 6e35de200775d4a188b600bb97022a51, type: 3}
 --- !u!1 &271150914349988998
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,10 +123,10 @@ RectTransform:
   m_Father: {fileID: 271150914354983743}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 750, y: 350}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &271150914349989002
 CanvasRenderer:
@@ -135,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -225,7 +239,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271150914354983739}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

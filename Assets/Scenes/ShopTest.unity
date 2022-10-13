@@ -721,7 +721,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0.02553853, y: -0.06031797, z: 0.0015437491, w: 0.9978513}
+  m_LocalRotation: {x: 0.025538528, y: -0.06031797, z: 0.0015437491, w: 0.9978513}
   m_LocalPosition: {x: 2.9533908, y: -1.8090366, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1327,7 +1327,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683684246}
-  m_LocalRotation: {x: 0.02553853, y: -0.06031797, z: 0.0015437491, w: 0.9978513}
+  m_LocalRotation: {x: 0.025538528, y: -0.06031797, z: 0.0015437491, w: 0.9978513}
   m_LocalPosition: {x: 2.9533908, y: -1.8090366, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5972,65 +5972,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].title
-      value: Placeholder
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[1].title
-      value: Super Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].title
-      value: Another Placeholder
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[4].title
-      value: I AM SPEED
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].cardAction
-      value: 
-      objectReference: {fileID: 8584795362128480328, guid: dc1f9ee0cde574d528e8da497041bb75, type: 3}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].cardAction
-      value: 
-      objectReference: {fileID: 8584795362128480328, guid: dc1f9ee0cde574d528e8da497041bb75, type: 3}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[4].cardAction
-      value: 
-      objectReference: {fileID: 8584795362128480328, guid: a514241f9a718407ebf4d3f3be72139c, type: 3}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].description
-      value: this does nothing omegalul
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[1].description
-      value: Equip a super gun that shoots super sized super bullets
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[2].description
-      value: UPGRADE SUPER GUN (pls dont press this if u dont have it it will break)
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].description
-      value: reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[4].description
-      value: shooter goes straight godmode speedster
-      objectReference: {fileID: 0}
     - target: {fileID: 271150913987213913, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
       propertyPath: m_Name
       value: ShopManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213913, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 271150913987213919, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
       propertyPath: m_RootOrder
@@ -6075,54 +6019,6 @@ PrefabInstance:
     - target: {fileID: 271150913987213919, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349988997, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349988997, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349988997, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349988997, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349988997, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349988997, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349989003, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_Color.a
-      value: 0.4509804
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349989003, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349989003, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914349989003, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914354983736, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150914354983739, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
@@ -6641,6 +6537,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7288049718129836060, guid: f62527d9c54d844c1adfb7de16264d74, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 04859062863094bfab6b4ab80e7dce13, type: 2}
+    - target: {fileID: 7288049718129836060, guid: f62527d9c54d844c1adfb7de16264d74, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -677857239753028700, guid: 04859062863094bfab6b4ab80e7dce13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f62527d9c54d844c1adfb7de16264d74, type: 3}
 --- !u!1001 &7550548917261578597

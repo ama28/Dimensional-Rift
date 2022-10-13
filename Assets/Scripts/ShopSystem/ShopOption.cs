@@ -6,7 +6,10 @@ using UnityEngine.UI;
 [System.Serializable]
 public class ShopOption
 {
-    public Sprite frame;
+    public enum tier {Bronze, Silver, Gold}
+
+    public bool isForFarmer;
+    public tier cardTier;
     public Sprite header;
     public string title;
     public string description;

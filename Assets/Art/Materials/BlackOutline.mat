@@ -55,7 +55,7 @@ Material:
     - _OutlineMode: 0
     - _OutlinePosition: 0
     - _OutlineShape: 0
-    - _Thickness: 0.3
+    - _Thickness: 0.5
     - _TileMode: 0
     - _Weight: 0.526
     m_Colors:
