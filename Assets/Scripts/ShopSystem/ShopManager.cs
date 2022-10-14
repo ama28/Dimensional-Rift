@@ -16,6 +16,9 @@ public class ShopManager : Singleton<ShopManager>
     public Canvas shopUI;
     public GameObject cardPrefab;
 
+    public Sprite[] farmerFrames;
+    public Sprite[] shooterFrames;
+
     private void Start()
     {
         shopUI = GameObject.FindGameObjectWithTag("ShopUI").GetComponent<Canvas>();
@@ -78,7 +81,33 @@ public class ShopManager : Singleton<ShopManager>
                 cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
 
                 //frame
-                cardSlots[i].GetChild(3).GetComponent<Image>().sprite = shopOptions[i].frame;
+                Image farmerFrame = cardSlots[i].GetChild(3).GetChild(0).GetComponent<Image>();
+                Image shooterFrame = cardSlots[i].GetChild(3).GetChild(1).GetComponent<Image>();
+
+                farmerFrame.enabled = shopOptions[i].isForFarmer;
+                shooterFrame.enabled = !shopOptions[i].isForFarmer;
+
+                switch (shopOptions[i].cardTier)
+                {
+                    case ShopOption.tier.Bronze:
+                        if (shopOptions[i].isForFarmer)
+                            farmerFrame.sprite = farmerFrames[0];
+                        else
+                            shooterFrame.sprite = shooterFrames[0];
+                        break;
+                    case ShopOption.tier.Silver:
+                        if (shopOptions[i].isForFarmer)
+                            farmerFrame.sprite = farmerFrames[1];
+                        else
+                            shooterFrame.sprite = shooterFrames[1];
+                        break;
+                    case ShopOption.tier.Gold:
+                        if (shopOptions[i].isForFarmer)
+                            farmerFrame.sprite = farmerFrames[2];
+                        else
+                            shooterFrame.sprite = shooterFrames[2];
+                        break;
+                }
 
                 //header
                 cardSlots[i].GetChild(2).GetComponent<Image>().sprite = shopOptions[i].header;
