@@ -8,18 +8,18 @@ public class Building : Being
     public Vector2Int size;
     public bool collidable;
 
-    private SpriteRenderer spriteRenderer;
+    private List<SpriteRenderer> spriteRenderers;
     private const float placeablePulseLength = 2.0f;
     
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
     }
 
     public void OnSelect() { //when building is chosen for placing
         gameObject.SetActive(true);
         StartCoroutine("PlacementAnim");
-        spriteRenderer.sortingOrder = 2;
+        spriteRenderers.ForEach(x => x.sortingOrder = 2);
     }
 
     public void OnDeselect() { //when a different building is chosen for placing
@@ -30,15 +30,15 @@ public class Building : Being
     public void OnPlace() { //when building is placed
         gameObject.SetActive(true);
         StopCoroutine("PlacementAnim");
-        spriteRenderer.color = Color.white;
-        spriteRenderer.sortingOrder = 1;
+        spriteRenderers.ForEach(x => x.color = Color.white);
+        spriteRenderers.ForEach(x => x.sortingOrder = 1);
     }
 
     public void SetPlaceable(bool placeable) { //visuals to show is building is valid or not
         if(!placeable) {
-            spriteRenderer.color = Color.red;
+            spriteRenderers.ForEach(x => x.color = Color.red);
         } else {
-            spriteRenderer.color = Color.white;
+            spriteRenderers.ForEach(x => x.color = Color.white);
         }
     }
 
@@ -47,7 +47,8 @@ public class Building : Being
         while(true) {
             timeElapsed += Time.deltaTime;
             float alpha = (Mathf.Sin(timeElapsed * (1/placeablePulseLength) * 2 * Mathf.PI) / 2) + 0.5f;
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, alpha);
+            Color newColor = new Color(spriteRenderers[0].color.r, spriteRenderers[0].color.g, spriteRenderers[0].color.b, alpha);
+            spriteRenderers.ForEach(x => x.color = newColor);
             yield return null;
         }
     }

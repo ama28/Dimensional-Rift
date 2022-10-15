@@ -12,6 +12,7 @@ public class BuildingManager : MonoBehaviour
 
     public GameObject buildingPrefab;
     public Building currentBuilding;
+    public List<Building> startBuildings; 
 
     void OnEnable() {
         GameManager.OnActionPhaseStart += OnActionPhaseStart;
@@ -26,8 +27,7 @@ public class BuildingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // AddBuildingToInventory(buildingPrefab);
-        // AddBuildingToInventory(buildingPrefab);
+        startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class BuildingManager : MonoBehaviour
             Vector3 mousePos = mouseWorldPoint + (Camera.main.transform.forward * 10.0f);
             Vector2Int mousePosTile = (Vector2Int)grid.WorldToCell(mousePos);
             currentBuilding.transform.position = grid.CellToWorld((Vector3Int)mousePosTile) + grid.cellSize * 0.5f;
-            currentBuilding.coordinates = mousePosTile;
+            currentBuilding.coordinates = mousePosTile - currentBuilding.size/2;
             
             //setting color of building
             if(IsBuildingValid(currentBuilding, mousePosTile)) {
