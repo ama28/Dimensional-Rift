@@ -14,6 +14,8 @@ public class BuildingManager : MonoBehaviour
     public Building currentBuilding;
     public List<Building> startBuildings; 
 
+    private Vector2Int mousePosTile;
+
     void OnEnable() {
         GameManager.OnActionPhaseStart += OnActionPhaseStart;
         GameManager.OnBuildPhaseStart += OnBuildPhaseStart;
@@ -36,23 +38,13 @@ public class BuildingManager : MonoBehaviour
             //move building with mouse
             Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 mousePos = mouseWorldPoint + (Camera.main.transform.forward * 10.0f);
-            Vector2Int mousePosTile = (Vector2Int)grid.WorldToCell(mousePos);
+            mousePosTile = (Vector2Int)grid.WorldToCell(mousePos);
             currentBuilding.transform.position = grid.CellToWorld((Vector3Int)mousePosTile) + grid.cellSize * 0.5f;
             currentBuilding.coordinates = mousePosTile - currentBuilding.size/2;
             
             //setting color of building
             if(IsBuildingValid(currentBuilding, mousePosTile)) {
                 currentBuilding.SetPlaceable(true);
-
-                //placing the building
-                if(Input.GetKeyDown(KeyCode.P)) {
-                    PlaceBuilding(currentBuilding.gameObject, mousePosTile);
-                    currentBuilding.OnPlace();
-                    if(inventory.Count > 0) {
-                        currentBuilding = inventory[0].GetComponent<Building>();
-                        currentBuilding.OnSelect();
-                    }
-                }
             } else {
                 currentBuilding.SetPlaceable(false);
             }
@@ -65,6 +57,17 @@ public class BuildingManager : MonoBehaviour
 
     void OnBuildPhaseStart() {
         //TODO: Show UI
+    }
+
+    public void OnPlaceButton() {
+        if(IsBuildingValid(currentBuilding, mousePosTile)) {
+            PlaceBuilding(currentBuilding.gameObject, mousePosTile);
+            currentBuilding.OnPlace();
+            if(inventory.Count > 0) {
+                currentBuilding = inventory[0].GetComponent<Building>();
+                currentBuilding.OnSelect();
+            }
+        }
     }
 
     bool IsBuildingValid(Building newBuilding, Vector2Int coords) {

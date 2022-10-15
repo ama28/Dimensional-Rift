@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 241419758}
-  buildingManager: {fileID: 751397706}
+  BuildingManager: {fileID: 751397706}
   waveList: {fileID: 11400000, guid: dea95d0e56d5a45b2b4592e470286870, type: 2}
   currency: 0
   playerFarmer: {fileID: 0}

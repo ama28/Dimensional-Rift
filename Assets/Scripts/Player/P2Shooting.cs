@@ -53,14 +53,20 @@ public class P2Shooting : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext context)
     {
-        if (context.performed && guns[gunIdx].CanFire())
-        {
-            GameObject bulletObj = guns[gunIdx].Fire();
-            Bullet bullet = bulletObj.GetComponent<Bullet>();
-            Vector3 position = guns[gunIdx].transform.position; 
-            GameObject newBullet = Instantiate(bulletObj, position, Quaternion.identity);
-            newBullet.GetComponent<Bullet>().SetUpBullet(guns[gunIdx].owner, guns[gunIdx].gunInfo);
-            AimBullet(newBullet);
+        if(context.performed) {
+            if(GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase && guns[gunIdx].CanFire()) {
+                //fire
+                GameObject bulletObj = guns[gunIdx].Fire();
+                Bullet bullet = bulletObj.GetComponent<Bullet>();
+                Vector3 position = guns[gunIdx].transform.position; 
+                GameObject newBullet = Instantiate(bulletObj, position, Quaternion.identity);
+                newBullet.GetComponent<Bullet>().SetUpBullet(guns[gunIdx].owner, guns[gunIdx].gunInfo);
+                AimBullet(newBullet);
+            } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
+                    && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
+                //place building
+                GameManager.Instance.BuildingManager.OnPlaceButton();
+            }
         }
     }
 
