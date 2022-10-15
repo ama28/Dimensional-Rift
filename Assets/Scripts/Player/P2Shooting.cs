@@ -64,6 +64,7 @@ public class P2Shooting : MonoBehaviour
                 AimBullet(newBullet);
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
                     && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
+                //TODO: Add shop closed check
                 //place building
                 GameManager.Instance.BuildingManager.OnPlaceButton();
             }
