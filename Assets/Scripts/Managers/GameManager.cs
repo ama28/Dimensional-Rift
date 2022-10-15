@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     private GameStateType gameState;
 
     public SpawnManager spawnManager;
+    public BuildingManager buildingManager;
 
     [SerializeField] WaveList waveList; 
 
@@ -52,7 +53,7 @@ public class GameManager : Singleton<GameManager>
     void Update() {
 
         //for debug
-        if(Input.GetKeyDown(KeyCode.H)) {
+        if(Input.GetKeyDown(KeyCode.H) && buildingManager.GetNumBuildingsInInventory() == 0) {
             if(gameState == GameStateType.BuildPhase) {
                 Debug.Log("starting level " + level);
                 SetGameState(GameStateType.ActionPhase);
