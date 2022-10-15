@@ -15,9 +15,11 @@ public class GameManager : Singleton<GameManager>
     }
     private GameStateType gameState;
 
+    [Header("Managers")]
     public SpawnManager spawnManager;
     public BuildingManager buildingManager;
 
+    [Header("Misc Info")]
     [SerializeField] WaveList waveList; 
 
     // public int Round => round; 

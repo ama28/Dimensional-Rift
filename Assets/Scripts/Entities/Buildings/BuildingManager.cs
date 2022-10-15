@@ -26,8 +26,8 @@ public class BuildingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddBuildingToInventory(buildingPrefab);
-        AddBuildingToInventory(buildingPrefab);
+        // AddBuildingToInventory(buildingPrefab);
+        // AddBuildingToInventory(buildingPrefab);
     }
 
     void Update()
