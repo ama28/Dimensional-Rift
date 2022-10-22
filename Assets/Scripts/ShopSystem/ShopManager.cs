@@ -34,12 +34,12 @@ public class ShopManager : Singleton<ShopManager>
         }
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         GameManager.OnBuildPhaseStart += waveEnd;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         GameManager.OnBuildPhaseStart -= waveEnd;
     }
