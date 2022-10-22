@@ -218,7 +218,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 9.14135
+  orthographic size: 9.134979
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0.017833808, y: -0.04202743, z: 0.0007502915, w: 0.99895704}
-  m_LocalPosition: {x: 2.9146752, y: -1.8254999, z: -13.935818}
+  m_LocalPosition: {x: 2.9146743, y: -1.8254999, z: -13.935818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -536,7 +536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641755734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9533913, y: -1.8090367, z: 0}
+  m_LocalPosition: {x: 2.9533908, y: -1.8090366, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -879,7 +879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911538803}
   m_LocalRotation: {x: 0.017833808, y: -0.04202743, z: 0.0007502915, w: 0.99895704}
-  m_LocalPosition: {x: 2.9146752, y: -1.8254999, z: -13.935818}
+  m_LocalPosition: {x: 2.9146743, y: -1.8254999, z: -13.935818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15853,6 +15853,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1812819654, guid: f62527d9c54d844c1adfb7de16264d74, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 340725777149845048, guid: f62527d9c54d844c1adfb7de16264d74, type: 3}
       propertyPath: m_Name
       value: UI Canvas

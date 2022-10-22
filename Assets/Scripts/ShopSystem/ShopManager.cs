@@ -57,10 +57,10 @@ public class ShopManager : Singleton<ShopManager>
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    OpenShop();
-        //}
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            OpenShop();
+        }
     }
 
     public void waveEnd()
