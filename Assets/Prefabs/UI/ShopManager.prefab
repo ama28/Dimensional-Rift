@@ -63,7 +63,7 @@ MonoBehaviour:
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
     title: Platform
     description: Build a movable platform
-    cardAction: {fileID: 1867846104527139024, guid: 92bff9d7ab92c4516a90bce0c72fc9ca, type: 3}
+    cardAction: {fileID: 3888446354233257241, guid: 92bff9d7ab92c4516a90bce0c72fc9ca, type: 3}
   - isForFarmer: 1
     cardTier: 0
     header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
