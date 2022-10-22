@@ -128,6 +128,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6295315344862473739, guid: 79718ed5c0f5d4a37bb74d0a1e2d8eda, type: 3}
   m_PrefabInstance: {fileID: 6696236442925872306}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &441753320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 629555049, guid: f62527d9c54d844c1adfb7de16264d74, type: 3}
+  m_PrefabInstance: {fileID: 5633218398288250657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &480004895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7550548916916877946, guid: a738a92fca7f64a1e9e6f43dbe915fbe, type: 3}
@@ -213,7 +218,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 9.134979
+  orthographic size: 9.040265
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -237,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0.017833808, y: -0.04202743, z: 0.0007502915, w: 0.99895704}
-  m_LocalPosition: {x: 2.9146743, y: -1.8254999, z: -13.935818}
+  m_LocalPosition: {x: 2.9146752, y: -1.8254999, z: -13.935818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -454,7 +459,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641755734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9533908, y: -1.8090366, z: 0}
+  m_LocalPosition: {x: 2.9533913, y: -1.8090367, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -797,7 +802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911538803}
   m_LocalRotation: {x: 0.017833808, y: -0.04202743, z: 0.0007502915, w: 0.99895704}
-  m_LocalPosition: {x: 2.9146743, y: -1.8254999, z: -13.935818}
+  m_LocalPosition: {x: 2.9146752, y: -1.8254999, z: -13.935818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15133,6 +15138,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
+      propertyPath: waveCompletedText
+      value: 
+      objectReference: {fileID: 441753320}
     - target: {fileID: 271150913987213913, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
       propertyPath: m_Name
       value: ShopManager

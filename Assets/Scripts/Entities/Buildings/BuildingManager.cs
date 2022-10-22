@@ -57,6 +57,11 @@ public class BuildingManager : MonoBehaviour
 
     void OnBuildPhaseStart() {
         //TODO: Show UI
+        if(inventory.Count > 0) {
+            currentBuilding = inventory[0].GetComponent<Building>();
+        } else {
+            currentBuilding = null;
+        }
     }
 
     public void OnPlaceButton() {
