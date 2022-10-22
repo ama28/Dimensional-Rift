@@ -14,7 +14,7 @@ public class Coin : Collectible
     public override void OnTriggerEnter2D(Collider2D c){
         // If player collects coin
         if(c.gameObject.tag == "PlayerFarmer"){
-            coinSpawnHandler.SpawnCoin(); // Spawn new coin
+            //coinSpawnHandler.SpawnCoin(); // Spawn new coin
             coinSpawnHandler.OnCollect(); // Decrement coin
             GameManager.Instance.currency++;
         }

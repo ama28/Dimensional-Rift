@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -37,6 +38,7 @@ public class GameManager : Singleton<GameManager>
     public static event Action OnBuildPhaseStart;
     public static event Action<Wave> OnActionPhaseStart;
     public static event Action OnGameOver;
+    public static event Action OnRestart; //should only be used to destroy singletons
 
     public PlayerFarmer playerFarmer;
     public PlayerShooter playerShooter;
@@ -52,9 +54,19 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 1f;
     }
 
+    public void Restart() {
+        currency = 0;
+        level = 0;
+        OnRestart?.Invoke();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        playerFarmer = FindObjectOfType<PlayerFarmer>();
+        playerShooter = FindObjectOfType<PlayerShooter>();
+        SetGameState(GameStateType.BuildPhase);
+    }
+
     void Update() {
 
-        //for debug
+        //for debug TODO CHANGE
         if(Input.GetKeyDown(KeyCode.H) && BuildingManager.GetNumBuildingsInInventory() == 0) {
             if(gameState == GameStateType.BuildPhase) {
                 Debug.Log("starting level " + level);
