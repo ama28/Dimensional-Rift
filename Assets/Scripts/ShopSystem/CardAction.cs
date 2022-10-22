@@ -17,6 +17,8 @@ public class CardAction : MonoBehaviour
     public string playerStat;
     public int playerStatChange;
 
+    public GameObject newStructure;
+
     private GameObject player1;
     private GameObject player2;
     public P2Shooting p2Shooting;
@@ -60,7 +62,7 @@ public class CardAction : MonoBehaviour
 
     void buildStructure()
     {
-
+        GameManager.Instance.BuildingManager.AddBuildingToInventory(newStructure);
     }
 
     void boostStat()

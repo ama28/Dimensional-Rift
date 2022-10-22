@@ -23,6 +23,7 @@ public class ActionEditor : Editor
                 cardAction.gunStatChange = EditorGUILayout.IntField("Stat Change Amount", cardAction.gunStatChange);
                 break;
             case CardAction.ActionType.NewStructure:
+                cardAction.newStructure = (GameObject)EditorGUILayout.ObjectField("New Structure", cardAction.newStructure, typeof(GameObject), true);
                 break;
             case CardAction.ActionType.StatBoost:
                 cardAction.isPlayerFarmer = EditorGUILayout.Toggle("Is Farmer Player", cardAction.isPlayerFarmer);
