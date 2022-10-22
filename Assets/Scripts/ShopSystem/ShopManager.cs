@@ -81,8 +81,8 @@ public class ShopManager : Singleton<ShopManager>
                 cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
 
                 //frame
-                Image farmerFrame = cardSlots[i].GetChild(3).GetChild(0).GetComponent<Image>();
-                Image shooterFrame = cardSlots[i].GetChild(3).GetChild(1).GetComponent<Image>();
+                Image farmerFrame = cardSlots[i].GetChild(2).GetChild(0).GetComponent<Image>();
+                Image shooterFrame = cardSlots[i].GetChild(2).GetChild(1).GetComponent<Image>();
 
                 farmerFrame.enabled = shopOptions[i].isForFarmer;
                 shooterFrame.enabled = !shopOptions[i].isForFarmer;
@@ -110,13 +110,13 @@ public class ShopManager : Singleton<ShopManager>
                 }
 
                 //header
-                cardSlots[i].GetChild(2).GetComponent<Image>().sprite = shopOptions[i].header;
+                cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
 
                 //title
-                cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+                cardSlots[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
 
                 //description
-                cardSlots[i].GetChild(1).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+                cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
             }
 
             shopUI.enabled = true;

@@ -12,7 +12,7 @@ public class PlayerShooter : Player
     public ShooterStats stats = new ShooterStats();
 
     public virtual void Start() {
-        health = stats.maxHealth;
+        health = maxHealth;
         invulnerable = true;
     }
 

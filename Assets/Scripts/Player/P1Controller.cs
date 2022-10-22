@@ -24,6 +24,8 @@ public class P1Controller : PlayerFarmer
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        health = maxHealth;
+        myHealth = FindObjectOfType<HealthBar>();
     }
 
     private void Update()

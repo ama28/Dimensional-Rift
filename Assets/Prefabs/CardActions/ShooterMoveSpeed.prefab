@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8584795362128480328
+--- !u!1 &2583463928586524681
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8584795362128480330}
-  - component: {fileID: 8584795362128480329}
+  - component: {fileID: 3173375588023677902}
+  - component: {fileID: 5103088177097042027}
   m_Layer: 0
-  m_Name: IncreaseMoveSpeed
+  m_Name: ShooterMoveSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8584795362128480330
+--- !u!4 &3173375588023677902
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584795362128480328}
+  m_GameObject: {fileID: 2583463928586524681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.532263, y: -4.143626, z: -0.40934363}
+  m_LocalPosition: {x: 920.92957, y: 529.55273, z: -1.7495961}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8584795362128480329
+--- !u!114 &5103088177097042027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584795362128480328}
+  m_GameObject: {fileID: 2583463928586524681}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionType: 1
-  gunName: SuperGun
-  gunIndex: 1
-  gunStatIndex: 0
-  gunStatChangeAmount: 5
+  actionType: 3
+  gunName: 
+  gunIndex: 0
+  gunStat: 
+  gunStatChange: 0
   isPlayerFarmer: 0
-  playerStatIndex: 0
-  playerStatChangeAmount: 0
+  playerStat: speed
+  playerStatChange: 5
   p2Shooting: {fileID: 0}

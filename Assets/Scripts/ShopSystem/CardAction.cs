@@ -70,6 +70,7 @@ public class CardAction : MonoBehaviour
             switch (playerStat)
             {
                 case "speed":
+                    player1.GetComponent<P1Controller>().stats.speed += playerStatChange;
                     break;
                 case "jumpHeight":
                     break;
