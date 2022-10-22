@@ -14,4 +14,6 @@ public class ShopOption
     public string title;
     public string description;
     public GameObject cardAction;
+
+    public int price;
 }
