@@ -19,6 +19,8 @@ public class ShopManager : Singleton<ShopManager>
     public Sprite[] farmerFrames;
     public Sprite[] shooterFrames;
 
+    public GameObject waveCompletedText;
+
     private void Start()
     {
         shopUI = GameObject.FindGameObjectWithTag("ShopUI").GetComponent<Canvas>();
@@ -34,12 +36,12 @@ public class ShopManager : Singleton<ShopManager>
 
     private void OnEnable()
     {
-        GameManager.OnBuildPhaseStart += OpenShop;
+        GameManager.OnBuildPhaseStart += waveEnd;
     }
 
     private void OnDisable()
     {
-        GameManager.OnBuildPhaseStart -= OpenShop;
+        GameManager.OnBuildPhaseStart -= waveEnd;
     }
 
     void RandomizeShopOptions()
@@ -55,10 +57,26 @@ public class ShopManager : Singleton<ShopManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    OpenShop();
+        //}
+    }
+
+    public void waveEnd()
+    {
+        if (GameManager.Instance.Level > 1)
         {
-            OpenShop();
+            StartCoroutine(showWaveComplete());
         }
+    }
+
+    IEnumerator showWaveComplete()
+    {
+        waveCompletedText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        waveCompletedText.SetActive(false);
+        OpenShop();
     }
 
     public void OpenShop()
