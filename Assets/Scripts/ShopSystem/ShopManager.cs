@@ -79,6 +79,12 @@ public class ShopManager : Singleton<ShopManager>
         OpenShop();
     }
 
+    public void skipShop()
+    {
+        shopUI.enabled = false;
+        Time.timeScale = 1f;
+    }
+
     public void OpenShop()
     {
         if (GameManager.Instance.Level != 0)
@@ -97,6 +103,7 @@ public class ShopManager : Singleton<ShopManager>
                 Instantiate(shopOptions[i].cardAction, cardSlots[i]);
 
                 cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
+                cardSlots[i].GetComponent<ActionManger>().cost = shopOptions[i].price;
 
                 //frame
                 Image farmerFrame = cardSlots[i].GetChild(2).GetChild(0).GetComponent<Image>();
@@ -135,6 +142,9 @@ public class ShopManager : Singleton<ShopManager>
 
                 //description
                 cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+
+                //price
+                cardSlots[i].GetChild(6).GetComponent<TextMeshProUGUI>().text = shopOptions[i].price.ToString();
             }
 
             shopUI.enabled = true;
