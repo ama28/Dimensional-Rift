@@ -35,7 +35,7 @@ public class Gun : MonoBehaviour
         return timer_;
     }
 
-    public GameObject Fire()
+    public void Fire()
     {
         if (CanFire())
         {

@@ -63,12 +63,7 @@ public class P2Shooting : MonoBehaviour
         if(context.performed) {
             if(GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase && guns[gunIdx].CanFire()) {
                 //fire
-                GameObject bulletObj = guns[gunIdx].Fire();
-                Bullet bullet = bulletObj.GetComponent<Bullet>();
-                Vector3 position = guns[gunIdx].transform.position; 
-                GameObject newBullet = Instantiate(bulletObj, position, Quaternion.identity);
-                newBullet.GetComponent<Bullet>().SetUpBullet(guns[gunIdx].owner, guns[gunIdx].gunInfo);
-                AimBullet(newBullet);
+                guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
                     && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
                 //TODO: Add shop closed check
