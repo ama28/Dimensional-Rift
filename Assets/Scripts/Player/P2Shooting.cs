@@ -17,6 +17,9 @@ public class P2Shooting : MonoBehaviour
     // All guns in the game
     public List<Gun> allGuns;
 
+    public GameObject frontArm;
+    public GameObject backArm;
+
     void Awake()
     {
         guns = new List<Gun>();
@@ -25,8 +28,7 @@ public class P2Shooting : MonoBehaviour
             gunMap.Add(gun.name, gun);
         }
 
-        EquipGun("LaserCannon");
-        //EquipGun("SuperGun");
+        EquipGun("BasicGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
     }
@@ -46,6 +48,10 @@ public class P2Shooting : MonoBehaviour
         Vector2 rotation = (mousePos - transform.position).normalized;
         float rotZ = Vector2.SignedAngle(Vector2.right, rotation);
         transform.eulerAngles = new Vector3(0, 0, rotZ);
+
+        frontArm.transform.eulerAngles = new Vector3(0, 0, rotZ - 90);
+        backArm.transform.eulerAngles = new Vector3(0, 0, rotZ - 90);
+
         Debug.DrawRay(mousePos, Vector3.right * 100, Color.red);
 
         guns[gunIdx].UpdateTimer();
