@@ -25,7 +25,7 @@ public class P2Shooting : MonoBehaviour
             gunMap.Add(gun.name, gun);
         }
 
-        EquipGun("LaserCannon");
+        EquipGun("BasicGun");
         //EquipGun("SuperGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
@@ -93,18 +93,5 @@ public class P2Shooting : MonoBehaviour
         newGun.gameObject.SetActive(false);
         guns.Add(newGun);
         return true;
-    }
-
-    private void AimBullet(GameObject bullet) { //TODO: add accuracy param
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        
-        Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos = mouseWorldPoint + (mainCam.transform.forward * 10.0f);
-        Vector3 direction = mousePos - bullet.transform.position;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * bullet.GetComponent<Bullet>().speed;
-
-        Vector3 rotation = bullet.transform.position - mousePos;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
     }
 }
