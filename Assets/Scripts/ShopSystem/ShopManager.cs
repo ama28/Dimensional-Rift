@@ -16,6 +16,11 @@ public class ShopManager : Singleton<ShopManager>
     public Canvas shopUI;
     public GameObject cardPrefab;
 
+    public Sprite[] farmerFrames;
+    public Sprite[] shooterFrames;
+
+    public GameObject waveCompletedText;
+
     private void Start()
     {
         shopUI = GameObject.FindGameObjectWithTag("ShopUI").GetComponent<Canvas>();
@@ -29,14 +34,14 @@ public class ShopManager : Singleton<ShopManager>
         }
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
-        GameManager.OnBuildPhaseStart += OpenShop;
+        GameManager.OnBuildPhaseStart += waveEnd;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
-        GameManager.OnBuildPhaseStart -= OpenShop;
+        GameManager.OnBuildPhaseStart -= waveEnd;
     }
 
     void RandomizeShopOptions()
@@ -58,6 +63,28 @@ public class ShopManager : Singleton<ShopManager>
         }
     }
 
+    public void waveEnd()
+    {
+        if (GameManager.Instance.Level > 1)
+        {
+            StartCoroutine(showWaveComplete());
+        }
+    }
+
+    IEnumerator showWaveComplete()
+    {
+        waveCompletedText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        waveCompletedText.SetActive(false);
+        OpenShop();
+    }
+
+    public void skipShop()
+    {
+        shopUI.enabled = false;
+        Time.timeScale = 1f;
+    }
+
     public void OpenShop()
     {
         if (GameManager.Instance.Level != 0)
@@ -76,18 +103,48 @@ public class ShopManager : Singleton<ShopManager>
                 Instantiate(shopOptions[i].cardAction, cardSlots[i]);
 
                 cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
+                cardSlots[i].GetComponent<ActionManger>().cost = shopOptions[i].price;
 
                 //frame
-                cardSlots[i].GetChild(3).GetComponent<Image>().sprite = shopOptions[i].frame;
+                Image farmerFrame = cardSlots[i].GetChild(2).GetChild(0).GetComponent<Image>();
+                Image shooterFrame = cardSlots[i].GetChild(2).GetChild(1).GetComponent<Image>();
+
+                farmerFrame.enabled = shopOptions[i].isForFarmer;
+                shooterFrame.enabled = !shopOptions[i].isForFarmer;
+
+                switch (shopOptions[i].cardTier)
+                {
+                    case ShopOption.tier.Bronze:
+                        if (shopOptions[i].isForFarmer)
+                            farmerFrame.sprite = farmerFrames[0];
+                        else
+                            shooterFrame.sprite = shooterFrames[0];
+                        break;
+                    case ShopOption.tier.Silver:
+                        if (shopOptions[i].isForFarmer)
+                            farmerFrame.sprite = farmerFrames[1];
+                        else
+                            shooterFrame.sprite = shooterFrames[1];
+                        break;
+                    case ShopOption.tier.Gold:
+                        if (shopOptions[i].isForFarmer)
+                            farmerFrame.sprite = farmerFrames[2];
+                        else
+                            shooterFrame.sprite = shooterFrames[2];
+                        break;
+                }
 
                 //header
-                cardSlots[i].GetChild(2).GetComponent<Image>().sprite = shopOptions[i].header;
+                cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
 
                 //title
-                cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+                cardSlots[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
 
                 //description
-                cardSlots[i].GetChild(1).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+                cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+
+                //price
+                cardSlots[i].GetChild(6).GetComponent<TextMeshProUGUI>().text = shopOptions[i].price.ToString();
             }
 
             shopUI.enabled = true;

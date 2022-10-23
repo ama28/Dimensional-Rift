@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9a12bc80f78924c20a1fe0540b73927f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7550548916916877895}
   m_Layer: 7
   m_Name: PlayerFarmer
-  m_TagString: Player
+  m_TagString: PlayerFarmer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,10 @@ MonoBehaviour:
   health: 0
   playerType: 0
   rb: {fileID: 0}
+  stats:
+    speed: 4
+    maxHealth: 6
+    invulnerabilityTime: 1
   grabDetector: {fileID: 7550548916921027474}
   rayDist: 0.5
   rotationSpeed: 5000

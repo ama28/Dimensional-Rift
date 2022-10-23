@@ -44,11 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dc9eb7c9203cf49a8785d7e1687233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yMin: -10
-  yMax: 4
-  xMin: -12
-  xMax: 14
-  spawnRate: 2
+  yMin: -14
+  yMax: 8
+  xMin: -18
+  xMax: 20
   maxCoins: 5
   preventSpawnRadius: 1
   newCoin: {fileID: 8077831449150499827, guid: 0ba0a376060c20b4aa0d07629fcd1766, type: 3}
