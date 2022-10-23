@@ -81,6 +81,9 @@ public class BuildingManager : MonoBehaviour
             return false;
         }
         return currentBuildings.TrueForAll(building => {
+            if(!building.GetComponent<Building>().collidable) { //not collidable
+                return true;
+            }
             if(newBuilding.coordinates.x + newBuilding.size.x + margin < building.coordinates.x
             || building.coordinates.x + building.size.x + margin < newBuilding.coordinates.x) {
                 //right side of one building is to the left of the other's left side

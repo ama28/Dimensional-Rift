@@ -14,8 +14,7 @@ public class P1Controller : PlayerFarmer
 
     private Vector2 moveDirection;
 
-    public bool isHolding = false;
-    private Transform heldObject;
+    private Interactable heldObject;
 
     private Animator animator;
 
@@ -32,7 +31,7 @@ public class P1Controller : PlayerFarmer
     {
         Debug.DrawRay(grabDetector.position, transform.up * rayDist, Color.green);
 
-        if (moveDirection != Vector2.zero && !isHolding)
+        if (moveDirection != Vector2.zero && heldObject == null)
         {
             Quaternion rotationGoal = Quaternion.LookRotation(Vector3.forward, moveDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationGoal, rotationSpeed * Time.deltaTime);
@@ -54,26 +53,23 @@ public class P1Controller : PlayerFarmer
     {
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetector.position, Vector2.up * transform.localScale, rayDist);
 
-        if (isHolding)
-        {
+        if(grabCheck && grabCheck.transform.GetComponent<Interactable>() != null) {
+            heldObject = grabCheck.transform.GetComponent<Interactable>();
+        }
+
+        if(heldObject != null) {
             if (context.canceled)
             {
-                heldObject.SetParent(null);
-                isHolding = false;
+                heldObject.OnRelease(this);
+
                 stats.speed += 2;
                 heldObject = null;
                 Debug.Log("object dropped");
-            }
-        }
-        else if (!isHolding && grabCheck.collider != null && grabCheck.collider.tag == "Movable")
-        {
-            heldObject = grabCheck.transform;
-
-            if (context.started)
+            } else if (context.started)
             {
-                isHolding = true;
+                heldObject.OnInteract(this);
+
                 stats.speed -= 2;
-                heldObject.SetParent(transform);
                 Debug.Log("object picked up");
             }
         }
