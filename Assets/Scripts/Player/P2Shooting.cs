@@ -25,7 +25,7 @@ public class P2Shooting : MonoBehaviour
             gunMap.Add(gun.name, gun);
         }
 
-        EquipGun("BasicGun");
+        EquipGun("LaserCannon");
         //EquipGun("SuperGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
@@ -48,6 +48,13 @@ public class P2Shooting : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
         guns[gunIdx].UpdateTimer();
+
+        // Help I don't know how the new input system works
+        // Fix this later
+        if (Input.GetMouseButton(0) && guns[gunIdx].gunInfo.fireType == GunInfo.FireType.Continuous)
+        {
+            guns[gunIdx].Fire();
+        }
     }
 
     public void Fire(InputAction.CallbackContext context)

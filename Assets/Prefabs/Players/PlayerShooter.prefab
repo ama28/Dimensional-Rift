@@ -48,6 +48,8 @@ MonoBehaviour:
   allGuns:
   - {fileID: 1040084708749336714, guid: f8238d46dc68c0f0199237c7437e106c, type: 3}
   - {fileID: 1040084708749336714, guid: 014ce3556b5bf6133afffc7da66f5bd8, type: 3}
+  - {fileID: 1040084708749336714, guid: 42e3a819b49636d458c07c8089042492, type: 3}
+  - {fileID: 1040084708749336714, guid: ba39c1045e68eed44876ceab5c0ec881, type: 3}
 --- !u!1 &1114192132180271410
 GameObject:
   m_ObjectHideFlags: 0

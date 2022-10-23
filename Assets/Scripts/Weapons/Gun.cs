@@ -51,7 +51,8 @@ public class Gun : MonoBehaviour
     private void AimBullet(GameObject bullet)
     {
         bullet.transform.rotation = transform.rotation;
-        float angle = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+        float angle = (transform.rotation.eulerAngles.z
+            + Random.Range(-gunInfo.accuracy, gunInfo.accuracy)) * Mathf.Deg2Rad;
         Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
