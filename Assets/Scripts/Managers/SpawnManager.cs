@@ -30,12 +30,10 @@ public class SpawnManager : MonoBehaviour
     //Start wave when action phase starts
     void OnEnable() {
         GameManager.OnActionPhaseStart += StartWave;
-        GameManager.OnRestart += OnRestart;
     }
 
     void OnDisable() {
         GameManager.OnActionPhaseStart -= StartWave;
-        GameManager.OnRestart -= OnRestart;
     }
 
     public void StartWave(Wave wave) {
@@ -80,8 +78,4 @@ public class SpawnManager : MonoBehaviour
         instanced.Add(newEnemy); 
         Debug.Log(newEnemy.health);
      }
-
-    void OnRestart() {
-        instanced = new List<Enemy>();
-    }
  }

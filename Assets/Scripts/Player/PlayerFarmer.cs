@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerFarmer : Player
 {
-    public HealthBar myHealth;
-
     [System.Serializable]
     public class FarmerStats : PlayerStats {
         public float invulnerabilityTime = 1.0f;
@@ -15,6 +13,7 @@ public class PlayerFarmer : Player
 
     public virtual void Start() {
         Debug.Log(stats);
+        health = stats.maxHealth;
     }
 
     public override void TakeDamage(HitInfo hit) {
@@ -26,8 +25,6 @@ public class PlayerFarmer : Player
             Debug.Log(knockback);
             rb.AddForce(knockback);
             StartCoroutine(Invulnerability());
-
-            myHealth.UpdateHealthBar();
         }
     }
 

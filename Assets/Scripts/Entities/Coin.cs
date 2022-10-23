@@ -6,17 +6,12 @@ using UnityEngine;
 
 public class Coin : Collectible
 {
-    private CoinSpawnHandler coinSpawnHandler;
 
-    void Start() {
-        coinSpawnHandler = GameObject.Find("CoinSpawner").GetComponent<CoinSpawnHandler>();
-    }
     public override void OnTriggerEnter2D(Collider2D c){
         // If player collects coin
         if(c.gameObject.tag == "PlayerFarmer"){
-            //coinSpawnHandler.SpawnCoin(); // Spawn new coin
-            coinSpawnHandler.OnCollect(); // Decrement coin
-            GameManager.Instance.currency++;
+            GameObject.Find("CoinSpawner").GetComponent<CoinSpawnHandler>().SpawnCoin(); // Spawn new coin
+            GameObject.Find("CoinSpawner").GetComponent<CoinSpawnHandler>().DecrementCoinCount(); // Decrement coin
         }
 
         //destroys coin

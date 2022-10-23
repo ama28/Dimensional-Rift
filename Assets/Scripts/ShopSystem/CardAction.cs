@@ -17,8 +17,6 @@ public class CardAction : MonoBehaviour
     public string playerStat;
     public int playerStatChange;
 
-    public GameObject newStructure;
-
     private GameObject player1;
     private GameObject player2;
     public P2Shooting p2Shooting;
@@ -62,7 +60,7 @@ public class CardAction : MonoBehaviour
 
     void buildStructure()
     {
-        GameManager.Instance.BuildingManager.AddBuildingToInventory(newStructure);
+
     }
 
     void boostStat()
@@ -71,8 +69,7 @@ public class CardAction : MonoBehaviour
         {
             switch (playerStat)
             {
-                case "speed":
-                    player1.GetComponent<P1Controller>().stats.speed += playerStatChange;
+                case "moveSpeed":
                     break;
                 case "jumpHeight":
                     break;

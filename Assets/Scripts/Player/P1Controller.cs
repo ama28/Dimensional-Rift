@@ -24,8 +24,6 @@ public class P1Controller : PlayerFarmer
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-        health = maxHealth;
-        myHealth = FindObjectOfType<HealthBar>();
     }
 
     private void Update()
@@ -62,7 +60,7 @@ public class P1Controller : PlayerFarmer
             {
                 heldObject.SetParent(null);
                 isHolding = false;
-                stats.speed += 2;
+                stats.speed *= 2;
                 heldObject = null;
                 Debug.Log("object dropped");
             }
@@ -74,7 +72,7 @@ public class P1Controller : PlayerFarmer
             if (context.started)
             {
                 isHolding = true;
-                stats.speed -= 2;
+                stats.speed /= 2;
                 heldObject.SetParent(transform);
                 Debug.Log("object picked up");
             }

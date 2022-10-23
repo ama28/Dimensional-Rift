@@ -41,12 +41,11 @@ public class P2Shooting : MonoBehaviour
     void Update()
     {
         //gun rotation follows mouse
-        Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos = mouseWorldPoint + (mainCam.transform.forward * 10.0f);
-        Vector2 rotation = (mousePos - transform.position).normalized;
-        float rotZ = Vector2.SignedAngle(Vector2.right, rotation);
-        transform.eulerAngles = new Vector3(0, 0, rotZ);
-        Debug.DrawRay(mousePos, Vector3.right * 100, Color.red);
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 rotation = mousePos - transform.position;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
         guns[gunIdx].UpdateTimer();
 
@@ -60,16 +59,9 @@ public class P2Shooting : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext context)
     {
-        if(context.performed) {
-            if(GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase && guns[gunIdx].CanFire()) {
-                //fire
-                guns[gunIdx].Fire();
-            } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
-                    && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
-                //TODO: Add shop closed check
-                //place building
-                GameManager.Instance.BuildingManager.OnPlaceButton();
-            }
+        if (context.performed)
+        {
+            guns[gunIdx].Fire();
         }
     }
 

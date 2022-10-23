@@ -36,7 +36,7 @@ public class CoinSpawnHandler : MonoBehaviour
         spawnRate = wave.coinSpawnTimer;
     }
     
-    public void OnCollect(){ // This is shitty code design but it works
+    public void DecrementCoinCount(){ // This is shitty code design but it works
         currCoins--;
     }
 
