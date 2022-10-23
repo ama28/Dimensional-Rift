@@ -6,32 +6,17 @@ public class Bullet : MonoBehaviour
 {
     private Vector3 mousePos;
     private Rigidbody2D rb;
-    public HitInfo hitInfo; //damage etc
+    private HitInfo hitInfo; //damage etc
     public Being source; //should be set when fired
 
-    // fancy parameter things
-    [Tooltip("How fast the bullet moves.")]
+    [HideInInspector]
     public float speed;
-    [Tooltip("How far the bullet can travel before it despawns.")]
-    public float range = 0f;
-    [SerializeField]
-    [Tooltip("How much damage the bullet will deal. If damageDamping " +
-        "is enabled, this is the point-blank damage.")]
     private float damage = 1f;
-    [SerializeField]
-    [Tooltip("How much knockback the target will take when hit. " +
-        "Set to 0 to disable knockback.")]
     private float knockback;
-    [SerializeField]
-    [Tooltip("The number of enemies the bullet can travel through " +
-        "before despawning.")]
     private int pierce = 1;
-    [SerializeField]
     private float splashRange = 0.0f;
-    [SerializeField]
-    [Tooltip("Wether or not to reduce bullet damage proportional " +
-        "to lifetime remaining.")]
-    private bool damageDamping = false;
+    private float range;
+    private bool falloff = false;
 
     private Vector3 pos0;
 
@@ -52,16 +37,16 @@ public class Bullet : MonoBehaviour
 
     public virtual void SetUpBullet(Being source, GunInfo gunInfo) {
         this.source = source;
-        this.speed = gunInfo.bulletSpeed;
-        this.damage = gunInfo.damage;
-        this.knockback = gunInfo.knockback;
-        this.pierce = gunInfo.pierce;
+        speed = gunInfo.bulletSpeed;
+        damage = gunInfo.damage;
+        knockback = gunInfo.knockback;
+        pierce = gunInfo.pierce;
         splashRange = gunInfo.splashRange;
         range = gunInfo.range;
     }
 
     protected virtual void SetHitInfo() {
-        if (damageDamping)
+        if (falloff)
         {
             float dampFactor = 1 - (Vector3.Magnitude(pos0 -
                 transform.position) / range);
@@ -84,7 +69,8 @@ public class Bullet : MonoBehaviour
             return;
 
         if(other.tag == "PlayerFarmer"
-                && source.tag == "PlayerShooter") {
+            && source != null
+            && source.tag == "PlayerShooter") {
             return;
         }
 

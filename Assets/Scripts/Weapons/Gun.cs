@@ -37,8 +37,26 @@ public class Gun : MonoBehaviour
 
     public GameObject Fire()
     {
-        canFire_ = false;
-        return bullet;
+        if (CanFire())
+        {
+            canFire_ = false;
+
+            Vector3 position = transform.position;
+            GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
+            newBullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
+            AimBullet(newBullet);
+        }
+    }
+
+    private void AimBullet(GameObject bullet)
+    {
+        bullet.transform.rotation = transform.rotation;
+        float angle = (transform.rotation.eulerAngles.z
+            + Random.Range(-gunInfo.accuracy, gunInfo.accuracy)) * Mathf.Deg2Rad;
+        Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.velocity = direction * bullet.GetComponent<Bullet>().speed;
     }
 
     public void UpdateTimer()

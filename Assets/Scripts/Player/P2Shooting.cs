@@ -25,7 +25,7 @@ public class P2Shooting : MonoBehaviour
             gunMap.Add(gun.name, gun);
         }
 
-        EquipGun("BasicGun");
+        EquipGun("LaserCannon");
         //EquipGun("SuperGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
@@ -49,6 +49,13 @@ public class P2Shooting : MonoBehaviour
         Debug.DrawRay(mousePos, Vector3.right * 100, Color.red);
 
         guns[gunIdx].UpdateTimer();
+
+        // Help I don't know how the new input system works
+        // Fix this later
+        if (Input.GetMouseButton(0) && guns[gunIdx].gunInfo.fireType == GunInfo.FireType.Continuous)
+        {
+            guns[gunIdx].Fire();
+        }
     }
 
     public void Fire(InputAction.CallbackContext context)
