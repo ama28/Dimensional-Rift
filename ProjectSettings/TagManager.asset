@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Movable
   - PlayerFarmer
   - PlayerShooter
   - Player2

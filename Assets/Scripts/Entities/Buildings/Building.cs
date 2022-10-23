@@ -11,9 +11,13 @@ public class Building : Being
     private List<SpriteRenderer> spriteRenderers;
     private const float placeablePulseLength = 2.0f;
     
-    void Awake()
+    protected void Awake()
     {
         spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
+    }
+
+    protected virtual void Start() {
+        transform.SetParent(GameManager.Instance.BuildingManager.transform);
     }
 
     public void OnSelect() { //when building is chosen for placing

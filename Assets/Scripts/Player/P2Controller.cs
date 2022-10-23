@@ -30,19 +30,29 @@ public class P2Controller : PlayerShooter
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
-        Vector3 offset = new Vector3(collider.offset.x, collider.offset.y, 0);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, (collider.size.y / 2) + 0.1f, LayerMask.GetMask("Wall"));
-        grounded = hit.collider;
-        //checking edges of collider
-        if(!grounded) {
-            offset = new Vector3(collider.offset.x + collider.size.x/2, collider.offset.y, 0);
-            hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, (collider.size.y / 2) + 0.1f, LayerMask.GetMask("Wall"));
+
+        { //grounded check
+            Vector3 offset = new Vector3(collider.offset.x, collider.offset.y, 0);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, (collider.size.y / 2) + 0.1f, LayerMask.GetMask("Wall"));
             grounded = hit.collider;
-        }
-        if(!grounded) {
-            offset = new Vector3(collider.offset.x - collider.size.x/2, collider.offset.y, 0);
-            hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, (collider.size.y / 2) + 0.1f, LayerMask.GetMask("Wall"));
-            grounded = hit.collider;
+            //checking edges of collider
+            if(!grounded) {
+                offset = new Vector3(collider.offset.x + collider.size.x/2, collider.offset.y, 0);
+                hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, (collider.size.y / 2) + 0.1f, LayerMask.GetMask("Wall"));
+                grounded = hit.collider;
+            }
+            if(!grounded) {
+                offset = new Vector3(collider.offset.x - collider.size.x/2, collider.offset.y, 0);
+                hit = Physics2D.Raycast(transform.position + offset, -Vector2.up, (collider.size.y / 2) + 0.1f, LayerMask.GetMask("Wall"));
+                grounded = hit.collider;
+            }
+            
+            Debug.Log(grounded);
+            if(grounded) {
+                transform.SetParent(hit.transform);
+            } else {
+                transform.SetParent(null);
+            }
         }
     }
 
