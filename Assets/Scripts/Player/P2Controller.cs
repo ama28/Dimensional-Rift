@@ -5,26 +5,33 @@ using UnityEngine.InputSystem;
 
 public class P2Controller : PlayerShooter
 {
-    private SpriteRenderer sprite;
     private new BoxCollider2D collider;
     private bool grounded = false;
 
     private Vector2 moveDirection;
+    private Transform samSprite;
+
+    private Animator animator;
 
     // Start is called before the first frame update
     public override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sprite = gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
         collider = gameObject.transform.GetComponent<BoxCollider2D>();
+        samSprite = gameObject.transform.GetChild(0).GetComponent<Transform>();
     }
 
     private void Update()
     {
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        animator.SetBool("isGrounded", grounded);
+        
+        //flip sprite
         if (moveDirection.x > 0)
-            sprite.flipX = false;
+            samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 180, samSprite.eulerAngles.z);
         else if (moveDirection.x < 0)
-            sprite.flipX = true;
+            samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 0, samSprite.eulerAngles.z);
     }
 
     private void FixedUpdate()
@@ -65,7 +72,14 @@ public class P2Controller : PlayerShooter
     {
         if (context.performed && grounded)
         {
+            StartCoroutine(jumpTrigger());
             rb.velocity = new Vector2(rb.velocity.x, stats.jumpForce);
         }
+    }
+
+    IEnumerator jumpTrigger()
+    {
+        yield return new WaitForSeconds(0.01f);
+        animator.SetTrigger("Jump");
     }
 }
