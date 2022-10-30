@@ -31,6 +31,8 @@ public class GameManager : Singleton<GameManager>
 
     public int currency = 0;
 
+    public float samXPosition;
+
     //Events
     //These events will be called when the game state is changed. When an event is called, all subscribed
     //functions fire. To subscribe a function to an event, write "EventName += FnName" inside an OnEnable 
@@ -73,6 +75,7 @@ public class GameManager : Singleton<GameManager>
                 SetGameState(GameStateType.ActionPhase);
             }
         }
+        samXPosition = GameObject.FindGameObjectWithTag("PlayerShooter").transform.position.x;
     }
 
     //Fire proper events on state change

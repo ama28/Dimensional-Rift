@@ -49,14 +49,21 @@ Material:
     m_Floats:
     - _AlphaThreshold: 0
     - _Angle: 45
+    - _ColorMask: 15
     - _ConnectedAlpha: 0
     - _EnableExternalAlpha: 0
     - _OutlineEnabled: 1
     - _OutlineMode: 0
     - _OutlinePosition: 0
     - _OutlineShape: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _Thickness: 0.5
     - _TileMode: 0
+    - _UseUIAlphaClip: 0
     - _Weight: 0.526
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

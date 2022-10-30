@@ -49,8 +49,8 @@ public class P2Shooting : MonoBehaviour
         float rotZ = Vector2.SignedAngle(Vector2.right, rotation);
         transform.eulerAngles = new Vector3(0, 0, rotZ);
 
-        frontArm.transform.eulerAngles = new Vector3(0, 0, rotZ - 90);
-        backArm.transform.eulerAngles = new Vector3(0, 0, rotZ - 90);
+        frontArm.transform.eulerAngles = new Vector3(frontArm.transform.rotation.x, frontArm.transform.rotation.y, rotZ - 90);
+        backArm.transform.eulerAngles = new Vector3(backArm.transform.rotation.x, backArm.transform.rotation.y, rotZ - 90);
 
         Debug.DrawRay(mousePos, Vector3.right * 100, Color.red);
 
