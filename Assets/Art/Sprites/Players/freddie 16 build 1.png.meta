@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b66cd97f03906f14b8a9ffa84e841753
+guid: e354a993458954940a9f8d0a3141f5dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,47 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: freddie_build_0
+      name: freddie 16 build 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a67a2bfcd4fa3c4e809751abe0c84e5
-      internalID: -1004713559
+      spriteID: 07cde0e1cef354d15a12ab688ae6c850
+      internalID: -1399429027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_build_1
+      name: freddie 16 build 1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -176,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a90295bbe725dcf4497b965458fb770a
-      internalID: -717032307
+      spriteID: 17edb58bef1b0423593e479947136b0a
+      internalID: 184907070
       vertices: []
       indices: 
       edges: []
@@ -193,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      freddie_build_0: -1004713559
-      freddie_build_1: -717032307
+      freddie 16 build 1_0: -1399429027
+      freddie 16 build 1_1: 184907070
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08be74d9f498fd64f898be5c6feae418
+guid: f5fab4b0bdb8047a1b1b51c2d5f9246e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,47 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: freddie_lean_0
+      name: freddie_walk_new_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22aa8ba158280d140ac0ce782d1f7747
-      internalID: -949173339
+      spriteID: 5f4d77e677f52493c9bdbbc8eac421ee
+      internalID: 1029779332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_lean_1
+      name: freddie_walk_new_1
       rect:
         serializedVersion: 2
         x: 16
@@ -176,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 212e107ec4653104c97aad627b454a63
-      internalID: 1285500669
+      spriteID: 5b7f2e309905646d7bea1cbede818343
+      internalID: -352862242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_lean_2
+      name: freddie_walk_new_2
       rect:
         serializedVersion: 2
         x: 32
@@ -197,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aec3aac4eaa712d43b3ef8f36372b2c5
-      internalID: -1856909035
+      spriteID: a8215ebe4dd4b4d73bde8093d6eb4a1e
+      internalID: 1793118308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_lean_3
+      name: freddie_walk_new_3
       rect:
         serializedVersion: 2
         x: 0
@@ -218,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa9239669e7a5474d9a76644c3a1af8c
-      internalID: 1339739055
+      spriteID: 90585b580790b480ba2edeed9bc655a5
+      internalID: 919606619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_lean_4
+      name: freddie_walk_new_4
       rect:
         serializedVersion: 2
         x: 16
@@ -239,8 +203,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 436d477396719c042b680dbc6c176527
-      internalID: 1901596889
+      spriteID: 7dab007038b7c4bae8d9cbf9cef166cb
+      internalID: -815307422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: freddie_walk_new_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b4ff7b9f87f49758ccb753715e5dd0
+      internalID: -966186900
       vertices: []
       indices: 
       edges: []
@@ -256,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      freddie_lean_1: 1285500669
-      freddie_lean_4: 1901596889
-      freddie_lean_0: -949173339
-      freddie_lean_2: -1856909035
-      freddie_lean_3: 1339739055
+      freddie_walk_new_0: 1029779332
+      freddie_walk_new_2: 1793118308
+      freddie_walk_new_3: 919606619
+      freddie_walk_new_1: -352862242
+      freddie_walk_new_4: -815307422
+      freddie_walk_new_5: -966186900
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

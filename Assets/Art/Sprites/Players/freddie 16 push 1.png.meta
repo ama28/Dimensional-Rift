@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d90eaa3dc696e204ebad303f89e56ffd
+guid: 58d4f51b6e06844fd9ceec9ed771b71e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,47 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: freddie_walk_0
+      name: freddie 16 push 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca298377ffe328e4d93ca3e5ce1c2433
-      internalID: 312958686
+      spriteID: 0ac35f4d946854307815b85108c69025
+      internalID: -45226838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_walk_1
+      name: freddie 16 push 1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -176,35 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f18239ffcd398a409e72a5f407d89c0
-      internalID: 926519824
+      spriteID: 51c9a8b278bcf461188921d6059dd8f4
+      internalID: -236286269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: freddie_walk_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04a9319def4d3354dacf05ba0b49c893
-      internalID: 1206460607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: freddie_walk_3
+      name: freddie 16 push 1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -218,50 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06150f9dcdbd89548b1a1b9b8f03f793
-      internalID: 1573989852
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: freddie_walk_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49a6520094cc5cc4aa1ba6b8009156e1
-      internalID: -319399449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: freddie_walk_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3fac0914ff082e4e98e835966366260
-      internalID: -144401624
+      spriteID: 0c5dec03a02174cb28de71180598e712
+      internalID: 136129680
       vertices: []
       indices: 
       edges: []
@@ -277,12 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      freddie_walk_2: 1206460607
-      freddie_walk_0: 312958686
-      freddie_walk_3: 1573989852
-      freddie_walk_5: -144401624
-      freddie_walk_1: 926519824
-      freddie_walk_4: -319399449
+      freddie 16 push 1_0: -45226838
+      freddie 16 push 1_2: 136129680
+      freddie 16 push 1_1: -236286269
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
