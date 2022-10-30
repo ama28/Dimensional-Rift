@@ -66,14 +66,15 @@ public class ButtonVisuals : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     }
 
     IEnumerator ColorFade(Color color, float duration) {
-        // float elapsed = 0;
+        float elapsed = 0;
         image.color = color;
-        yield return new WaitForSeconds(duration);
+        //yield return new WaitForSeconds(duration);
 
-        // while(elapsed < duration) {
-        //     elapsed += Time.deltaTime;
-        //     yield return null;
-        // }
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
         image.color = Color.white;
     }
 
