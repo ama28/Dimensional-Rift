@@ -347,3 +347,57 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3301147449749824468, guid: f17d6c40d19ab43689111ad0588eee31, type: 3}
   m_PrefabInstance: {fileID: 1884163087}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3437243756928147525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3437243756127956042, guid: f17d6c40d19ab43689111ad0588eee31, type: 3}
+  m_PrefabInstance: {fileID: 1884163087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2006215682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437243756928147525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb043f5e9965c4cfbaa36def66238187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 1
+--- !u!1 &4427180407116543396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4427180406844832171, guid: f17d6c40d19ab43689111ad0588eee31, type: 3}
+  m_PrefabInstance: {fileID: 1884163087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &285503390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427180407116543396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb043f5e9965c4cfbaa36def66238187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 0
+--- !u!1 &8778699878329774047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8778699879675487184, guid: f17d6c40d19ab43689111ad0588eee31, type: 3}
+  m_PrefabInstance: {fileID: 1884163087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &292397680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778699878329774047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb043f5e9965c4cfbaa36def66238187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 1

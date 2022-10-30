@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateWithMouse : MonoBehaviour
+public class FlipWithMouse : MonoBehaviour
 {
     private Camera mainCam;
     public enum Target { body, arm, gun}
