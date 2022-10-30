@@ -74,6 +74,9 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        if (other.tag == source.tag)
+            return;
+
         if (other.layer == LayerMask.NameToLayer("Wall"))
         {
             // shot a wall :(
