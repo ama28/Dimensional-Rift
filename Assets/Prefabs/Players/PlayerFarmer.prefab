@@ -73,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 312958686, guid: d90eaa3dc696e204ebad303f89e56ffd, type: 3}
+  m_SortingOrder: 999
+  m_Sprite: {fileID: 1029779332, guid: f5fab4b0bdb8047a1b1b51c2d5f9246e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,16 +155,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  maxHealth: 6
   playerType: 0
   rb: {fileID: 0}
+  myHealth: {fileID: 0}
   stats:
     speed: 4
-    maxHealth: 6
     invulnerabilityTime: 1
   grabDetector: {fileID: 7550548916921027474}
   rayDist: 0.5
   rotationSpeed: 5000
-  isHolding: 0
 --- !u!50 &7550548916916877893
 Rigidbody2D:
   serializedVersion: 4
