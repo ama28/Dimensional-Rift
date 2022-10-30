@@ -25,7 +25,7 @@ public class P2Shooting : MonoBehaviour
             gunMap.Add(gun.name, gun);
         }
 
-        EquipGun("BasicGun");
+        EquipGun("LaserCannon");
         //EquipGun("SuperGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
@@ -52,7 +52,8 @@ public class P2Shooting : MonoBehaviour
 
         // Help I don't know how the new input system works
         // Fix this later
-        if (Input.GetMouseButton(0) && guns[gunIdx].gunInfo.fireType == GunInfo.FireType.Continuous)
+        if (Input.GetMouseButton(0) && guns[gunIdx].gunInfo.fireType == GunInfo.FireType.Continuous
+            && GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase)
         {
             guns[gunIdx].Fire();
         }
@@ -61,7 +62,7 @@ public class P2Shooting : MonoBehaviour
     public void Fire(InputAction.CallbackContext context)
     {
         if(context.performed) {
-            if(GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase && guns[gunIdx].CanFire()) {
+            if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
                 //fire
                 guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
