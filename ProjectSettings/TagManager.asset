@@ -8,6 +8,8 @@ TagManager:
   - PlayerShooter
   - Player2
   - ShopUI
+  - Movable
+  - Enemy
   layers:
   - Default
   - TransparentFX

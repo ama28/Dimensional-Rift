@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 5393616833037949063}
   - component: {fileID: 5393616833037949085}
   - component: {fileID: 5393616833037949083}
+  - component: {fileID: 7562454123915301180}
   m_Layer: 7
-  m_Name: HomingEnemy
-  m_TagString: Untagged
+  m_Name: MeleeEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5393616833037949060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b694a8a761c5742eaa4a41e29cc2aac1, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8759928, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 314810ec33844df448a334894ebef3f9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,7 +106,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.75
 --- !u!50 &5393616833037949082
 Rigidbody2D:
   serializedVersion: 4
@@ -168,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 2
-  height: 2
+  radius: 0.8
+  height: 0.8
   canMove: 1
   maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
@@ -226,3 +227,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   id: -1
+  meleeHit:
+    source: {fileID: 0}
+    sourcePos: {x: 0, y: 0, z: 0}
+    damage: 1
+    knockbackScalar: 3
+--- !u!95 &7562454123915301180
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393616833037949060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3eab1becd6c650f43b9056072d81d073, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

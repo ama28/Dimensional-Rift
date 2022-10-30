@@ -58,7 +58,8 @@ public class P2Shooting : MonoBehaviour
 
         // Help I don't know how the new input system works
         // Fix this later
-        if (Input.GetMouseButton(0) && guns[gunIdx].gunInfo.fireType == GunInfo.FireType.Continuous)
+        if (Input.GetMouseButton(0) && guns[gunIdx].gunInfo.fireType == GunInfo.FireType.Continuous
+            && GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase)
         {
             guns[gunIdx].Fire();
         }
@@ -67,7 +68,7 @@ public class P2Shooting : MonoBehaviour
     public void Fire(InputAction.CallbackContext context)
     {
         if(context.performed) {
-            if(GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase && guns[gunIdx].CanFire()) {
+            if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
                 //fire
                 guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
@@ -99,18 +100,5 @@ public class P2Shooting : MonoBehaviour
         newGun.gameObject.SetActive(false);
         guns.Add(newGun);
         return true;
-    }
-
-    private void AimBullet(GameObject bullet) { //TODO: add accuracy param
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        
-        Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        mousePos = mouseWorldPoint + (mainCam.transform.forward * 10.0f);
-        Vector3 direction = mousePos - bullet.transform.position;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * bullet.GetComponent<Bullet>().speed;
-
-        Vector3 rotation = bullet.transform.position - mousePos;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        bullet.transform.rotation = Quaternion.Euler(0, 0, rotZ + 90);
     }
 }

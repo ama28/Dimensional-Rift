@@ -51,12 +51,12 @@ MonoBehaviour:
     range: 99999
     falloff: 0
     damage: 1
-    bulletSpeed: 100
+    bulletSpeed: 90
     knockback: 0
-    pierce: 99999
+    pierce: 5
     splashRange: 0
     accuracy: 0
-  bullet: {fileID: 4691203068273349001, guid: 65b11ca13c8fce83291bbb2eb844b017, type: 3}
+  bullet: {fileID: 4691203068273349001, guid: 33661ec810df82a47a099fdbbb43d120, type: 3}
   owner: {fileID: 0}
 --- !u!212 &6796674200991469289
 SpriteRenderer:

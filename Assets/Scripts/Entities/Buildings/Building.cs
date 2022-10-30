@@ -36,6 +36,14 @@ public class Building : Being
         StopCoroutine("PlacementAnim");
         spriteRenderers.ForEach(x => x.color = Color.white);
         spriteRenderers.ForEach(x => x.sortingOrder = 1);
+        UpdateGraph();
+    }
+
+    protected virtual void UpdateGraph()
+    {
+        // https://arongranberg.com/astar/documentation/4_0_9_2cdcee7/graph-updates.php
+        AstarPath.active.UpdateGraphs(new Bounds(transform.position,
+            new Vector3(size.x + 1, size.y + 1)));
     }
 
     public void SetPlaceable(bool placeable) { //visuals to show is building is valid or not

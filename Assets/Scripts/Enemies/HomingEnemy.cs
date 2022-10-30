@@ -7,7 +7,8 @@ public class HomingEnemy : Enemy
 {
     protected AIPath aiPath;
     protected PlayerFarmer target;
-
+    
+    [SerializeField]
     protected HitInfo meleeHit = new HitInfo() {
         damage = 1f, 
         knockbackScalar = 3f
@@ -45,7 +46,7 @@ public class HomingEnemy : Enemy
     }
 
     // damaging player (melee)
-    protected void OnCollisionEnter2D(Collision2D collision) {
+    protected void OnCollisionStay2D(Collision2D collision) {
         if(collision.gameObject.CompareTag(target.tag)) {
             target.TakeDamage(meleeHit);
         }

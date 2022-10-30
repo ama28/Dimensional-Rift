@@ -64,12 +64,14 @@ public class P1Controller : PlayerFarmer
 
                 stats.speed += 2;
                 heldObject = null;
+                animator.SetBool("Push", false);
                 Debug.Log("object dropped");
             } else if (context.started)
             {
                 heldObject.OnInteract(this);
 
                 stats.speed -= 2;
+                animator.SetBool("Push", true);
                 Debug.Log("object picked up");
             }
         }
