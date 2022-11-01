@@ -65,6 +65,7 @@ public class BuildingManager : MonoBehaviour
     }
 
     public void OnPlaceButton() {
+        Debug.Log("Place: " +  IsBuildingValid(currentBuilding, mousePosTile));
         if(IsBuildingValid(currentBuilding, mousePosTile)) {
             PlaceBuilding(currentBuilding.gameObject, mousePosTile);
             currentBuilding.OnPlace();

@@ -50,5 +50,5 @@ MonoBehaviour:
   buildingPrefab: {fileID: 9123086491540199019, guid: 2d8c338726fcc427c9439abda118450f, type: 3}
   currentBuilding: {fileID: 0}
   startBuildings:
-  - {fileID: 5662027673082222702, guid: 240ebfdf0efd54b0eb02d2e2fed138e5, type: 3}
-  - {fileID: 6778941435106925443, guid: 2d8c338726fcc427c9439abda118450f, type: 3}
+  - {fileID: 2574131564737857147, guid: 240ebfdf0efd54b0eb02d2e2fed138e5, type: 3}
+  - {fileID: 114107105830370665, guid: 2d8c338726fcc427c9439abda118450f, type: 3}

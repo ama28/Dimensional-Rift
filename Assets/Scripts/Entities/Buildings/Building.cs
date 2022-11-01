@@ -20,18 +20,18 @@ public class Building : Being
         transform.SetParent(GameManager.Instance.BuildingManager.transform);
     }
 
-    public void OnSelect() { //when building is chosen for placing
+    public virtual void OnSelect() { //when building is chosen for placing
         gameObject.SetActive(true);
         StartCoroutine("PlacementAnim");
         spriteRenderers.ForEach(x => x.sortingOrder = 2);
     }
 
-    public void OnDeselect() { //when a different building is chosen for placing
+    public virtual void OnDeselect() { //when a different building is chosen for placing
         gameObject.SetActive(false);
         StopCoroutine("PlacementAnim");
     }
 
-    public void OnPlace() { //when building is placed
+    public virtual void OnPlace() { //when building is placed
         gameObject.SetActive(true);
         StopCoroutine("PlacementAnim");
         spriteRenderers.ForEach(x => x.color = Color.white);
