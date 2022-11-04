@@ -1056,6 +1056,7 @@ GameObject:
   - component: {fileID: 4221929764238170141}
   - component: {fileID: 4221929764238170146}
   - component: {fileID: 4221929764238170147}
+  - component: {fileID: 6416895206853772390}
   m_Layer: 0
   m_Name: noarms
   m_TagString: Untagged
@@ -1198,6 +1199,19 @@ MonoBehaviour:
   m_SolverEditorData:
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
+--- !u!114 &6416895206853772390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427180406844832171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb043f5e9965c4cfbaa36def66238187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 0
 --- !u!1 &4445325506919422973
 GameObject:
   m_ObjectHideFlags: 0

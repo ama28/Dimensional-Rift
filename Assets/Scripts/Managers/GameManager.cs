@@ -40,6 +40,7 @@ public class GameManager : Singleton<GameManager>
     public static event Action OnBuildPhaseStart;
     public static event Action<Wave> OnActionPhaseStart;
     public static event Action OnGameOver;
+    public static event Action OnMainMenu;
     public static event Action OnRestart; //should only be used to destroy singletons
 
     public PlayerFarmer playerFarmer;
@@ -85,6 +86,7 @@ public class GameManager : Singleton<GameManager>
         switch(newState) {
             case(GameStateType.MainMenu): {
                 //TODO: load menu scene
+                OnMainMenu?.Invoke();
                 break;
             }
             case(GameStateType.BuildPhase): {

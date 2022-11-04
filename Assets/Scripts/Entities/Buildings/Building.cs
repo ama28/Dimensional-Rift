@@ -8,16 +8,20 @@ public class Building : Being
     public Vector2Int size;
     public bool collidable;
 
+    private new List<Collider2D> colliders;
     private List<SpriteRenderer> spriteRenderers;
     private const float placeablePulseLength = 2.0f;
     
     protected void Awake()
     {
         spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
+        colliders = new List<Collider2D>(GetComponentsInChildren<Collider2D>());
     }
 
     protected virtual void Start() {
         transform.SetParent(GameManager.Instance.BuildingManager.transform);
+        //disable colliders while placing
+        colliders.ForEach(x => x.enabled = false);
     }
 
     public virtual void OnSelect() { //when building is chosen for placing
@@ -33,6 +37,8 @@ public class Building : Being
 
     public virtual void OnPlace() { //when building is placed
         gameObject.SetActive(true);
+        //enable colliders after placing
+        colliders.ForEach(x => x.enabled = true);
         StopCoroutine("PlacementAnim");
         spriteRenderers.ForEach(x => x.color = Color.white);
         spriteRenderers.ForEach(x => x.sortingOrder = 1);
