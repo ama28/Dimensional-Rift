@@ -13,6 +13,11 @@ public class Farm : Building
 
     [SerializeField] private FarmStats stats;
     
+    [Header("Sprites")]
+    [SerializeField] private Sprite startSprite;
+    [SerializeField] private Sprite growingSprite;
+    [SerializeField] private Sprite grownSprite;
+    
     private int roundsSinceHarvest = 0;
 
     protected virtual void OnEnable() {
@@ -32,22 +37,24 @@ public class Farm : Building
     }
 
     protected virtual void OnActionPhaseStart(Wave wave) {
-
+        spriteRenderers[0].sprite = growingSprite;
     }
 
     protected virtual void OnBuildPhaseStart() {
+        Debug.Log("starting");
         roundsSinceHarvest++;
-        if(roundsSinceHarvest < stats.roundsToHarvest) {
-            OnHarvest();
+        if(roundsSinceHarvest >= stats.roundsToHarvest) {
+            StartCoroutine(OnHarvest());
+            roundsSinceHarvest = 0;
         }
     }
 
-    protected virtual void OnHarvest() {
+    protected IEnumerator OnHarvest() {
+        spriteRenderers[0].sprite = grownSprite;
+        yield return new WaitForSeconds(Random.Range(1, 2.5f));
         GameManager.Instance.currency += stats.coinsOnHarvest;
-    }
-
-    protected IEnumerator HarvestAnim() {
         //show small + (coin sprite) x coinsOnHarvest ?
+        spriteRenderers[0].sprite = startSprite;
         yield return null;
     }
 }

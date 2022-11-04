@@ -25,10 +25,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9123086491540199019}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 2.580744, y: 2.6208236, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 6.26, y: 6.26, z: 6.26}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec0019d9b74584f1492b00d13b645fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,3 +105,6 @@ MonoBehaviour:
     roundsToHarvest: 1
     maxHealth: 50
     coinsOnHarvest: 5
+  startSprite: {fileID: 21300000, guid: ec0019d9b74584f1492b00d13b645fd3, type: 3}
+  growingSprite: {fileID: 21300000, guid: feff5811065994e079e765105ed55307, type: 3}
+  grownSprite: {fileID: 21300000, guid: 5a8878006e5ea44ea91bff7372881532, type: 3}

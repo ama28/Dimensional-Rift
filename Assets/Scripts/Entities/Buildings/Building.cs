@@ -8,8 +8,8 @@ public class Building : Being
     public Vector2Int size;
     public bool collidable;
 
-    private new List<Collider2D> colliders;
-    private List<SpriteRenderer> spriteRenderers;
+    protected List<Collider2D> colliders;
+    protected List<SpriteRenderer> spriteRenderers;
     private const float placeablePulseLength = 2.0f;
     
     protected void Awake()
@@ -64,7 +64,7 @@ public class Building : Being
         float timeElapsed = 0;
         while(true) {
             timeElapsed += Time.deltaTime;
-            float alpha = (Mathf.Sin(timeElapsed * (1/placeablePulseLength) * 2 * Mathf.PI) / 2) + 0.5f;
+            float alpha = ((Mathf.Sin(timeElapsed * (1/placeablePulseLength) * 2 * Mathf.PI) / 2) + 0.5f) / 1.2f;
             Color newColor = new Color(spriteRenderers[0].color.r, spriteRenderers[0].color.g, spriteRenderers[0].color.b, alpha);
             spriteRenderers.ForEach(x => x.color = newColor);
             yield return null;
