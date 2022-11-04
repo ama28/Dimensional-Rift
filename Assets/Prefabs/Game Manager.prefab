@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 4130308418264364608}
   - component: {fileID: 4130308418264364639}
   - component: {fileID: 4130308418264364609}
-  - component: {fileID: 8143043350787252314}
   - component: {fileID: 3739744212056761606}
   m_Layer: 0
   m_Name: Game Manager
@@ -84,7 +83,6 @@ MonoBehaviour:
   BuildingManager: {fileID: 0}
   waveList: {fileID: 11400000, guid: dea95d0e56d5a45b2b4592e470286870, type: 2}
   currency: 0
-  samXPosition: 0
   playerFarmer: {fileID: 0}
   playerShooter: {fileID: 0}
 --- !u!114 &4130308418264364609
@@ -113,19 +111,6 @@ MonoBehaviour:
     maxCoinTotal: 1
     coinSpawnTimer: 3
   instanced: []
---- !u!114 &8143043350787252314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4130308418264364610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdac53948ed44356b90d57c7a18b782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DontDestroy: 0
 --- !u!114 &3739744212056761606
 MonoBehaviour:
   m_ObjectHideFlags: 0

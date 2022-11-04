@@ -56,7 +56,7 @@ public class ButtonVisuals : MonoBehaviour, IPointerClickHandler, IPointerEnterH
             text.color = colors[Random.Range(0, colors.Count)];
             delayTime += delayIncrease;
             timeElapsed += delayTime;
-            yield return new WaitForSeconds(delayTime);
+            yield return new WaitForSecondsRealtime(delayTime);
         }
         fontInfo = fonts[0];
         text.font = fontInfo.font;

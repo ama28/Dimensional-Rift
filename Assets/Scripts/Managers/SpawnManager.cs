@@ -27,6 +27,10 @@ public class SpawnManager : MonoBehaviour
         instanced = new List<Enemy>();
     }
 
+    void Update() {
+        Debug.Log(instanced.Count);
+    }
+
     //Start wave when action phase starts
     void OnEnable() {
         GameManager.OnActionPhaseStart += StartWave;
@@ -78,10 +82,9 @@ public class SpawnManager : MonoBehaviour
         Enemy newEnemy = Instantiate(enemy, _sp.position, _sp.rotation);
         newEnemy.id = spawnCounter; //give enemies an id so when they die we can remove more easily
         instanced.Add(newEnemy); 
-        Debug.Log(newEnemy.health);
      }
 
     void OnRestart() {
-        instanced = new List<Enemy>();
+        instanced.Clear();
     }
  }

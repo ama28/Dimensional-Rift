@@ -31,8 +31,6 @@ public class GameManager : Singleton<GameManager>
 
     public int currency = 0;
 
-    public float samXPosition;
-
     //Events
     //These events will be called when the game state is changed. When an event is called, all subscribed
     //functions fire. To subscribe a function to an event, write "EventName += FnName" inside an OnEnable 
@@ -47,13 +45,19 @@ public class GameManager : Singleton<GameManager>
     public PlayerShooter playerShooter;
 
     public override void Awake() {
+        if(SceneManager.GetActiveScene().name == "MainScene") {
+            MainSceneSetup();
+        }
         base.Awake();
-        playerFarmer = FindObjectOfType<PlayerFarmer>();
-        playerShooter = FindObjectOfType<PlayerShooter>();
     }
 
-    void Start() {
-        SetGameState(GameStateType.BuildPhase);
+    void MainSceneSetup() {
+        //these use the GameManager.Instance because they'll be running in the Awake() of the instance that will be deleted
+        GameManager.Instance.playerFarmer = FindObjectOfType<PlayerFarmer>();
+        GameManager.Instance.playerShooter = FindObjectOfType<PlayerShooter>();
+        GameManager.Instance.spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
+        GameManager.Instance.BuildingManager = FindObjectOfType<BuildingManager>();
+        GameManager.Instance.SetGameState(GameStateType.BuildPhase);
         Time.timeScale = 1f;
     }
 
@@ -62,9 +66,14 @@ public class GameManager : Singleton<GameManager>
         level = 0;
         OnRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        playerFarmer = FindObjectOfType<PlayerFarmer>();
-        playerShooter = FindObjectOfType<PlayerShooter>();
-        SetGameState(GameStateType.BuildPhase);
+    }
+
+    //TODO: make one function, am currently too lazy to replace the inspector references
+    public void StartGame() {
+        currency = 0;
+        level = 0;
+        OnRestart?.Invoke();
+        SceneManager.LoadScene("MainScene");
     }
 
     void Update() {
@@ -76,7 +85,6 @@ public class GameManager : Singleton<GameManager>
                 SetGameState(GameStateType.ActionPhase);
             }
         }
-        samXPosition = GameObject.FindGameObjectWithTag("PlayerShooter").transform.position.x;
     }
 
     //Fire proper events on state change
@@ -86,7 +94,7 @@ public class GameManager : Singleton<GameManager>
         gameState = newState;
         switch(newState) {
             case(GameStateType.MainMenu): {
-                //TODO: load menu scene
+                SceneManager.LoadScene("MainMenu");
                 OnMainMenu?.Invoke();
                 break;
             }
@@ -104,6 +112,6 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
         }
-
     }
+
 }

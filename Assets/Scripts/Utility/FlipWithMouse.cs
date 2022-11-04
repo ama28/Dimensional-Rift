@@ -19,7 +19,7 @@ public class FlipWithMouse : MonoBehaviour
     void Update()
     {
         Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        pos = GameManager.Instance.samXPosition + 1;
+        pos = GameManager.Instance.playerShooter.transform.position.x + 1;
 
         switch (target)
         {
