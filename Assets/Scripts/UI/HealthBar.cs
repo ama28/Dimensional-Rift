@@ -20,6 +20,7 @@ public class HealthBar : MonoBehaviour
         if (type == barType.health)
             healthBarImage.fillAmount = Mathf.Clamp(playerFarmer.health / playerFarmer.maxHealth, 0, 1f);
         else if (type == barType.enemies)
-            healthBarImage.fillAmount = Mathf.Clamp(playerFarmer.health / playerFarmer.maxHealth, 0, 1f);
+            healthBarImage.fillAmount = Mathf.Clamp(1 - GameManager.Instance.spawnManager.currentWave.GetTotalEnemyCount() / GameManager.Instance.spawnManager.currentWave.enemies.Count, 0, 1f);
+        Debug.Log(GameManager.Instance.spawnManager.currentWave.GetTotalEnemyCount());
     }
 }

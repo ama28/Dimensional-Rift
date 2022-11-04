@@ -10,6 +10,7 @@ TagManager:
   - ShopUI
   - Movable
   - Enemy
+  - MainUI
   layers:
   - Default
   - TransparentFX

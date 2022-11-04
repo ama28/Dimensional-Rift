@@ -6,13 +6,16 @@ public class BuildingManager : MonoBehaviour
 {
     [SerializeField]
     Grid grid;
-    private List<GameObject> inventory = new List<GameObject>();
+    public List<GameObject> inventory = new List<GameObject>();
     public List<Building> currentBuildings;
     public int margin;
 
     public GameObject buildingPrefab;
     public Building currentBuilding;
-    public List<Building> startBuildings; 
+    public List<Building> startBuildings;
+
+    public List<GameObject> buildingUIPrefabs;
+    public Transform buildingUILayout;
 
     private Vector2Int mousePosTile;
 
@@ -56,10 +59,10 @@ public class BuildingManager : MonoBehaviour
     }
 
     void OnBuildPhaseStart() {
-        //TODO: Show UI
         if(inventory.Count > 0) {
             currentBuilding = inventory[0].GetComponent<Building>();
-        } else {
+        }
+        else {
             currentBuilding = null;
         }
     }
@@ -106,9 +109,11 @@ public class BuildingManager : MonoBehaviour
         building.GetComponent<Building>().OnPlace();
         currentBuildings.Add(building.GetComponent<Building>());
         inventory.Remove(building);
+        Destroy(buildingUILayout.GetChild(0).gameObject);
     }
 
     public void AddBuildingToInventory(GameObject buildingPrefab) {
+        buildingUILayout = GameManager.Instance.mainUI.transform.Find("Buildings");
         GameObject newBuildingPrefab = Instantiate(buildingPrefab);
         newBuildingPrefab.name += Random.Range(0, 100);
         inventory.Add(newBuildingPrefab);
@@ -117,6 +122,23 @@ public class BuildingManager : MonoBehaviour
             currentBuilding.OnSelect();
         } else {
             newBuildingPrefab.GetComponent<Building>().OnDeselect();
+        }
+
+        //UI
+        switch (buildingPrefab.GetComponent<Building>().type)
+        {
+            case Building.buildingType.farm:
+                Instantiate(buildingUIPrefabs[0], buildingUILayout);
+                break;
+            case Building.buildingType.movPlat:
+                Instantiate(buildingUIPrefabs[1], buildingUILayout);
+                break;
+            case Building.buildingType.statPlat:
+                Instantiate(buildingUIPrefabs[2], buildingUILayout);
+                break;
+            case Building.buildingType.tree:
+                Instantiate(buildingUIPrefabs[3], buildingUILayout);
+                break;
         }
     }
 

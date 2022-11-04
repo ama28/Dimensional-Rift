@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Building : Being
 {
+    public enum buildingType { movPlat, statPlat, farm, tree }
+    public buildingType type;
+
     public Vector2Int coordinates; //within the grid, the bottom left square
     public Vector2Int size;
     public bool collidable;

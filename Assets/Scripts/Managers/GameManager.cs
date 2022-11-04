@@ -44,6 +44,8 @@ public class GameManager : Singleton<GameManager>
     public PlayerFarmer playerFarmer;
     public PlayerShooter playerShooter;
 
+    public GameObject mainUI;
+
     public override void Awake() {
         if(SceneManager.GetActiveScene().name == "MainScene") {
             MainSceneSetup();
@@ -58,6 +60,7 @@ public class GameManager : Singleton<GameManager>
         GameManager.Instance.spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
         GameManager.Instance.BuildingManager = FindObjectOfType<BuildingManager>();
         GameManager.Instance.SetGameState(GameStateType.BuildPhase);
+        GameManager.Instance.mainUI = GameObject.FindGameObjectWithTag("MainUI");
         Time.timeScale = 1f;
     }
 
