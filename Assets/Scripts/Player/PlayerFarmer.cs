@@ -28,7 +28,7 @@ public class PlayerFarmer : Player
             StartCoroutine(Invulnerability());
 
             myHealth.UpdateHealthBar();
-            if(health < 0) {
+            if(health <= 0) {
                 GameManager.Instance.SetGameState(GameManager.GameStateType.GameOver);
             }
         }
