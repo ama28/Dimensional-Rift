@@ -68,6 +68,7 @@ public class P2Shooting : MonoBehaviour
     public void Fire(InputAction.CallbackContext context)
     {
         if(context.performed) {
+            Debug.Log("Mouse clicked!");
             if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
                 //fire
                 guns[gunIdx].Fire();
