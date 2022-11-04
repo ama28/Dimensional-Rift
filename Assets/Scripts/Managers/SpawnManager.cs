@@ -27,10 +27,6 @@ public class SpawnManager : MonoBehaviour
         instanced = new List<Enemy>();
     }
 
-    void Update() {
-        Debug.Log(instanced.Count);
-    }
-
     //Start wave when action phase starts
     void OnEnable() {
         GameManager.OnActionPhaseStart += StartWave;

@@ -26,6 +26,7 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     public void StartMusic() {
+        Debug.Log("????");
         StopMusic();
         //switch music using game state
         string eventString;

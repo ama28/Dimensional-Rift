@@ -52,5 +52,4 @@ public class PlayerFarmer : Player
         invulnerable = false;
     }
 
-
 }
