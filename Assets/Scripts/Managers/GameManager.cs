@@ -83,6 +83,7 @@ public class GameManager : Singleton<GameManager>
     public void SetGameState(GameStateType newState) {
         if(newState == gameState) return;
 
+        gameState = newState;
         switch(newState) {
             case(GameStateType.MainMenu): {
                 //TODO: load menu scene
@@ -104,6 +105,5 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        gameState = newState;
     }
 }
