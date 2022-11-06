@@ -24,7 +24,15 @@ namespace UI {
         void SetPaused(bool paused) 
         {
             canvas.enabled = paused;
-            //todo: actually pause stuff
+            if (paused)
+                Time.timeScale = 0f;
+            else
+                Time.timeScale = 1f;
+        }
+
+        public void Resume()
+        {
+            SetPaused(false);
         }
     }
 }

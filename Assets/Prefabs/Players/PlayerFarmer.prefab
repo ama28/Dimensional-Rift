@@ -162,6 +162,7 @@ MonoBehaviour:
   stats:
     speed: 4
     invulnerabilityTime: 1
+  spriteRenderer: {fileID: 2991813378053330874}
   grabDetector: {fileID: 7550548916921027474}
   rayDist: 0.5
   rotationSpeed: 5000

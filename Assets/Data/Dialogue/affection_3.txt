@@ -1,0 +1,51 @@
+S:: How come I've never seen any of your friends about here?
+F:: Oh, I don't know if I have that many here. It's usually just me and the farm!
+S:: No one helps you here?
+F:: No! I'm in charge of all of it. It's calming to have chores to turn back to.
+S:: Sorry for rocking the boat, then, huh? Really messed up your whole stability thing.
+F:: It's alright! It's scary, but it's also nice having someone to talk to.
+S:: ... same.
+--
+F:: I've been wondering something. Are you not hungry? I could make you something - do you have a favorite?
+S:: I don't think you could make my favorite food here-
+F:: I'm not that bad a chef, Sam! Try me!
+S:: Frieda, I'm not doubting your ability, but I don't think you can make a Kedgem-01 here.
+F:: A ... what is that?
+S:: It's nanotech from some of those monsters we keep fighting, mixed with gallium. Nice bitterness to it-
+F:: Wait, you can eat them!? It's all metal and lightning in them, isn't it? You can't eat that!
+S:: See, I told you, you wouldn't get it. Things are different where I come from.
+--
+F:: What do you do when you aren't fighting and shooting?
+S:: It's really most of what I do. Mercenary work pays well but it comes with risk.
+F:: But what about when you're not? Surely it's not always ...
+S:: ... well, I like staring at the city skyline. Makes you feel insignificant, but ... in a good way.
+S:: You think about your place in the grand scheme of things and realize that nothing you do matters.
+F:: But that's so sad!
+S:: Maybe. But it's also freeing. Makes things feel less like a life and death matter.
+S:: Even if they are.
+--
+S:: You know, you might be safer if you wear some of this armor.
+F:: I, uh ... I don't know how to feel about that, Sam. It doesn't seem easy to move in.
+S:: It's easier than you think - I can get Xyzzy to get you some augments, they dig into the skin painlessly-
+F:: Dig into the skin?! Do you mean I can't take it out once I've worn it?
+S:: A small price for safety.
+F:: ... is that why you don't take your helmet off? Because you can't?
+S:: ...
+F:: I ... thank you for the offer, Sam, but ... my farm's too precious to me to cut off all of this away.
+--
+F:: What's your star sign?
+S:: My .. what now?
+F:: Yeah! A star sign! I'm a Leo. What about you?
+S:: I ... I don't know my star sign. I had a call sign, though - Delta Echo IV Romeo.
+F:: That doesn't sound like a constellation, I think ...
+S:: I don't think it is. It's just what was used to address me when I was in the military.
+F:: You're a soldier?
+S:: Was. Glad to not be called that anymore, though. I prefer Sam.
+--
+F:: What are your friends like?
+S:: My friends? Uh ... not that many, to be honest. I cut a lot of ties before moving into this line of work.
+F:: Oh. Why?
+S:: Let's just say that they weren't really the best of friends. I was better off without them.
+F:: That's not fair to you at all! From now on, I'm going to be your friend. You deserve a good one!
+S:: ... thanks. I'll try too. You've been very tolerant of me, so I appreciate it.
+

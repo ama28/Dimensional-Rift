@@ -8,6 +8,8 @@ public class P2Controller : PlayerShooter
     private new BoxCollider2D collider;
     private bool grounded = false;
 
+    private Camera mainCam;
+
     private Vector2 moveDirection;
     private Transform samSprite;
 
@@ -16,6 +18,7 @@ public class P2Controller : PlayerShooter
     // Start is called before the first frame update
     public override void Start()
     {
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         collider = gameObject.transform.GetComponent<BoxCollider2D>();
@@ -24,14 +27,16 @@ public class P2Controller : PlayerShooter
 
     private void Update()
     {
+        Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         animator.SetBool("isGrounded", grounded);
         
         //flip sprite
-        if (moveDirection.x > 0)
-            samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 180, samSprite.eulerAngles.z);
-        else if (moveDirection.x < 0)
-            samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 0, samSprite.eulerAngles.z);
+        //if (mouseWorldPoint.x > transform.position.x + 1)
+        //    samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 180, samSprite.eulerAngles.z);
+        //else if (mouseWorldPoint.x < transform.position.x + 1)
+        //    samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 0, samSprite.eulerAngles.z);
     }
 
     private void FixedUpdate()

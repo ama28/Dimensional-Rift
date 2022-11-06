@@ -10,6 +10,7 @@ TagManager:
   - ShopUI
   - Movable
   - Enemy
+  - MainUI
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TopOfScreen
+    uniqueID: 1244119597
     locked: 0

@@ -46,11 +46,13 @@ public class P1Controller : PlayerFarmer
 
     public void Move(InputAction.CallbackContext context)
     {
+        Debug.Log("wasd");
         moveDirection = context.ReadValue<Vector2>();
     }
 
     public void Interact(InputAction.CallbackContext context)
     {
+        Debug.Log("space");
         RaycastHit2D grabCheck = Physics2D.Raycast(grabDetector.position, Vector2.up * transform.localScale, rayDist);
 
         if(grabCheck && grabCheck.transform.GetComponent<Interactable>() != null) {

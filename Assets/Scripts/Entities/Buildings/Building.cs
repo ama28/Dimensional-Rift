@@ -4,35 +4,44 @@ using UnityEngine;
 
 public class Building : Being
 {
+    public enum buildingType { movPlat, statPlat, farm, tree }
+    public buildingType type;
+
     public Vector2Int coordinates; //within the grid, the bottom left square
     public Vector2Int size;
     public bool collidable;
 
-    private List<SpriteRenderer> spriteRenderers;
+    protected List<Collider2D> colliders;
+    protected List<SpriteRenderer> spriteRenderers;
     private const float placeablePulseLength = 2.0f;
     
     protected void Awake()
     {
         spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
+        colliders = new List<Collider2D>(GetComponentsInChildren<Collider2D>());
     }
 
     protected virtual void Start() {
         transform.SetParent(GameManager.Instance.BuildingManager.transform);
+        //disable colliders while placing
+        colliders.ForEach(x => x.enabled = false);
     }
 
-    public void OnSelect() { //when building is chosen for placing
+    public virtual void OnSelect() { //when building is chosen for placing
         gameObject.SetActive(true);
         StartCoroutine("PlacementAnim");
         spriteRenderers.ForEach(x => x.sortingOrder = 2);
     }
 
-    public void OnDeselect() { //when a different building is chosen for placing
+    public virtual void OnDeselect() { //when a different building is chosen for placing
         gameObject.SetActive(false);
         StopCoroutine("PlacementAnim");
     }
 
-    public void OnPlace() { //when building is placed
+    public virtual void OnPlace() { //when building is placed
         gameObject.SetActive(true);
+        //enable colliders after placing
+        colliders.ForEach(x => x.enabled = true);
         StopCoroutine("PlacementAnim");
         spriteRenderers.ForEach(x => x.color = Color.white);
         spriteRenderers.ForEach(x => x.sortingOrder = 1);
@@ -58,7 +67,7 @@ public class Building : Being
         float timeElapsed = 0;
         while(true) {
             timeElapsed += Time.deltaTime;
-            float alpha = (Mathf.Sin(timeElapsed * (1/placeablePulseLength) * 2 * Mathf.PI) / 2) + 0.5f;
+            float alpha = ((Mathf.Sin(timeElapsed * (1/placeablePulseLength) * 2 * Mathf.PI) / 2) + 0.5f) / 1.2f;
             Color newColor = new Color(spriteRenderers[0].color.r, spriteRenderers[0].color.g, spriteRenderers[0].color.b, alpha);
             spriteRenderers.ForEach(x => x.color = newColor);
             yield return null;

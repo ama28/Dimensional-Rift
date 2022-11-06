@@ -12,9 +12,10 @@ public class PlayerFarmer : Player
     }
 
     public FarmerStats stats = new FarmerStats();
+    public SpriteRenderer spriteRenderer;
 
     public virtual void Start() {
-        Debug.Log(stats);
+        
     }
 
     public override void TakeDamage(HitInfo hit) {
@@ -28,15 +29,27 @@ public class PlayerFarmer : Player
             StartCoroutine(Invulnerability());
 
             myHealth.UpdateHealthBar();
+            if(health <= 0) {
+                GameManager.Instance.SetGameState(GameManager.GameStateType.GameOver);
+            }
         }
     }
 
     IEnumerator Invulnerability() {
         invulnerable = true;
-        //TODO: blink sprite while invulnerable
-        yield return new WaitForSeconds(stats.invulnerabilityTime);
+
+        float timeElapsed = 0;
+        float blinkTime = 0.15f;
+        float blinkCoefficient = 0.85f;
+        while(timeElapsed < stats.invulnerabilityTime) {
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            blinkTime = Mathf.Max(blinkTime * blinkCoefficient, 2 * Time.deltaTime);
+            timeElapsed += blinkTime;
+            Debug.Log(timeElapsed);
+            yield return new WaitForSeconds(blinkTime);
+        }
+        spriteRenderer.enabled = true;
         invulnerable = false;
     }
-
 
 }

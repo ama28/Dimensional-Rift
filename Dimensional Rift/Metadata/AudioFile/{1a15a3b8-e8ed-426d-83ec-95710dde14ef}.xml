@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1a15a3b8-e8ed-426d-83ec-95710dde14ef}">
+		<property name="assetPath">
+			<value>Grifters.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>117.36816326530612</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3548ecec-3b23-4eb2-840e-208bd7149baa}</destination>
+		</relationship>
+	</object>
+</objects>

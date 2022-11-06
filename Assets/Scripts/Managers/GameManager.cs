@@ -38,30 +38,45 @@ public class GameManager : Singleton<GameManager>
     public static event Action OnBuildPhaseStart;
     public static event Action<Wave> OnActionPhaseStart;
     public static event Action OnGameOver;
+    public static event Action OnMainMenu;
     public static event Action OnRestart; //should only be used to destroy singletons
 
     public PlayerFarmer playerFarmer;
     public PlayerShooter playerShooter;
 
+    public GameObject mainUI;
+
     public override void Awake() {
+        if(SceneManager.GetActiveScene().name == "MainScene") {
+            MainSceneSetup();
+        }
         base.Awake();
-        playerFarmer = FindObjectOfType<PlayerFarmer>();
-        playerShooter = FindObjectOfType<PlayerShooter>();
     }
 
-    void Start() {
-        SetGameState(GameStateType.BuildPhase);
+    void MainSceneSetup() {
+        //these use the GameManager.Instance because they'll be running in the Awake() of the instance that will be deleted
+        GameManager.Instance.playerFarmer = FindObjectOfType<PlayerFarmer>();
+        GameManager.Instance.playerShooter = FindObjectOfType<PlayerShooter>();
+        GameManager.Instance.spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
+        GameManager.Instance.BuildingManager = FindObjectOfType<BuildingManager>();
+        GameManager.Instance.SetGameState(GameStateType.BuildPhase);
+        GameManager.Instance.mainUI = GameObject.FindGameObjectWithTag("MainUI");
         Time.timeScale = 1f;
     }
 
     public void Restart() {
-        currency = 0;
+        currency = 100;
         level = 0;
         OnRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        playerFarmer = FindObjectOfType<PlayerFarmer>();
-        playerShooter = FindObjectOfType<PlayerShooter>();
-        SetGameState(GameStateType.BuildPhase);
+    }
+
+    //TODO: make one function, am currently too lazy to replace the inspector references
+    public void StartGame() {
+        currency = 0;
+        level = 0;
+        OnRestart?.Invoke();
+        SceneManager.LoadScene("MainScene");
     }
 
     void Update() {
@@ -79,9 +94,11 @@ public class GameManager : Singleton<GameManager>
     public void SetGameState(GameStateType newState) {
         if(newState == gameState) return;
 
+        gameState = newState;
         switch(newState) {
             case(GameStateType.MainMenu): {
-                //TODO: load menu scene
+                SceneManager.LoadScene("MainMenu");
+                OnMainMenu?.Invoke();
                 break;
             }
             case(GameStateType.BuildPhase): {
@@ -98,7 +115,6 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
         }
-
-        gameState = newState;
     }
+
 }
