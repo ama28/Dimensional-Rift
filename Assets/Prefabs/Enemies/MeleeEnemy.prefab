@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eb9ccdc424c436d800dc2be94d059f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 12
   id: -1
   meleeHit:
     source: {fileID: 0}

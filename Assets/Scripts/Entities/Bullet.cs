@@ -90,7 +90,17 @@ public class Bullet : MonoBehaviour
             SetHitInfo();
             being.TakeDamage(hitInfo);
 
-            //TODO: splash damage
+            if (splashRange > 0)
+            {
+                foreach (Being b in FindObjectsOfType<Being>())
+                {
+                    if (being != b &&
+                        Vector3.Magnitude(being.transform.position - b.transform.position) < splashRange)
+                    {
+                        b.TakeDamage(hitInfo);
+                    }
+                }
+            }
 
             pierce--;
             if (pierce <= 0)
