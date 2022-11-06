@@ -16387,7 +16387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4130308418264364639, guid: 627a5ff841cea49ef9ebbb8edc7ca72c, type: 3}
       propertyPath: currency
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4130308418264364639, guid: 627a5ff841cea49ef9ebbb8edc7ca72c, type: 3}
       propertyPath: BuildingManager
