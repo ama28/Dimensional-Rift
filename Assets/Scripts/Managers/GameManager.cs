@@ -66,8 +66,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void Restart() {
-        currency = 100;
-        spaceCurrency = 100;
+        currency = 0;
+        spaceCurrency = 0;
         level = 0;
         OnRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
