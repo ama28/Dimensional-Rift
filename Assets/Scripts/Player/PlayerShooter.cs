@@ -7,6 +7,8 @@ public class PlayerShooter : Player
     [System.Serializable]
     public class ShooterStats : PlayerStats {
         public float jumpForce = 6f;
+        public float turnAroundScalar = 30f;
+        public float airMovementPenalty = 0.4f;
     }
 
     public ShooterStats stats = new ShooterStats();
