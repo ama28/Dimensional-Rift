@@ -30,6 +30,7 @@ public abstract class Enemy : Being
     protected virtual void Die()
     {
         GameManager.Instance.spawnManager.RemoveEnemy(id);
+        GameManager.Instance.spawnManager.spawnSpaceCoin(transform);
         Destroy(gameObject);
     }
 
