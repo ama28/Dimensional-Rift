@@ -1,0 +1,49 @@
+S:: Who's the guy you keep shopping with?
+F:: Oh, that's Mr. Oldman! He's a very nice man.
+S:: Is he now. At least he's helping with the defense effort.
+F:: Yes! Though I haven't mentioned the whole monster situation to him yet.
+S:: Wait a minute. You're telling me he hasn't realized?! He's literally right there!
+F:: He doesn't really ... leave his shop. He's always worried about thieves.
+S:: Least of his worries now, but I'm happy HE'S having a nice time.
+--
+F:: You keep talking to that voice from the weird crack in the sky.
+S:: Oh, that's just Xyzzy. He's offered to help with some of my gear to fight here.
+F:: Are you two friends then?
+S:: As much as you can be with a smuggler and thief. He hasn't betrayed me yet though.
+F:: He seems very friendly though! I'm sure he could turn himself around here if he joined us.
+S:: Save your effort on saving yourself, Frieda. He's a bit too cuckoo to be redeemed.
+F:: Oh ...
+S:: Yeah. Too much curiosity and too many portals can't be good for anyone.
+--
+F:: When we first met, you called <Awesome321's Farm> a ... liminal space.
+S:: Yeah.
+F:: What does that mean?
+S:: It's a technical term. We use it to describe the void between portal jumps.
+F:: So that's what this place is? I don't think this farm is really void ...
+S:: No, it isn't. Wherever this is, this is just another world entirely.
+--
+F:: What are you holding?
+S:: What? ... do you mean my gun? 
+F:: I know you've been keeping the monsters at bay with that, but I don't really ... get what it is.
+F:: Or why you would need something like that. It seems too dangerous to just have.
+S:: ... imagine if the coyotes here could break your fences or chew through your walls.
+F:: Oh.
+S:: Sometimes, you don't want to run towards them and you don't want to run away from them.
+S:: This is the compromise.
+--
+S:: Why is this place called <Awesome321's Farm>?
+F:: It just is!
+S:: But why?
+F:: It just is. It was the name this place had when I moved here.
+S:: Who's ... <Awesome321>, then?
+F:: I don't know. But I'm sure this farm wouldn't be here without them!
+S:: ... it unnerves me how confident you are about things you don't know.
+--
+F:: You don't have to keep wearing that helmet, Sam! The air is fresh and crisp here.
+S:: I'm not going to take chances with my safety while I'm in a foreign alien world.
+F:: But the monsters that are coming from your world are just fine! I'm sure you'd be too-
+S:: They're not entirely living creatures like me or ... well, I can't say about you for sure.
+F:: Even so! You will be fine! You are missing out on so many of this farm's simple joys-
+S:: Don't press it further, Frieda. I'm not going to and that's final.
+--
+
