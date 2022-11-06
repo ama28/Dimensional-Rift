@@ -17,9 +17,9 @@ public class Coin : Collectible
             //coinSpawnHandler.SpawnCoin(); // Spawn new coin
             coinSpawnHandler.OnCollect(); // Decrement coin
             GameManager.Instance.currency++;
+            base.OnTriggerEnter2D(c); //destroys coin
         }
 
-        //destroys coin
-        base.OnTriggerEnter2D(c);
+        
     }
 }
