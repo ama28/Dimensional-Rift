@@ -48,9 +48,9 @@ MonoBehaviour:
   gunInfo:
     fireType: 1
     fireRate: 0.3333
-    range: 99999
+    range: 40
     falloff: 0
-    damage: 1
+    damage: 4
     bulletSpeed: 90
     knockback: 0
     pierce: 5
