@@ -12,7 +12,7 @@ public class SpaceCoin : Collectible
     }
     public override void OnTriggerEnter2D(Collider2D c){
         // If player collects coin
-        if(c.gameObject.tag == "PlayerShooter"){
+        if(c.gameObject.tag == "PlayerFarmer"){
             GameManager.Instance.spaceCurrency++;
             base.OnTriggerEnter2D(c); //destroys coin
         }
