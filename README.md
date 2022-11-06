@@ -1,3 +1,3 @@
 # Dimensional-Rift
  
-good game
+great game!
