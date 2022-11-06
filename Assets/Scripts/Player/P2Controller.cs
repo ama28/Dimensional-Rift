@@ -10,6 +10,8 @@ public class P2Controller : PlayerShooter
     private bool moving = false;
     // public float maxSpeed = 8.0f;
     private float groundedMultiplier;
+    private Transform parent;
+    private Vector3 previous;
 
     private Camera mainCam;
 
@@ -31,15 +33,24 @@ public class P2Controller : PlayerShooter
     private void Update()
     {
         Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x * 0.25f));
+        
+        if(Mathf.Abs(rb.velocity.x) > 0.9f) {
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x * 0.25f));
+        } else {
+            animator.SetFloat("Speed", 0);
+        }
         animator.SetBool("isGrounded", grounded);
         
-        //flip sprite
-        //if (mouseWorldPoint.x > transform.position.x + 1)
-        //    samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 180, samSprite.eulerAngles.z);
-        //else if (mouseWorldPoint.x < transform.position.x + 1)
-        //    samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 0, samSprite.eulerAngles.z);
+        if(parent) {
+            transform.position = transform.position + (parent.position - previous) * 0.87f;
+
+            previous = parent.position;
+        }
+        
+    }
+
+    private void LateUpdate() {
+        
     }
 
     private void FixedUpdate()
@@ -78,10 +89,14 @@ public class P2Controller : PlayerShooter
             
             Debug.Log(grounded);
             if(grounded) {
-                transform.SetParent(hit.transform);
+                // transform.SetParent(hit.transform);
+                parent = hit.transform;
+                previous = parent.position;
                 groundedMultiplier = 1.0f;
             } else {
-                transform.SetParent(null);
+                // transform.SetParent(null);
+                parent = null;
+                previous = Vector3.zero;
                 groundedMultiplier = stats.airMovementPenalty;
             }
         }
