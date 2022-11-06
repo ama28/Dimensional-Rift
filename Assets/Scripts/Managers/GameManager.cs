@@ -30,6 +30,7 @@ public class GameManager : Singleton<GameManager>
     private int level = 0;
 
     public int currency = 0;
+    public int spaceCurrency = 0;
 
     //Events
     //These events will be called when the game state is changed. When an event is called, all subscribed
@@ -65,7 +66,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void Restart() {
-        currency = 100;
+        currency = 0;
+        spaceCurrency = 0;
         level = 0;
         OnRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -74,6 +76,7 @@ public class GameManager : Singleton<GameManager>
     //TODO: make one function, am currently too lazy to replace the inspector references
     public void StartGame() {
         currency = 0;
+        spaceCurrency = 0;
         level = 0;
         OnRestart?.Invoke();
         SceneManager.LoadScene("MainScene");

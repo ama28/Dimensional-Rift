@@ -46,14 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunInfo:
+    fireType: 0
     fireRate: 0.3
     range: 5
-    damage: 2
+    falloff: 0
+    damage: 10
     bulletSpeed: 5
     knockback: 10
     pierce: 2
     splashRange: 0
-    accuracy: 0
+    accuracy: 10
   bullet: {fileID: 4691203068273349001, guid: 4f29b6af3ade4537fa0ff63d9c4bd1b5, type: 3}
   owner: {fileID: 0}
 --- !u!212 &6796674200991469289

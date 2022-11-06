@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137bb0406e962284893e25ab23df64d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 24
   id: -1
   gun: {fileID: 7570288014010271027}
   targetRange: 10

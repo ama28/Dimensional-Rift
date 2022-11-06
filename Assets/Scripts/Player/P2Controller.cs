@@ -7,6 +7,11 @@ public class P2Controller : PlayerShooter
 {
     private new BoxCollider2D collider;
     private bool grounded = false;
+    private bool moving = false;
+    // public float maxSpeed = 8.0f;
+    private float groundedMultiplier;
+    private Transform parent;
+    private Vector3 previous;
 
     private Camera mainCam;
 
@@ -28,20 +33,43 @@ public class P2Controller : PlayerShooter
     private void Update()
     {
         Vector3 mouseWorldPoint = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        
+        if(Mathf.Abs(rb.velocity.x) > 0.9f) {
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x * 0.25f));
+        } else {
+            animator.SetFloat("Speed", 0);
+        }
         animator.SetBool("isGrounded", grounded);
         
-        //flip sprite
-        //if (mouseWorldPoint.x > transform.position.x + 1)
-        //    samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 180, samSprite.eulerAngles.z);
-        //else if (mouseWorldPoint.x < transform.position.x + 1)
-        //    samSprite.eulerAngles = new Vector3(samSprite.eulerAngles.x, 0, samSprite.eulerAngles.z);
+        if(parent) {
+            transform.position = transform.position + (parent.position - previous) * 0.87f;
+
+            previous = parent.position;
+        }
+        
+    }
+
+    private void LateUpdate() {
+        
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
+        // rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
+        if(moveDirection == Vector2.zero) {
+            // if(rb.velocity.magnitude > 1) {
+
+            // } else {
+            //     rb.AddRelativeForce(rb.velocity.x)
+            // }
+            rb.AddRelativeForce(new Vector2(rb.velocity.x * -20f * Mathf.Pow(groundedMultiplier, 3), 0));
+        } else if(Mathf.Abs(rb.velocity.x) < stats.speed * 3) {
+            if(moveDirection.x * rb.velocity.x < 0) {
+                rb.AddRelativeForce(new Vector2(moveDirection.x * stats.speed * 50 * groundedMultiplier, 0));
+            } else {
+                rb.AddRelativeForce(new Vector2(moveDirection.x * stats.speed * 40 * groundedMultiplier, 0));
+            }
+        }
 
         { //grounded check
             Vector3 offset = new Vector3(collider.offset.x, collider.offset.y, 0);
@@ -61,16 +89,29 @@ public class P2Controller : PlayerShooter
             
             Debug.Log(grounded);
             if(grounded) {
-                transform.SetParent(hit.transform);
+                // transform.SetParent(hit.transform);
+                parent = hit.transform;
+                previous = parent.position;
+                groundedMultiplier = 1.0f;
             } else {
-                transform.SetParent(null);
+                // transform.SetParent(null);
+                parent = null;
+                previous = Vector3.zero;
+                groundedMultiplier = stats.airMovementPenalty;
             }
         }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
+        if(context.performed) {
+            if(Mathf.Abs(context.ReadValue<Vector2>().x - moveDirection.x) > 1) {
+                //turn-around force
+                rb.AddForce(new Vector2(moveDirection.x * stats.turnAroundScalar * groundedMultiplier, 0));
+            }
+        }
         moveDirection = context.ReadValue<Vector2>();
+        Debug.Log(moveDirection);
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -78,7 +119,7 @@ public class P2Controller : PlayerShooter
         if (context.performed && grounded)
         {
             StartCoroutine(jumpTrigger());
-            rb.velocity = new Vector2(rb.velocity.x, stats.jumpForce);
+            rb.AddForce(new Vector2(0, stats.jumpForce * 100));
         }
     }
 
