@@ -19,6 +19,8 @@ public class SpawnManager : MonoBehaviour
 
     public Wave currentWave;
 
+    public GameObject spaceCoinPrefab;
+
     // list of instantiated enemies;
     [SerializeField] private List<Enemy> instanced;
 
@@ -57,6 +59,12 @@ public class SpawnManager : MonoBehaviour
         if(instanced.Count == 0) {
             GameManager.Instance.SetGameState(GameManager.GameStateType.BuildPhase);
         }
+    }
+
+    // Spawns coin on enemy death
+    public void spawnSpaceCoin(Transform t){
+        GameObject sp = Instantiate(spaceCoinPrefab);
+        sp.transform.position = t.position;
     }
 
     IEnumerator SpawnLoop()
