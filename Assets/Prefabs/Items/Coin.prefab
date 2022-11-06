@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8077831449150499831}
   - component: {fileID: 8077831449150499828}
   - component: {fileID: 8077831449150499829}
-  - component: {fileID: -6330006542774184634}
+  - component: {fileID: 8077831449150499826}
   m_Layer: 0
-  m_Name: SpaceCoin
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8077831449150499827}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.7176373, y: -3.6986103, z: 0.0250661}
-  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
+  m_LocalScale: {x: 2.463468, y: 3.0118155, z: 0.52}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0, g: 0.68047184, b: 0.754717, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c080a534ec3b88d4098abee0197ff584, type: 3}
+  m_Color: {r: 0.9339623, g: 0.8475569, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,10 +99,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 1.9999999}
+  m_Offset: {x: -0.0032752238, y: 0.011495331}
+  m_Size: {x: 0.29914978, y: 0.29389748}
   m_Direction: 0
---- !u!114 &-6330006542774184634
+--- !u!114 &8077831449150499826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,6 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8077831449150499827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe665ca6b6d3fda4a8570e0815fcb53d, type: 3}
+  m_Script: {fileID: 11500000, guid: 52188558bff12f7419ce2c128f6c6073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
