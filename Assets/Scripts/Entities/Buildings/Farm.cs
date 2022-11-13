@@ -49,6 +49,28 @@ public class Farm : Building
         }
     }
 
+    public override void OnPlace()
+    {
+        base.OnPlace();
+        GameManager.Instance.BuildingManager.targetableBuildings.Add(this);
+    }
+
+    protected virtual void Die() {
+        GameManager.Instance.BuildingManager.RemoveBuilding(this);
+        // GameManager.Instance.BuildingManager.targetableBuildings.Remove(this);
+        StopAllCoroutines();
+        Destroy(gameObject);
+    }
+
+    public override void TakeDamage(HitInfo hit) {
+        base.TakeDamage(hit);
+        Debug.Log("farm taking damage");
+        //TODO: update health bar
+        if(health <= 0) {
+            Die();
+        }
+    }
+
     protected IEnumerator OnHarvest() {
         spriteRenderers[0].sprite = grownSprite;
         yield return new WaitForSeconds(Random.Range(1, 2.5f));

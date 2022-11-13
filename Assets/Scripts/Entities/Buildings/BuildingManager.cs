@@ -8,6 +8,7 @@ public class BuildingManager : MonoBehaviour
     Grid grid;
     public List<GameObject> inventory = new List<GameObject>();
     public List<Building> currentBuildings;
+    public List<Building> targetableBuildings;
     public int margin;
 
     public GameObject buildingPrefab;
@@ -71,7 +72,6 @@ public class BuildingManager : MonoBehaviour
         Debug.Log("Place: " +  IsBuildingValid(currentBuilding, mousePosTile));
         if(IsBuildingValid(currentBuilding, mousePosTile)) {
             PlaceBuilding(currentBuilding.gameObject, mousePosTile);
-            currentBuilding.OnPlace();
             if(inventory.Count > 0) {
                 currentBuilding = inventory[0].GetComponent<Building>();
                 currentBuilding.OnSelect();
@@ -142,7 +142,15 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
+
+    public void RemoveBuilding(Building building) {
+        currentBuildings.Remove(building);
+        targetableBuildings.Remove(building);
+        Debug.Log('a');
+    }
+
     public int GetNumBuildingsInInventory() {
         return inventory.Count;
     }
+
 }

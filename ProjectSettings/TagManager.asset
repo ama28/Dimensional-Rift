@@ -48,6 +48,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemies
+    uniqueID: 4015791947
+    locked: 0
+  - name: Players
+    uniqueID: 587475511
+    locked: 0
   - name: TopOfScreen
     uniqueID: 1244119597
     locked: 0

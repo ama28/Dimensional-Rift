@@ -8,7 +8,6 @@ public class StationaryEnemy : Enemy
     public float targetRange;
 
     private Being[] targets;
-    private Being target;
 
     protected override void Start()
     {
