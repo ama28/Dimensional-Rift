@@ -5,9 +5,15 @@ using TMPro;
 
 public class CoinIndicator : MonoBehaviour
 {
+    public enum coinType {farm, cyber}
+    [SerializeField] private coinType type;
+
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.currency.ToString();
+        if (type == coinType.farm)
+            gameObject.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.currency.ToString();
+        else if (type == coinType.cyber)
+            gameObject.GetComponent<TextMeshProUGUI>().text = GameManager.Instance.spaceCurrency.ToString();
     }
 }

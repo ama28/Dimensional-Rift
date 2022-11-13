@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject spaceCoinPrefab;
 
     // list of instantiated enemies;
-    [SerializeField] private List<Enemy> instanced;
+    public List<Enemy> instanced;
 
     // Start is called before the first frame update
     void Awake() {
