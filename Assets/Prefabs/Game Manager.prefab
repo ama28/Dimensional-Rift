@@ -83,8 +83,10 @@ MonoBehaviour:
   BuildingManager: {fileID: 0}
   waveList: {fileID: 11400000, guid: dea95d0e56d5a45b2b4592e470286870, type: 2}
   currency: 0
+  spaceCurrency: 0
   playerFarmer: {fileID: 0}
   playerShooter: {fileID: 0}
+  mainUI: {fileID: 0}
 --- !u!114 &4130308418264364609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,13 +105,18 @@ MonoBehaviour:
   - {fileID: 3671682041950305639}
   - {fileID: 8341345835356564616}
   currentWave:
-    waveNumber: 0
+    waveRange: {x: 1, y: 1}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 0
+      cost: 1
+      weight: 1
+    baseEnemyBudget: 1
+    extraEnemyBudget: 0
     enemySpawnDelay: 0.5
     maxCoinTotal: 1
     coinSpawnTimer: 3
+  waveSize: 0
+  spaceCoinPrefab: {fileID: 8077831449150499827, guid: 50be5108077bdb44982347f6c103180f, type: 3}
   instanced: []
 --- !u!114 &3739744212056761606
 MonoBehaviour:
