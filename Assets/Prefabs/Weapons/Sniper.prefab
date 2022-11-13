@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1040084708749336714}
   - component: {fileID: 6796674200991469289}
   m_Layer: 0
-  m_Name: SuperGun
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2245408126564075059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,17 +46,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunInfo:
-    fireType: 0
-    fireRate: 0.5
-    range: 6
+    fireType: 1
+    fireRate: 0.3333
+    range: 40
     falloff: 0
-    damage: 0
-    bulletSpeed: 5
+    damage: 4
+    bulletSpeed: 90
     knockback: 0
-    pierce: 2
+    pierce: 5
     splashRange: 0
     accuracy: 0
-  bullet: {fileID: 4691203068273349001, guid: 4f29b6af3ade4537fa0ff63d9c4bd1b5, type: 3}
+  bullet: {fileID: 4691203068273349001, guid: 33661ec810df82a47a099fdbbb43d120, type: 3}
   owner: {fileID: 0}
 --- !u!212 &6796674200991469289
 SpriteRenderer:
@@ -99,8 +99,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 998e56ae6d8c54768ae4e25710aadf4a, type: 3}
-  m_Color: {r: 1, g: 0.40765902, b: 0, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: bcac16ed93af74adeae16ab957ada1ef, type: 3}
+  m_Color: {r: 0, g: 0.057028502, b: 0.4528302, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -55,6 +55,16 @@ public class Building : Being
             new Vector3(size.x + 1, size.y + 1)));
     }
 
+    protected virtual void UpdateGraphThrough(Vector3 pos)
+    {
+        Vector3 midpoint = (transform.position + pos) / 2;
+        Vector3 bounds = new Vector3(
+            Mathf.Abs(transform.position.x - pos.x) + size.x,
+            Mathf.Abs(transform.position.y - pos.y) + size.y);
+        AstarPath.active.UpdateGraphs(new Bounds(midpoint,
+            new Vector3(bounds.x + 2, bounds.y + 2)));
+    }
+
     public void SetPlaceable(bool placeable) { //visuals to show is building is valid or not
         if(!placeable) {
             spriteRenderers.ForEach(x => x.color = Color.red);

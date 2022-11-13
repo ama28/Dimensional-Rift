@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3829708382991441754
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 369272468977924272, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 134c91845e07eaf47a7c5de07a9440ad, type: 2}
+    - target: {fileID: 4480592762250389773, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: maxSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949060, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_Name
+      value: ShooterEnemyRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: targetRange
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: moveUntilRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.range
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.accuracy
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.fireRate
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.bulletCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.bulletSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118382627590390227, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 635e03c83794787429489941e9bf9306, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: faedff240709d3e40816c58be4eeeba7, type: 3}

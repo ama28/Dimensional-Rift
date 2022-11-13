@@ -37,6 +37,7 @@ public class HomingEnemy : Enemy
     {
         base.Move();
 
+        Debug.Log(target);
         aiPath.destination = target.transform.position;
     }
 
@@ -47,7 +48,8 @@ public class HomingEnemy : Enemy
 
     // damaging player (melee)
     protected void OnCollisionStay2D(Collision2D collision) {
-        if(collision.gameObject.CompareTag(target.tag)) {
+        if(collision.gameObject.CompareTag(target.tag)
+            && meleeHit.damage > 0) {
             target.TakeDamage(meleeHit);
         }
     }

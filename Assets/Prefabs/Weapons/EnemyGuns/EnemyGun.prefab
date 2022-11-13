@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4365339608182840219}
   - component: {fileID: 1608910460769706768}
   m_Layer: 0
-  m_Name: ShooterGreenGun
+  m_Name: EnemyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

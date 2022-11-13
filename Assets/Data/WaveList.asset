@@ -13,35 +13,55 @@ MonoBehaviour:
   m_Name: WaveList
   m_EditorClassIdentifier: 
   waves:
-  - waveNumber: 0
+  - waveRange: {x: 1, y: 1}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 0
-    enemySpawnDelay: 0.5
-    maxCoinTotal: 1
-    coinSpawnTimer: 3
-  - waveNumber: 1
-    enemies:
-    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 3
-    enemySpawnDelay: 0.5
+      cost: 1
+      weight: 1
+    baseEnemyBudget: 3
+    extraEnemyBudget: 0
+    enemySpawnDelay: 0.6
     maxCoinTotal: 3
     coinSpawnTimer: 3
-  - waveNumber: 2
+  - waveRange: {x: 2, y: 3}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 5
+      cost: 1
+      weight: 2
     - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      count: 2
+      cost: 2
+      weight: 1
+    baseEnemyBudget: 7
+    extraEnemyBudget: 5
     enemySpawnDelay: 0.5
     maxCoinTotal: 5
     coinSpawnTimer: 3
-  - waveNumber: 3
+  - waveRange: {x: 4, y: 4}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
-      count: 12
-    - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      count: 4
+      cost: 2
+      weight: 2
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 5
+      weight: 3
+    baseEnemyBudget: 30
+    extraEnemyBudget: 0
     enemySpawnDelay: 0.5
-    maxCoinTotal: 8
+    maxCoinTotal: 7
+    coinSpawnTimer: 3
+  - waveRange: {x: 5, y: 6}
+    enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      cost: 1
+      weight: 2
+    - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      cost: 1
+      weight: 1
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 2
+      weight: 1
+    baseEnemyBudget: 14
+    extraEnemyBudget: 4
+    enemySpawnDelay: 0.5
+    maxCoinTotal: 10
     coinSpawnTimer: 3
