@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1040084708749336714}
   - component: {fileID: 6796674200991469289}
   m_Layer: 0
-  m_Name: LaserCannon
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,17 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunInfo:
-    fireType: 1
-    fireRate: 0.3333
-    range: 40
-    falloff: 0
+    fireType: 0
+    fireRate: 0.35
+    range: 4
+    falloff: 1
     damage: 4
-    bulletSpeed: 90
-    knockback: 0
-    pierce: 5
+    bulletSpeed: 12
+    knockback: 2
+    pierce: 1
     splashRange: 0
-    accuracy: 0
-  bullet: {fileID: 4691203068273349001, guid: 33661ec810df82a47a099fdbbb43d120, type: 3}
+    accuracy: 30
+    bulletCount: 5
+  bullet: {fileID: 4691203068273349001, guid: 65b11ca13c8fce83291bbb2eb844b017, type: 3}
   owner: {fileID: 0}
 --- !u!212 &6796674200991469289
 SpriteRenderer:
@@ -100,7 +101,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: bcac16ed93af74adeae16ab957ada1ef, type: 3}
-  m_Color: {r: 0, g: 0.057028502, b: 0.4528302, a: 1}
+  m_Color: {r: 0.20895956, g: 0, b: 0.254717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

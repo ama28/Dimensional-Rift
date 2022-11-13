@@ -43,6 +43,7 @@ public class Bullet : MonoBehaviour
         pierce = gunInfo.pierce;
         splashRange = gunInfo.splashRange;
         range = gunInfo.range;
+        falloff = gunInfo.falloff;
     }
 
     protected virtual void SetHitInfo() {
@@ -50,6 +51,7 @@ public class Bullet : MonoBehaviour
         {
             float dampFactor = 1 - (Vector3.Magnitude(pos0 -
                 transform.position) / range);
+            Debug.Log(dampFactor);
             hitInfo.damage = damage * dampFactor;
         } else
             hitInfo.damage = damage;
@@ -88,6 +90,7 @@ public class Bullet : MonoBehaviour
         {
             // we shot an enemy!
             SetHitInfo();
+            Debug.Log(hitInfo.damage);
             being.TakeDamage(hitInfo);
 
             if (splashRange > 0)

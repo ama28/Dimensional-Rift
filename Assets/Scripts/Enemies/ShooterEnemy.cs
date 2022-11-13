@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StationaryEnemy : Enemy
+public class ShooterEnemy : HomingEnemy
 {
     public Gun gun;
     public float targetRange;
+    public float moveUntilRange;
 
-    private Being[] targets;
-    private Being target;
+    private Being[] shootingTargets;
+    private Being shootingTarget;
 
     protected override void Start()
     {
@@ -17,7 +18,7 @@ public class StationaryEnemy : Enemy
         if (gun != null)
         {
             gun.owner = this;
-            targets = FindObjectsOfType<PlayerFarmer>();
+            shootingTargets = FindObjectsOfType<PlayerFarmer>();
         }
     }
 
@@ -27,26 +28,40 @@ public class StationaryEnemy : Enemy
             return;
 
         // get closest player
-        target = null;
+        shootingTarget = null;
         float targetDistance = targetRange;
-        foreach (Being b in targets)
+        foreach (Being b in shootingTargets)
         {
             float bDistance = Vector3.Magnitude(b.transform.position -
                 transform.position);
             if (bDistance < targetDistance)
             {
-                target = b;
+                shootingTarget = b;
                 targetDistance = bDistance;
             }
         }
 
-        if (target != null)
+        if (shootingTarget != null)
         {
             // rotate to target
             Vector3 rotation = target.transform.position - transform.position;
-            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            // the -90 on the following line is due to sprite rotation reasons
+            // w/ the pathfinding script
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg - 90;
             transform.rotation = Quaternion.Euler(0, 0, rotZ);
             Attack();
+        }
+
+        if (shootingTarget == null ||
+            Vector3.Magnitude(shootingTarget.transform.position -
+                transform.position) > moveUntilRange)
+        {
+            // too far away, we should move closer
+            aiPath.canMove = true;
+            Move();
+        } else
+        {
+            aiPath.canMove = false;
         }
 
         gun.UpdateTimer();

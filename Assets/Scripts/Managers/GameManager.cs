@@ -107,7 +107,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             }
             case(GameStateType.ActionPhase): {
-                OnActionPhaseStart?.Invoke(waveList.waves[level]);
+                OnActionPhaseStart?.Invoke(waveList.GetWave(level));
                 break;
             }
             case(GameStateType.GameOver): {

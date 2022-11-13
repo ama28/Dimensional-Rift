@@ -127,5 +127,5 @@ MonoBehaviour:
   health: 0
   type: 1
   coordinates: {x: 0, y: 0}
-  size: {x: 0, y: 0}
+  size: {x: 4, y: 2}
   collidable: 1

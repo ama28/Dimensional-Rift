@@ -12,7 +12,7 @@ namespace UI {
         }
 
         void OnWaveStart(Wave wave) {
-            text.text = "Wave " + wave.waveNumber;
+            text.text = "Wave " + GameManager.Instance.Level;
         }
 
         void OnBuildStart() {

@@ -42,9 +42,12 @@ public class Gun : MonoBehaviour
             canFire_ = false;
 
             Vector3 position = transform.position;
-            GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
-            newBullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
-            AimBullet(newBullet);
+            for (int i = 0; i < Mathf.Max(1, gunInfo.bulletCount); i++)
+            {
+                GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
+                newBullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
+                AimBullet(newBullet);
+            }
         }
     }
 

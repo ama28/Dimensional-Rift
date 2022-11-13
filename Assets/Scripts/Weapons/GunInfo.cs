@@ -20,7 +20,8 @@ public class GunInfo
 
     public float knockback = 10.0f;
     public int pierce = 1;
-    public float splashRange = 0.0f; //TODO: implement
+    public float splashRange = 0.0f;
     [Tooltip("Spread range in degrees (TODO: maybe change later)")]
     public float accuracy = 0.0f;
+    public int bulletCount = 1;
 }

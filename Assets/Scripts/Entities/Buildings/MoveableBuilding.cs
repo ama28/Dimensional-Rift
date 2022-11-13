@@ -6,6 +6,13 @@ public class MoveableBuilding : Building, Interactable
 {
     bool isHeld;
     protected int mFrames = 0;
+    protected Vector3 mPrevPos;
+
+    protected override void Start()
+    {
+        base.Start();
+        mPrevPos = transform.position;
+    }
 
     public virtual void OnInteract(Player player) {
         isHeld = true;
@@ -25,7 +32,8 @@ public class MoveableBuilding : Building, Interactable
         {
             mFrames++;
 
-            if (mFrames >= 30)
+            if (mFrames >= 40
+                || Vector3.Magnitude(transform.position - mPrevPos) > 5f)
             {
                 UpdateGraph();
                 mFrames = 0;
@@ -35,7 +43,8 @@ public class MoveableBuilding : Building, Interactable
 
     protected override void UpdateGraph()
     {
-        base.UpdateGraph();
+        base.UpdateGraphThrough(mPrevPos);
         mFrames = 0;
+        mPrevPos = transform.position;
     }
 }

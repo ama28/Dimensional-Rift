@@ -7,10 +7,16 @@ public class WaveList : ScriptableObject
 {
     public List<Wave> waves;
 
-    void Awake() {
-        for(int i = 0; i < waves.Count; i++) {
-            waves[i].waveNumber = i;
+    public Wave GetWave(int level)
+    {
+        foreach (Wave wave in waves)
+        {
+            if (wave.waveRange.x <= level && wave.waveRange.y >= level)
+            {
+                return wave;
+            }
         }
-    }
 
+        return waves[waves.Count - 1];
+    }
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5393616833037949085}
   - component: {fileID: 5393616833037949083}
   - component: {fileID: 7562454123915301180}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

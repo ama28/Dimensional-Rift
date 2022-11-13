@@ -50,12 +50,12 @@ MonoBehaviour:
     fireRate: 0.08
     range: 10
     falloff: 0
-    damage: 1
+    damage: 6
     bulletSpeed: 10
-    knockback: 4
+    knockback: 1
     pierce: 1
     splashRange: 0
-    accuracy: 30
+    accuracy: 20
   bullet: {fileID: 4691203068273349001, guid: 3fddd943804b9654f95bf4db707692c3, type: 3}
   owner: {fileID: 0}
 --- !u!212 &6796674200991469289

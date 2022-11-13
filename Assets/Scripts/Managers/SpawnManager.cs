@@ -18,6 +18,7 @@ public class SpawnManager : MonoBehaviour
     public Transform[] spawnPoints;
 
     public Wave currentWave;
+    public int waveSize;
 
     // list of instantiated enemies;
     [SerializeField] private List<Enemy> instanced;
@@ -39,7 +40,6 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void StartWave(Wave wave) {
-        Debug.Log(wave.GetTotalEnemyCount());
         if(instanced.Count > 0) {
             Debug.LogError("Wave started with enemies still spawned!");
             instanced.ForEach(x => x.TakeDamage(new HitInfo() {damage = 1000})); //could cause issues if ppl don't do proper null checks
@@ -61,10 +61,15 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnLoop()
     {
-        // spawn enemies one at a time up to max spawns enemies every 0.5 seconds
-        // currentWave.maxSpawns = GameManager.Instance.Level + 1; //this will be set in the Wave Object
-        for(; spawnCounter < currentWave.GetTotalEnemyCount(); spawnCounter++) {
-            SpawnEnemy(currentWave.ChooseEnemy());
+        // get the list of enemies from the wave
+        List<Enemy> enemiesToSpawn = currentWave.GetEnemyList();
+        waveSize = enemiesToSpawn.Count;
+        Debug.Log("Starting new wave with size " + waveSize + "!");
+
+        // spawn enemies from the list
+        foreach (Enemy enemy in enemiesToSpawn) {
+            SpawnEnemy(enemy);
+            spawnCounter++;
             yield return new WaitForSeconds(currentWave.enemySpawnDelay);
         }
     }
