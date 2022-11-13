@@ -8,6 +8,7 @@ public abstract class Enemy : Being
     public int id = -1; //id, should be set on initialization
 
     protected Rigidbody2D rb;
+    protected Being target;
 
     // Start is called before the first frame update
     protected virtual void Start()

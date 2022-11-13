@@ -5,8 +5,8 @@ using Pathfinding;
 
 public class HomingEnemy : Enemy
 {
+    public float targetingDistance = 10f; //distance below which enemy will attack player instead of farm
     protected AIPath aiPath;
-    protected PlayerFarmer target;
     
     [SerializeField]
     protected HitInfo meleeHit = new HitInfo() {
@@ -14,6 +14,8 @@ public class HomingEnemy : Enemy
         knockbackScalar = 3f
     };
 
+    public float cooldown = 1.5f;
+    private float cd_time = 0; //store time since last cooldown
 
     // Start is called before the first frame update
     protected override void Start()
@@ -21,7 +23,7 @@ public class HomingEnemy : Enemy
         base.Start();
 
         aiPath = GetComponent<AIPath>();
-        target = FindObjectOfType<PlayerFarmer>();
+        SetTarget();
         meleeHit.source = this;
         meleeHit.sourcePos = transform.position;
     }
@@ -37,8 +39,11 @@ public class HomingEnemy : Enemy
     {
         base.Move();
 
-        Debug.Log(target);
-        aiPath.destination = target.transform.position;
+        if(target != null) {
+            aiPath.destination = target.transform.position;
+        }
+
+        SetTarget();
     }
 
     protected override void Attack()
@@ -48,9 +53,23 @@ public class HomingEnemy : Enemy
 
     // damaging player (melee)
     protected void OnCollisionStay2D(Collision2D collision) {
-        if(collision.gameObject.CompareTag(target.tag)
-            && meleeHit.damage > 0) {
+        if(collision.gameObject == target.gameObject && meleeHit.damage > 0) {
             target.TakeDamage(meleeHit);
+                Debug.Log("DAMAGING 2");
+        }
+    }
+
+    //damaging farms
+    protected void OnTriggerStay2D(Collider2D collision) {
+        if(collision.gameObject == target.gameObject) {
+            if(cd_time > cooldown)
+            {
+                target.TakeDamage(meleeHit);
+                Debug.Log("DAMAGING");
+                cd_time = 0;
+            } else {
+                cd_time += Time.deltaTime;
+            }
         }
     }
 
@@ -60,6 +79,23 @@ public class HomingEnemy : Enemy
         //knockback
         Vector3 angle = transform.position - hit.sourcePos;
         TakeKnockback((new Vector2(angle.x, angle.y)).normalized * hit.knockbackScalar);
+    }
+
+    protected virtual void SetTarget() {
+        Vector2 distance = GameManager.Instance.playerFarmer.transform.position - transform.position;
+        if(distance.magnitude < targetingDistance || GameManager.Instance.BuildingManager.targetableBuildings.Count == 0) { //attack player if within range
+            target = GameManager.Instance.playerFarmer;
+        } else if (target == GameManager.Instance.playerFarmer || target == null) {
+            //find closest building to target instead
+            target = GameManager.Instance.BuildingManager.targetableBuildings.Find(x => {
+                distance = x.transform.position - transform.position;
+                //yes the nested lambda is gross but im tired and it works
+                return GameManager.Instance.BuildingManager.targetableBuildings.TrueForAll(y => {
+                    Vector2 distance2 = y.transform.position - transform.position;
+                    return distance.magnitude <= distance2.magnitude;
+                    });
+            });
+        }   
     }
 
     // KB script, temporarily disables pathfinding
