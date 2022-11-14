@@ -118,8 +118,9 @@ public class Dialogue : MonoBehaviour
         resetText();
         for (int i = 0; i < currentText.Length; i++)
         {
+            //TODO: add whole text displaying stuff or make new class for it
             dialogueText = string.Concat(dialogueText, currentText[i]);
-            dialogue.SetText(dialogueText);
+            dialogue.SetText(dialogueText.Substring(4));
             Debug.Log(dialogueText);
             yield return new WaitForSeconds(scrollRate);
         }
