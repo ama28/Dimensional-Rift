@@ -55,7 +55,6 @@ public class HomingEnemy : Enemy
     protected void OnCollisionStay2D(Collision2D collision) {
         if(collision.gameObject == target.gameObject && meleeHit.damage > 0) {
             target.TakeDamage(meleeHit);
-                Debug.Log("DAMAGING 2");
         }
     }
 
@@ -65,7 +64,6 @@ public class HomingEnemy : Enemy
             if(cd_time > cooldown)
             {
                 target.TakeDamage(meleeHit);
-                Debug.Log("DAMAGING");
                 cd_time = 0;
             } else {
                 cd_time += Time.deltaTime;

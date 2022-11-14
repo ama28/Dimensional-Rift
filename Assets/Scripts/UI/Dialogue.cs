@@ -7,14 +7,23 @@ using System;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextAsset dialogueData; //original txt file 
-    public float scrollRate; //character is added to string every scrollRate seconds
+    public List<TextAsset> dialogueData; //original txt file s
+    public float scrollRate = 0.1f; //character is added to string every scrollRate seconds
+    public float pauseAfterLine = 2f; //Time break after each line
     public TMP_Text dialogue; //text mesh pro gameobject
     private string dialogueText; //string in textobject
-    public string test; //test string
-    private List<List<string>> parsedOutput; // parsed list of strings from txt file
+    public int roundsPerAffectionLevel = 7; //test string
+    private List<List<List<string>>> parsedOutput = new List<List<List<string>>>(); // parsed list of strings from txt files
     private Queue<string> currentLines; //queue that ChooseDialogue() uses to enqueue the lines of dialogue 
     private bool currentLineEnd; //flag to indicate end of current line
+
+    void OnEnable() {
+        GameManager.OnBuildPhaseStart += ChooseDialogue; 
+    }
+
+    void OnDisable() {
+        GameManager.OnBuildPhaseStart -= ChooseDialogue; 
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +31,10 @@ public class Dialogue : MonoBehaviour
         currentLines = new Queue<string>();
         currentLineEnd = false;
         dialogue.SetText(dialogueText);
-        parsedOutput = parseText(dialogueData);
-        ChooseDialogue();
+        for(int i = 0; i < 5; i++) {
+            parsedOutput.Add(parseText(dialogueData[i]));
+        }
+        // ChooseDialogue();
     }
 
     void Update()
@@ -52,7 +63,7 @@ public class Dialogue : MonoBehaviour
             string line = lines[i];
             if (!(line.StartsWith("-")))
             {
-                line = line.Remove(0, 4);
+                // line = line.Remove(0, 4);
                 currentDialogueExchange.Add(line);
             }
 
@@ -70,7 +81,10 @@ public class Dialogue : MonoBehaviour
     public void ChooseDialogue()
     {
         currentLines.Clear();
-        List<string> randomDialogue = parsedOutput[UnityEngine.Random.Range(0, parsedOutput.Count)];
+        //TODO: Add special case for affection 0
+
+        int affectionLevel = (GameManager.Instance.Level / roundsPerAffectionLevel) + 1;
+        List<string> randomDialogue = parsedOutput[affectionLevel][UnityEngine.Random.Range(0, parsedOutput[affectionLevel].Count)];
         foreach (string line in randomDialogue)
         {
             currentLines.Enqueue(line);
@@ -99,6 +113,7 @@ public class Dialogue : MonoBehaviour
     //Coroutine that concatenates a character from the current dialogue line to the actual text being displayed
     IEnumerator displayText(string currentText)
     {
+        yield return new WaitForSeconds(4.0f);
         currentLineEnd = false;
         resetText();
         for (int i = 0; i < currentText.Length; i++)
@@ -108,6 +123,8 @@ public class Dialogue : MonoBehaviour
             Debug.Log(dialogueText);
             yield return new WaitForSeconds(scrollRate);
         }
+        yield return new WaitForSeconds(pauseAfterLine);
+        resetText();
         currentLineEnd = true;
     }
 
