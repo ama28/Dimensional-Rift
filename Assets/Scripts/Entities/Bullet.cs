@@ -76,7 +76,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if (other.tag == source.tag)
+        if (source != null && other.tag == source.tag)
             return;
 
         if (other.layer == LayerMask.NameToLayer("Wall"))
