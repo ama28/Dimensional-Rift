@@ -45,7 +45,6 @@ public class Farm : Building
         roundsSinceHarvest++;
         if(roundsSinceHarvest >= stats.roundsToHarvest) {
             StartCoroutine(OnHarvest());
-            roundsSinceHarvest = 0;
         }
     }
 
@@ -77,6 +76,7 @@ public class Farm : Building
         GameManager.Instance.currency += stats.coinsOnHarvest;
         //show small + (coin sprite) x coinsOnHarvest ?
         spriteRenderers[0].sprite = startSprite;
+        roundsSinceHarvest = 0;
         yield return null;
     }
 }

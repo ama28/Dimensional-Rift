@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour
 
     private string currentSpeaker;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentLines = new Queue<string>();
         currentLineEnd = false;
@@ -43,7 +43,7 @@ public class Dialogue : MonoBehaviour
         for(int i = 0; i < 5; i++) {
             parsedOutput.Add(parseText(dialogueData[i]));
         }
-        // ChooseDialogue();
+        ChooseDialogue();
     }
 
     void Update()
@@ -99,8 +99,18 @@ public class Dialogue : MonoBehaviour
     public void ChooseDialogue()
     {
         currentLines.Clear();
-        //TODO: Add special case for affection 0
-
+        // if( GameManager.Instance.Level == 0 ) {
+        //     Debug.LogError("Dialogue should not be playing in level 0!");
+        // }
+        if( GameManager.Instance.Level <= 2 ) { //starting dialogues, may need to be changed
+            List<string> dialogue = parsedOutput[0][GameManager.Instance.Level];
+            foreach (string line in dialogue)
+            {
+                currentLines.Enqueue(line);
+            }
+            displayNextLine();
+            return;
+        }
         int affectionLevel = (GameManager.Instance.Level / roundsPerAffectionLevel) + 1;
         if(parsedOutput[affectionLevel].Count <= 0) {
             return;
@@ -181,7 +191,7 @@ public class Dialogue : MonoBehaviour
             //TODO: add whole text displaying stuff or make new class for it
             dialogueText = string.Concat(dialogueText, currentText[i]);
             dialogue.SetText(dialogueText);
-            Debug.Log(dialogueText);
+            // Debug.Log(dialogueText);
             print("dialogue" + dialogue.font);
            // Debug.Log(dialogueText);
             yield return new WaitForSeconds(scrollRate);

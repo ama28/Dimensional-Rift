@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: WaveList
   m_EditorClassIdentifier: 
   waves:
+  - waveRange: {x: 0, y: 0}
+    enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      cost: 1
+      weight: 2
+    baseEnemyBudget: 3
+    extraEnemyBudget: 0
+    enemySpawnDelay: 14
+    maxCoinTotal: 1
+    coinSpawnTimer: 3
   - waveRange: {x: 1, y: 1}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
@@ -21,7 +31,7 @@ MonoBehaviour:
     baseEnemyBudget: 3
     extraEnemyBudget: 0
     enemySpawnDelay: 0.6
-    maxCoinTotal: 3
+    maxCoinTotal: 1
     coinSpawnTimer: 3
   - waveRange: {x: 2, y: 3}
     enemies:

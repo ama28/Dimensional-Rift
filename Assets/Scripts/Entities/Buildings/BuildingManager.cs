@@ -33,7 +33,7 @@ public class BuildingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
+        
     }
 
     void Update()
@@ -60,6 +60,10 @@ public class BuildingManager : MonoBehaviour
     }
 
     void OnBuildPhaseStart() {
+        if(GameManager.Instance.Level == 1) {
+            startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
+        }
+
         if(inventory.Count > 0) {
             currentBuilding = inventory[0].GetComponent<Building>();
         }

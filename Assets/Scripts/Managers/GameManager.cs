@@ -62,9 +62,14 @@ public class GameManager : Singleton<GameManager>
         GameManager.Instance.spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
         GameManager.Instance.BuildingManager = FindObjectOfType<BuildingManager>();
         GameManager.Instance.Dialogue = FindObjectOfType<Dialogue>();
-        GameManager.Instance.SetGameState(GameStateType.BuildPhase);
         GameManager.Instance.mainUI = GameObject.FindGameObjectWithTag("MainUI");
         Time.timeScale = 1f;
+
+        // GameManager.Instance.Dialogue.ChooseDialogue();
+    }
+
+    public virtual void Start() {
+        GameManager.Instance.SetGameState(GameStateType.ActionPhase);
     }
 
     public void Restart() {
@@ -85,7 +90,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     void Update() {
-
+#if UNITY_EDITOR
         //for debug TODO CHANGE
         if(Input.GetKeyDown(KeyCode.H) && BuildingManager.GetNumBuildingsInInventory() == 0) {
             if(gameState == GameStateType.BuildPhase) {
@@ -93,6 +98,7 @@ public class GameManager : Singleton<GameManager>
                 SetGameState(GameStateType.ActionPhase);
             }
         }
+#endif
     }
 
     //Fire proper events on state change
