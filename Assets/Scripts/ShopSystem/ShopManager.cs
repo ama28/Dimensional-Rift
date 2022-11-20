@@ -21,7 +21,15 @@ public class ShopManager : Singleton<ShopManager>
     public Sprite[] farmerFrames;
     public Sprite[] shooterFrames;
 
+    public TMP_FontAsset farmFont;
+    public TMP_FontAsset farmFontBold;
+    public TMP_FontAsset cyberFont;
+    public TMP_FontAsset cyberFontBold;
+
     public GameObject waveCompletedText;
+
+    public Sprite farmerCoinIcon;
+    public Sprite shooterCoinIcon;
 
     public enum ShopType {farmer, shooter};
 
@@ -173,13 +181,22 @@ public class ShopManager : Singleton<ShopManager>
 
                 //title
                 cardTransforms[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+                cardTransforms[i].GetChild(3).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFontBold : cyberFontBold;
+                cardTransforms[i].GetChild(3).GetComponent<TextMeshProUGUI>().fontSize = isFarmerShop ? 22 : 15;
 
                 //description
                 cardTransforms[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+                cardTransforms[i].GetChild(4).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
 
                 //price
-                cardTransforms[i].GetChild(6).GetComponent<TextMeshProUGUI>().text = shopOptions[i].price.ToString();
+                cardTransforms[i].GetChild(6).GetComponent<TextMeshProUGUI>().text = "$" + shopOptions[i].price.ToString();
             }
+
+            //change card and button font
+            shopUI.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(2).GetChild(1).GetComponent<Image>().sprite = isFarmerShop ? farmerCoinIcon : shooterCoinIcon;
+            shopUI.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>().fontSize = isFarmerShop ? 30 : 20;
 
             shopUI.enabled = true;
         }

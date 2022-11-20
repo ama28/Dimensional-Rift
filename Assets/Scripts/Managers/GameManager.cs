@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Managers")]
     public SpawnManager spawnManager;
     public BuildingManager BuildingManager;
+    public ShopManager shopManager;
     public Dialogue Dialogue;
 
     [Header("Misc Info")]
@@ -61,6 +62,7 @@ public class GameManager : Singleton<GameManager>
         GameManager.Instance.playerShooter = FindObjectOfType<PlayerShooter>();
         GameManager.Instance.spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
         GameManager.Instance.BuildingManager = FindObjectOfType<BuildingManager>();
+        GameManager.Instance.shopManager = FindObjectOfType<ShopManager>();
         GameManager.Instance.Dialogue = FindObjectOfType<Dialogue>();
         GameManager.Instance.mainUI = GameObject.FindGameObjectWithTag("MainUI");
         Time.timeScale = 1f;

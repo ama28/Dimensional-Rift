@@ -579,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAction: {fileID: 0}
+  cost: 0
 --- !u!1 &6480574862633958288
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,8 +800,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hellion Pistol
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6c1be0202047149e9b3f83c4adee4b4b, type: 2}
-  m_sharedMaterial: {fileID: -5209133857696303216, guid: 6c1be0202047149e9b3f83c4adee4b4b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5301297c1344d46c48f7614dba5dcafa, type: 2}
+  m_sharedMaterial: {fileID: -2505041568182147435, guid: 5301297c1344d46c48f7614dba5dcafa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -824,13 +825,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
