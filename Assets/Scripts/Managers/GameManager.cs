@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Managers")]
     public SpawnManager spawnManager;
     public BuildingManager BuildingManager;
+    public Dialogue Dialogue;
 
     [Header("Misc Info")]
     [SerializeField] WaveList waveList; 
@@ -60,6 +61,7 @@ public class GameManager : Singleton<GameManager>
         GameManager.Instance.playerShooter = FindObjectOfType<PlayerShooter>();
         GameManager.Instance.spawnManager = GameManager.Instance.GetComponent<SpawnManager>();
         GameManager.Instance.BuildingManager = FindObjectOfType<BuildingManager>();
+        GameManager.Instance.Dialogue = FindObjectOfType<Dialogue>();
         GameManager.Instance.SetGameState(GameStateType.BuildPhase);
         GameManager.Instance.mainUI = GameObject.FindGameObjectWithTag("MainUI");
         Time.timeScale = 1f;

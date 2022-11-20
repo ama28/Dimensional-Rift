@@ -15,6 +15,7 @@ public class WaveTrigger : MonoBehaviour
     void Awake() { 
         GameManager.OnBuildPhaseStart += StartProximityCheck;
         circleSprite = GetComponent<SpriteRenderer>();
+        circleSprite.color = new Color(0, 0, 0, 0);
     }
 
     void OnEnable() {

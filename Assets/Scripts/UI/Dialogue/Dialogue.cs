@@ -23,6 +23,7 @@ public class Dialogue : MonoBehaviour
     public int vt323_size;
     public GameObject samDialogueBox;
     public GameObject fridaDialogueBox;
+    public bool speaking; //is there speech happening
 
     void OnEnable() {
         GameManager.OnBuildPhaseStart += ChooseDialogue; 
@@ -42,7 +43,7 @@ public class Dialogue : MonoBehaviour
         for(int i = 0; i < 5; i++) {
             parsedOutput.Add(parseText(dialogueData[i]));
         }
-        ChooseDialogue();
+        // ChooseDialogue();
     }
 
     void Update()
@@ -52,18 +53,20 @@ public class Dialogue : MonoBehaviour
         {
             displayNextLine();
         }
-        if (currentLines.Count <= 0 && currentLineEnd)
+        speaking = currentLines.Count > 0 || !currentLineEnd;
+        if (!speaking)
         {
             resetText();
             resetSpeaker();
             samDialogueBox.SetActive(false);
             fridaDialogueBox.SetActive(false);
         }
-
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.U))
         {
             ChooseDialogue();
         }
+#endif
     }
     //parses the txt file into a list of strings
     private List<List<string>> parseText(TextAsset input)
