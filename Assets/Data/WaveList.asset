@@ -20,7 +20,7 @@ MonoBehaviour:
       weight: 2
     baseEnemyBudget: 3
     extraEnemyBudget: 0
-    enemySpawnDelay: 14
+    enemySpawnDelay: 12
     maxCoinTotal: 1
     coinSpawnTimer: 3
   - waveRange: {x: 1, y: 1}
