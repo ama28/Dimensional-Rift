@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
 
     // incrememnt whenever we spawn an enemy
     private int spawnCounter = 0;
+    public int killCounter = 0;
     // boolean to detect when all enemies are dead
     //private bool isDead = false;
     // choke points for where to spawn enemies
@@ -41,6 +42,9 @@ public class SpawnManager : MonoBehaviour
         GameManager.OnRestart -= OnRestart;
     }
 
+    void Update() {
+    }
+
     public void StartWave(Wave wave) {
         if(instanced.Count > 0) {
             Debug.LogError("Wave started with enemies still spawned!");
@@ -49,14 +53,16 @@ public class SpawnManager : MonoBehaviour
         }
         currentWave = wave;
         spawnCounter = 0;
+        killCounter = 0;
         StartCoroutine(SpawnLoop());
     }
 
     //is called from enemy function on death
     public void RemoveEnemy(int id) {
         instanced.RemoveAll(x => x.id == id);
+        killCounter++;
         // all enemies are dead
-        if(instanced.Count == 0) {
+        if(instanced.Count == 0 && spawnCounter >= waveSize) {
             GameManager.Instance.SetGameState(GameManager.GameStateType.BuildPhase);
         }
     }

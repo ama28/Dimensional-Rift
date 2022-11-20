@@ -45,7 +45,6 @@ public class PlayerFarmer : Player
             spriteRenderer.enabled = !spriteRenderer.enabled;
             blinkTime = Mathf.Max(blinkTime * blinkCoefficient, 2 * Time.deltaTime);
             timeElapsed += blinkTime;
-            Debug.Log(timeElapsed);
             yield return new WaitForSeconds(blinkTime);
         }
         spriteRenderer.enabled = true;

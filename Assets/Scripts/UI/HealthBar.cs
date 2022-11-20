@@ -30,11 +30,12 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        currentEnemyCount = GameManager.Instance.spawnManager.instanced.Count;
+        currentEnemyCount = GameManager.Instance.spawnManager.killCounter;
         totalEnemyCount = GameManager.Instance.spawnManager.waveSize;
 
+        Debug.Log(GameManager.Instance.spawnManager.waveSize);
         if (type == barType.enemies)
-            healthBarImage.fillAmount = Mathf.Clamp(1f - (float)GameManager.Instance.spawnManager.instanced.Count / (float)GameManager.Instance.spawnManager.waveSize, 0, 1f);
+            healthBarImage.fillAmount = Mathf.Clamp((float)(totalEnemyCount - currentEnemyCount) / (float)totalEnemyCount, 0, 1f);
     }
 
     void OnEnable() {
