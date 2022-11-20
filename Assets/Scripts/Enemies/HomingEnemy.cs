@@ -7,6 +7,9 @@ public class HomingEnemy : Enemy
 {
     public float targetingDistance = 10f; //distance below which enemy will attack player instead of farm
     protected AIPath aiPath;
+    protected PlayerFarmer target;
+
+    protected bool takingKnockback;
     
     [SerializeField]
     protected HitInfo meleeHit = new HitInfo() {
@@ -26,6 +29,7 @@ public class HomingEnemy : Enemy
         SetTarget();
         meleeHit.source = this;
         meleeHit.sourcePos = transform.position;
+        takingKnockback = false;
     }
 
     protected override void Update()
@@ -99,7 +103,7 @@ public class HomingEnemy : Enemy
     // KB script, temporarily disables pathfinding
     public override void TakeKnockback(Vector2 kb)
     {
-        //if (kb.x > 1 && kb.y > 1) //unsure what this was for @liam?
+        takingKnockback = true;
         aiPath.canMove = false;
         base.TakeKnockback(kb);
         StopCoroutine(RecoverFromKnockback(kb));
@@ -108,7 +112,7 @@ public class HomingEnemy : Enemy
 
     // works with TakeKnockback(kb) to reenable pathfinding
     // after a bit
-    protected IEnumerator RecoverFromKnockback(Vector2 kb)
+    protected virtual IEnumerator RecoverFromKnockback(Vector2 kb)
     {
         yield return new WaitForSeconds(0.1f);
 
@@ -122,6 +126,7 @@ public class HomingEnemy : Enemy
             yield return new WaitForEndOfFrame();
         }
 
+        takingKnockback = false;
         aiPath.canMove = true;
     }
 }

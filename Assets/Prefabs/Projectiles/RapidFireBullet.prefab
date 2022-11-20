@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3498247250245465942}
   - component: {fileID: 199976865268941402}
   - component: {fileID: 5773680369700995519}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RapidFireBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

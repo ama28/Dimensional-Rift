@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3829708382991441754
+--- !u!1001 &2672794506471586418
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,14 +10,14 @@ PrefabInstance:
     - target: {fileID: 369272468977924272, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 134c91845e07eaf47a7c5de07a9440ad, type: 2}
+      objectReference: {fileID: 9100000, guid: 2f03335feb0a1784fa59b8c397f653e8, type: 2}
     - target: {fileID: 4480592762250389773, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: maxSpeed
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5393616833037949060, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: m_Name
-      value: ShooterEnemyRed
+      value: ScopeCreepEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5393616833037949061, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: m_RootOrder
@@ -63,45 +63,77 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: health
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: targetRange
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: moveUntilRange
-      value: 3
-      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4691203068273349001, guid: 33661ec810df82a47a099fdbbb43d120, type: 3}
     - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: gunInfo.range
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: gunInfo.damage
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: gunInfo.accuracy
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: gunInfo.fireRate
-      value: 0.6
+      propertyPath: gunInfo.damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
-      propertyPath: gunInfo.bulletCount
-      value: 3
+      propertyPath: gunInfo.pierce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.accuracy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      propertyPath: gunInfo.fireRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: gunInfo.bulletSpeed
-      value: 8
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9118382627590390227, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 635e03c83794787429489941e9bf9306, type: 3}
-    m_RemovedComponents: []
+      objectReference: {fileID: 21300000, guid: e3b4625b80892074fb895ebbd64d2d15, type: 3}
+    m_RemovedComponents:
+    - {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+--- !u!114 &5483339974883442497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7570288014010271027, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+  m_PrefabInstance: {fileID: 2672794506471586418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06c0b4cd94c04f2ab3dfa333dadfeea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8056470927217648374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5393616833037949060, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+  m_PrefabInstance: {fileID: 2672794506471586418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5522479861997919670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056470927217648374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37129b87f3baab64bb1b957d959d3f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 32
+  id: -1
+  meleeHit:
+    source: {fileID: 0}
+    sourcePos: {x: 0, y: 0, z: 0}
+    damage: 1
+    knockbackScalar: 2
+  gun: {fileID: 5483339974883442497}
+  targetRange: 8
+  moveUntilRange: 0
+  laserCooldown: 3.5
