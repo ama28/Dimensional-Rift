@@ -315,72 +315,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DontDestroy: 0
-  shopOptions:
-  - isForFarmer: 0
-    cardTier: 2
-    header: {fileID: 0}
-    title: Equip Sniper
-    description: sniper rifle boom boom
-    cardAction: {fileID: 6444189637152801322, guid: b2d6c7ba595974d1d8e6396b165599f8, type: 3}
-    price: 5
-  - isForFarmer: 0
-    cardTier: 1
-    header: {fileID: 0}
-    title: Launcher
-    description: Equip a Launcher that fires larger bullets
-    cardAction: {fileID: 8584795362128480328, guid: 5543c07884c754f7e8544eb133132edb, type: 3}
-    price: 5
-  - isForFarmer: 1
-    cardTier: 1
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Platform
-    description: Build a movable platform
-    cardAction: {fileID: 3888446354233257241, guid: 92bff9d7ab92c4516a90bce0c72fc9ca, type: 3}
-    price: 3
-  - isForFarmer: 1
-    cardTier: 0
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Fence
-    description: Build a stationary platform
-    cardAction: {fileID: 3888446354233257241, guid: 02c379d70aa014f6a8728fcef89adc31, type: 3}
-    price: 2
-  - isForFarmer: 0
-    cardTier: 2
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Speed Buff
-    description: Increase shooter movement speed
-    cardAction: {fileID: 2583463928586524681, guid: 76a70dc1abba34353bb24a46ecce74ab, type: 3}
-    price: 10
-  - isForFarmer: 0
-    cardTier: 2
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Speed Buff
-    description: FARMER ZOOM ZOOM
-    cardAction: {fileID: 2390684238941401609, guid: af580b412c5f04f4f9f228cf13414dd3, type: 3}
-    price: 10
-  - isForFarmer: 0
-    cardTier: 0
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Moveable Platform
-    description: its a platform...that moves
-    cardAction: {fileID: 3888446354233257241, guid: adda695d49c984fe28f582c59bc895a0, type: 3}
-    price: 3
-  - isForFarmer: 0
-    cardTier: 0
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Machine Gun
-    description: brr brr brr brr brr
-    cardAction: {fileID: 4193844455201976849, guid: ac1ac8172baa749bca6eccdd507a9bee, type: 3}
-    price: 5
-  - isForFarmer: 0
-    cardTier: 1
-    header: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
-    title: Shotgun
-    description: boom boom
-    cardAction: {fileID: 5441053649663908123, guid: ca63951dfb7a7454abc7e408779919e5, type: 3}
-    price: 5
+  farmerShopOptions:
+  - {fileID: 11400000, guid: 7adeb6be1db944e118c14420c5503dc8, type: 2}
+  - {fileID: 11400000, guid: 0917357abadf745279db1d3df3eebe03, type: 2}
+  - {fileID: 11400000, guid: 2ed0a80c8709b4025a992f3648ddc428, type: 2}
+  - {fileID: 11400000, guid: 4781a75464a8d40c391de4e2ab8ad78c, type: 2}
+  - {fileID: 11400000, guid: 1351c4afc7aa54ecb9a01c01a5b3eeb1, type: 2}
+  shooterShopOptions:
+  - {fileID: 11400000, guid: 51705b447ce0e443cbabe7078b56299d, type: 2}
+  - {fileID: 11400000, guid: b6dd7220d63434b62a9e784521e91109, type: 2}
+  - {fileID: 11400000, guid: 1c3706347ad5e44bdbdbc4bb9b307d3c, type: 2}
+  - {fileID: 11400000, guid: 127e18bd7c7d946f39f2e82dfdc3d514, type: 2}
+  - {fileID: 11400000, guid: 5db46d58c0a6c4f6dbc37c09cd7d5a17, type: 2}
   optionCount: 3
-  cardSlots: []
+  cardTransforms: []
   shopUI: {fileID: 271150914354983736}
   cardPrefab: {fileID: 5716630063055159895, guid: fbbebd29c20694632b0b46d6b9e9a8e8, type: 3}
   farmerFrames:

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionManger : MonoBehaviour
+public class ActionManager : MonoBehaviour
 {
-    public CardAction myAction;
-    public int cost;
+    [HideInInspector] public CardAction myAction;
+    [HideInInspector] public int cost;
 
     public void Activate()
     {

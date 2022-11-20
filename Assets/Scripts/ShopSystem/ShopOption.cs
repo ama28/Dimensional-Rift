@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class ShopOption
+[CreateAssetMenu(fileName = "New Shop Option", menuName = "ScriptableObjects/Shop Option")]
+public class ShopOption : ScriptableObject
 {
     public enum tier {Bronze, Silver, Gold}
 
@@ -13,7 +13,7 @@ public class ShopOption
     public Sprite header;
     public string title;
     public string description;
-    public GameObject cardAction;
+    public CardAction cardAction;
 
     public int price;
 }

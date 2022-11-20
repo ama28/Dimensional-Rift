@@ -8,11 +8,13 @@ using TMPro;
 public class ShopManager : Singleton<ShopManager>
 {
     [SerializeField]
-    private List<ShopOption> shopOptions;
+    private List<CardAction> farmerShopOptions;
+    [SerializeField]
+    private List<CardAction> shooterShopOptions;
     [SerializeField]
     private int optionCount = 3;
     [SerializeField]
-    private List<Transform> cardSlots = new List<Transform>();
+    private List<Transform> cardTransforms = new List<Transform>();
     public Canvas shopUI;
     public GameObject cardPrefab;
 
@@ -20,6 +22,8 @@ public class ShopManager : Singleton<ShopManager>
     public Sprite[] shooterFrames;
 
     public GameObject waveCompletedText;
+
+    public enum ShopType {farmer, shooter};
 
     private void Start()
     {
@@ -30,7 +34,7 @@ public class ShopManager : Singleton<ShopManager>
         for (int i = 0; i < optionCount; i++)
         {
             GameObject temp = Instantiate(cardPrefab, shopUI.GetComponentInChildren<HorizontalLayoutGroup>().transform);
-            cardSlots.Add(temp.transform);
+            cardTransforms.Add(temp.transform);
         }
     }
 
@@ -44,22 +48,33 @@ public class ShopManager : Singleton<ShopManager>
         GameManager.OnBuildPhaseStart -= waveEnd;
     }
 
-    void RandomizeShopOptions()
+    void RandomizeShopOptions(ShopType shopType)
     {
+        List<CardAction> shopOptions;
+
+        if (shopType == ShopType.farmer) shopOptions = farmerShopOptions;
+        else shopOptions = shooterShopOptions;
+        
         for (int i = shopOptions.Count - 1; i > 0; i--)
         {
             int k = Random.Range(0, shopOptions.Count);
-            ShopOption temp = shopOptions[k];
+            CardAction temp = shopOptions[k];
             shopOptions[k] = shopOptions[i];
             shopOptions[i] = temp;
         }
+
+        if (shopType == ShopType.farmer) farmerShopOptions = shopOptions;
+        else shooterShopOptions = shopOptions;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            OpenShop();
+            OpenShop(ShopType.farmer);
+        } else if (Input.GetKeyDown(KeyCode.K))
+        {
+            OpenShop(ShopType.shooter);
         }
     }
 
@@ -76,7 +91,7 @@ public class ShopManager : Singleton<ShopManager>
         waveCompletedText.SetActive(true);
         yield return new WaitForSeconds(3f);
         waveCompletedText.SetActive(false);
-        OpenShop();
+        //OpenShop();
     }
 
     public void skipShop()
@@ -85,66 +100,85 @@ public class ShopManager : Singleton<ShopManager>
         Time.timeScale = 1f;
     }
 
-    public void OpenShop()
+    public void OpenShop(ShopType shopType)
     {
+        // don't open on first level 
         if (GameManager.Instance.Level != 0)
         {
+            // pause gameplay
             Time.timeScale = 0f;
 
-            RandomizeShopOptions();
+            // randomize our shop options so we can show the first 3
+            RandomizeShopOptions(shopType);
 
-            for (int i = 0; i < cardSlots.Count; i++)
+            List<CardAction> shopOptions;
+            bool isFarmerShop;
+
+            if (shopType == ShopType.farmer)
             {
-                if (cardSlots[i].GetComponentInChildren<CardAction>() != null)
-                {
-                    DestroyImmediate(cardSlots[i].GetComponentInChildren<CardAction>().gameObject);
-                }
+                shopOptions = farmerShopOptions;
+                isFarmerShop = true;
+            }
+            else // shopType == ShopType.shooter
+            {
+                shopOptions = shooterShopOptions;
+                isFarmerShop = false;
+            }
 
-                Instantiate(shopOptions[i].cardAction, cardSlots[i]);
+            for (int i = 0; i < cardTransforms.Count; i++)
+            {
+                // if (cardTransforms[i].GetComponentInChildren<CardAction>() != null)
+                // {
+                //     DestroyImmediate(cardTransforms[i].GetComponentInChildren<CardAction>());
+                // }
 
-                cardSlots[i].GetComponent<ActionManger>().myAction = cardSlots[i].GetComponentInChildren<CardAction>();
-                cardSlots[i].GetComponent<ActionManger>().cost = shopOptions[i].price;
+                // if (isFarmerShop) Instantiate(farmerShopOptions[i], cardTransforms[i]);
+                // else Instantiate(shooterShopOptions[i], cardTransforms[i]);
+
+                cardTransforms[i].GetComponent<ActionManager>().myAction = shopOptions[i];
+                cardTransforms[i].GetComponent<ActionManager>().cost = shopOptions[i].price;
 
                 //frame
-                Image farmerFrame = cardSlots[i].GetChild(2).GetChild(0).GetComponent<Image>();
-                Image shooterFrame = cardSlots[i].GetChild(2).GetChild(1).GetComponent<Image>();
-
-                farmerFrame.enabled = shopOptions[i].isForFarmer;
-                shooterFrame.enabled = !shopOptions[i].isForFarmer;
+                Image farmerFrame = cardTransforms[i].GetChild(2).GetChild(0).GetComponent<Image>();
+                Image shooterFrame = cardTransforms[i].GetChild(2).GetChild(1).GetComponent<Image>();
 
                 switch (shopOptions[i].cardTier)
                 {
-                    case ShopOption.tier.Bronze:
-                        if (shopOptions[i].isForFarmer)
+                    case CardAction.Tier.Bronze:
+                        if (isFarmerShop)
                             farmerFrame.sprite = farmerFrames[0];
                         else
                             shooterFrame.sprite = shooterFrames[0];
                         break;
-                    case ShopOption.tier.Silver:
-                        if (shopOptions[i].isForFarmer)
+                    case CardAction.Tier.Silver:
+                        if (isFarmerShop)
                             farmerFrame.sprite = farmerFrames[1];
                         else
                             shooterFrame.sprite = shooterFrames[1];
                         break;
-                    case ShopOption.tier.Gold:
-                        if (shopOptions[i].isForFarmer)
+                    case CardAction.Tier.Gold:
+                        if (isFarmerShop)
                             farmerFrame.sprite = farmerFrames[2];
                         else
                             shooterFrame.sprite = shooterFrames[2];
                         break;
                 }
 
+                if (isFarmerShop){
+                    shooterFrame.enabled = false;
+                } else shooterFrame.enabled = true;
+
                 //header
-                cardSlots[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
+                cardTransforms[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
 
                 //title
-                cardSlots[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
+                cardTransforms[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
 
                 //description
-                cardSlots[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
+                cardTransforms[i].GetChild(4).GetComponent<TextMeshProUGUI>().text = shopOptions[i].description;
 
                 //price
-                cardSlots[i].GetChild(6).GetComponent<TextMeshProUGUI>().text = shopOptions[i].price.ToString();
+                cardTransforms[i].GetChild(6).GetComponent<TextMeshProUGUI>().text = shopOptions[i].price.ToString();
             }
 
             shopUI.enabled = true;

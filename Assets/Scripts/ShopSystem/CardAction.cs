@@ -2,21 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class CardAction : MonoBehaviour
+[CreateAssetMenu(fileName = "New Card Action", menuName = "ScriptableObjects/Card Action")]
+public class CardAction : ScriptableObject
 {
+    // shop appearance
+    public enum Tier {Bronze, Silver, Gold}
+
+    public Tier cardTier;
+    public Sprite header;
+    public string title;
+    public string description;
+    public int price;
+
+    // card action functionality
     public enum ActionType {NewWeapon, WeaponUpgrade, NewStructure, StatBoost}
     public ActionType actionType;
+    public enum Char {farmer, shooter}
 
     public string gunName;
     public int gunIndex;
     public string gunStat;
     public int gunStatChange;
 
-    public bool isPlayerFarmer;
-    public string playerStat;
+    public enum StatType {Speed, JumpHeight}
+    public StatType playerStat;
+    public Char forWhichCharacter;
     public int playerStatChange;
-
+    
     public GameObject newStructure;
 
     private GameObject player1;
@@ -67,25 +79,25 @@ public class CardAction : MonoBehaviour
 
     void boostStat()
     {
-        if (isPlayerFarmer)
+        if (forWhichCharacter == Char.farmer)
         {
             switch (playerStat)
             {
-                case "speed":
+                case StatType.Speed:
                     player1.GetComponent<P1Controller>().stats.speed += playerStatChange;
                     break;
-                case "jumpHeight":
+                case StatType.JumpHeight:
                     break;
             }
         }
-        else
+        else // forWhichCharacter == Char.shooter
         {
             switch (playerStat)
             {
-                case "speed":
+                case StatType.Speed:
                     player2.GetComponent<P2Controller>().stats.speed += playerStatChange;
                     break;
-                case "jumpHeight":
+                case StatType.JumpHeight:
                     break;
             }
         }

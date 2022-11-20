@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &383605220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383605219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.12, y: 0.71, z: 0.19761276}
+  m_LocalPosition: {x: 16.76, y: 1.07, z: 0.19761276}
   m_LocalScale: {x: 0.30222136, y: 0.30222136, z: 0.30222136}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45747,7 +45747,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 1, y: 1, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -48693,6 +48693,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 2147483649
+  - first: {x: -7, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 13, y: 5, z: 0}
     second:
       serializedVersion: 2
@@ -49935,8 +49945,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 93cbbebc7bb254fdda84ed7d6426e87d, type: 2}
   - m_RefCount: 416
     m_Data: {fileID: 11400000, guid: 35ef23903cf574a57afa86d0622c3808, type: 2}
   m_TileSpriteArray:
@@ -49954,12 +49964,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 82aec1867f52444c6946a6e28e30e0cb, type: 3}
   - m_RefCount: 416
     m_Data: {fileID: 21300000, guid: ba49cd83771634542b52e8c2454ab81c, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 416
+  - m_RefCount: 417
     m_Data:
       e00: 1
       e01: 0
@@ -49978,7 +49988,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 416
+  - m_RefCount: 417
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 0.882274, g: 0.40564287, b: 0.52166015, a: 1}
@@ -50110,7 +50120,65 @@ CompositeCollider2D:
         Y: -160000000
       - X: 180000000
         Y: -160000000
-    - - X: 60000000
+    - - X: -20000000
+        Y: 60000000
+      - X: 130000000
+        Y: 60000000
+      - X: 130000000
+        Y: 50000000
+      - X: 160000000
+        Y: 50000000
+      - X: 160000000
+        Y: 40000000
+      - X: 170000000
+        Y: 40000000
+      - X: 170000000
+        Y: 30000000
+      - X: 180000000
+        Y: 30000000
+      - X: 180000000
+        Y: -10000000
+      - X: 160000000
+        Y: -10000000
+      - X: 160000000
+        Y: -20000000
+      - X: 150000000
+        Y: -20000000
+      - X: 150000000
+        Y: -30000000
+      - X: 120000000
+        Y: -30000000
+      - X: 120000000
+        Y: -40000000
+      - X: 110000000
+        Y: -40000000
+      - X: 110000000
+        Y: -50000000
+      - X: 160000000
+        Y: -50000000
+      - X: 160000000
+        Y: -60000000
+      - X: 170000000
+        Y: -60000000
+      - X: 170000000
+        Y: -80000000
+      - X: 160000000
+        Y: -80000000
+      - X: 160000000
+        Y: -120000000
+      - X: 140000000
+        Y: -120000000
+      - X: 140000000
+        Y: -130000000
+      - X: 130000000
+        Y: -130000000
+      - X: 130000000
+        Y: -140000000
+      - X: 120000000
+        Y: -140000000
+      - X: 120000000
+        Y: -150000000
+      - X: 60000000
         Y: -150000000
       - X: 60000000
         Y: -140000000
@@ -50162,78 +50230,48 @@ CompositeCollider2D:
         Y: 60000000
       - X: -100000000
         Y: 70000000
-      - X: -80000100
+      - X: -80000000
         Y: 70000000
-      - X: -80000100
-        Y: 70000041
-      - X: -80000041
-        Y: 70000100
-      - X: -49999959
-        Y: 70000100
-      - X: -49999900
-        Y: 70000041
-      - X: -49999900
+      - X: -80000000
+        Y: 40000000
+      - X: -75000000
+        Y: 40000000
+      - X: -75000000
+        Y: 40625000
+      - X: -70000000
+        Y: 48125000
+      - X: -69663462
+        Y: 43750000
+      - X: -72500000
+        Y: 43750000
+      - X: -73125000
+        Y: 42500000
+      - X: -73125000
+        Y: 40000000
+      - X: -50000000
+        Y: 40000000
+      - X: -50000000
         Y: 70000000
       - X: -20000000
         Y: 70000000
-      - X: -20000000
-        Y: 60000000
-      - X: 130000000
-        Y: 60000000
-      - X: 130000000
+    - - X: -61250000
+        Y: 50625000
+      - X: -62500000
+        Y: 52500000
+      - X: -60625000
+        Y: 52500000
+      - X: -60625000
+        Y: 50625000
+      - X: -61250000
         Y: 50000000
-      - X: 160000000
-        Y: 50000000
-      - X: 160000000
-        Y: 40000000
-      - X: 170000000
-        Y: 40000000
-      - X: 170000000
-        Y: 30000000
-      - X: 180000000
-        Y: 30000000
-      - X: 180000000
-        Y: -10000000
-      - X: 160000000
-        Y: -10000000
-      - X: 160000000
-        Y: -20000000
-      - X: 150000000
-        Y: -20000000
-      - X: 150000000
-        Y: -30000000
-      - X: 120000000
-        Y: -30000000
-      - X: 120000000
-        Y: -40000000
-      - X: 110000000
-        Y: -40000000
-      - X: 110000000
-        Y: -50000000
-      - X: 160000000
-        Y: -50000000
-      - X: 160000000
-        Y: -60000000
-      - X: 170000000
-        Y: -60000000
-      - X: 170000000
-        Y: -80000000
-      - X: 160000000
-        Y: -80000000
-      - X: 160000000
-        Y: -120000000
-      - X: 140000000
-        Y: -120000000
-      - X: 140000000
-        Y: -130000000
-      - X: 130000000
-        Y: -130000000
-      - X: 130000000
-        Y: -140000000
-      - X: 120000000
-        Y: -140000000
-      - X: 120000000
-        Y: -150000000
+    - - X: -63125000
+        Y: 46250000
+      - X: -62500000
+        Y: 46875000
+      - X: -62500000
+        Y: 46250000
+      - X: -62857143
+        Y: 45714286
   m_CompositePaths:
     m_Paths:
     - - {x: 17.999971, y: -16}
@@ -50293,6 +50331,17 @@ CompositeCollider2D:
       - {x: -12.99997, y: 6}
       - {x: -10, y: 6.000029}
       - {x: -9.99997, y: 7}
+      - {x: -8, y: 6.9999704}
+      - {x: -7.9999704, y: 4}
+      - {x: -7.5, y: 4.000029}
+      - {x: -7.499996, y: 4.0625067}
+      - {x: -6.999992, y: 4.8123913}
+      - {x: -6.9663787, y: 4.375}
+      - {x: -7.250008, y: 4.374985}
+      - {x: -7.3125, y: 4.2499943}
+      - {x: -7.3124704, y: 4}
+      - {x: -5, y: 4.000029}
+      - {x: -4.9999704, y: 7}
       - {x: -2, y: 6.9999704}
       - {x: -1.9999708, y: 6}
       - {x: 13, y: 5.9999704}
@@ -50322,6 +50371,15 @@ CompositeCollider2D:
       - {x: 13, y: -13.00003}
       - {x: 12.99997, y: -14}
       - {x: 12, y: -14.000029}
+    - - {x: -6.1249385, y: 5.0000615}
+      - {x: -6.1250043, y: 5.0625067}
+      - {x: -6.2499366, y: 5.25}
+      - {x: -6.0625, y: 5.2499704}
+      - {x: -6.0625076, y: 5.062493}
+    - - {x: -6.2856827, y: 4.5714765}
+      - {x: -6.312486, y: 4.625014}
+      - {x: -6.25, y: 4.6874127}
+      - {x: -6.2500043, y: 4.624994}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1120722855
@@ -50357,149 +50415,53 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 441753320}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].title
-      value: Equip Sniper
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[1].price
+      propertyPath: farmerShopOptions.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].price
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].title
-      value: Fence
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[4].price
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[5].price
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[5].title
-      value: Speed Buff
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[6].price
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[6].title
-      value: Moveable Platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[7].price
+      propertyPath: shooterShopOptions.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[7].title
-      value: Machine Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[8].price
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[8].title
-      value: Shotgun
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[5].header
+      propertyPath: farmerShopOptions.Array.data[0]
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
+      objectReference: {fileID: 11400000, guid: 7adeb6be1db944e118c14420c5503dc8, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[6].header
+      propertyPath: farmerShopOptions.Array.data[1]
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
+      objectReference: {fileID: 11400000, guid: 0917357abadf745279db1d3df3eebe03, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[7].header
+      propertyPath: farmerShopOptions.Array.data[2]
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
+      objectReference: {fileID: 11400000, guid: 2ed0a80c8709b4025a992f3648ddc428, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[8].header
+      propertyPath: farmerShopOptions.Array.data[3]
       value: 
-      objectReference: {fileID: 7482667652216324306, guid: 36d46e5e4228d46a0b4442e30c678ab4, type: 3}
+      objectReference: {fileID: 11400000, guid: 4781a75464a8d40c391de4e2ab8ad78c, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].cardTier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[1].cardTier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[5].cardTier
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[6].cardTier
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[7].cardTier
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[8].cardTier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].cardAction
+      propertyPath: farmerShopOptions.Array.data[4]
       value: 
-      objectReference: {fileID: 6444189637152801322, guid: b2d6c7ba595974d1d8e6396b165599f8, type: 3}
+      objectReference: {fileID: 11400000, guid: 1351c4afc7aa54ecb9a01c01a5b3eeb1, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].cardAction
+      propertyPath: shooterShopOptions.Array.data[0]
       value: 
-      objectReference: {fileID: 3888446354233257241, guid: 02c379d70aa014f6a8728fcef89adc31, type: 3}
+      objectReference: {fileID: 11400000, guid: 51705b447ce0e443cbabe7078b56299d, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[5].cardAction
+      propertyPath: shooterShopOptions.Array.data[1]
       value: 
-      objectReference: {fileID: 2390684238941401609, guid: af580b412c5f04f4f9f228cf13414dd3, type: 3}
+      objectReference: {fileID: 11400000, guid: b6dd7220d63434b62a9e784521e91109, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[6].cardAction
+      propertyPath: shooterShopOptions.Array.data[2]
       value: 
-      objectReference: {fileID: 3888446354233257241, guid: adda695d49c984fe28f582c59bc895a0, type: 3}
+      objectReference: {fileID: 11400000, guid: 1c3706347ad5e44bdbdbc4bb9b307d3c, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[7].cardAction
+      propertyPath: shooterShopOptions.Array.data[3]
       value: 
-      objectReference: {fileID: 4193844455201976849, guid: ac1ac8172baa749bca6eccdd507a9bee, type: 3}
+      objectReference: {fileID: 11400000, guid: 127e18bd7c7d946f39f2e82dfdc3d514, type: 2}
     - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[8].cardAction
+      propertyPath: shooterShopOptions.Array.data[4]
       value: 
-      objectReference: {fileID: 5441053649663908123, guid: ca63951dfb7a7454abc7e408779919e5, type: 3}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[0].description
-      value: sniper rifle boom boom
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[3].description
-      value: Build a stationary platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[5].description
-      value: FARMER ZOOM ZOOM
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[6].description
-      value: its a platform...that moves
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[7].description
-      value: brr brr brr brr brr
-      objectReference: {fileID: 0}
-    - target: {fileID: 271150913987213912, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
-      propertyPath: shopOptions.Array.data[8].description
-      value: boom boom
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 5db46d58c0a6c4f6dbc37c09cd7d5a17, type: 2}
     - target: {fileID: 271150913987213913, guid: 08f83d3320adf4df5a4446cc99baae24, type: 3}
       propertyPath: m_Name
       value: ShopManager
