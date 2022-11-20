@@ -25,8 +25,8 @@ public class Wave {
     
     public List<Enemy> GetEnemyList() {
         List<Enemy> enemyList = new List<Enemy>();
-        int budget = baseEnemyBudget; /*+ (
-            GameManager.Instance.spawnManager.currentWave - waveRange.x) * extraEnemyBudget; */
+        int budget = baseEnemyBudget + (
+            GameManager.Instance.Level - waveRange.x) * extraEnemyBudget;
 
         float maxWeightRoll = 0;
         enemies.ForEach(x => maxWeightRoll += x.weight);

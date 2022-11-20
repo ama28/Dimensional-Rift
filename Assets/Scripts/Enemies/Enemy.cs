@@ -5,19 +5,21 @@ using UnityEngine;
 public abstract class Enemy : Being
 {
 
-    public int id = -1; //id, should be set on initialization
+    [HideInInspector] public int id = -1; //id, should be set on initialization
 
     protected Rigidbody2D rb;
+    private float initTime;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initTime = Time.timeSinceLevelLoad;
     }
 
     protected virtual void Update()
     {
-
+        
     }
 
     protected abstract void Attack();

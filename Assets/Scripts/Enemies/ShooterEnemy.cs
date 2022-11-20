@@ -8,8 +8,8 @@ public class ShooterEnemy : HomingEnemy
     public float targetRange;
     public float moveUntilRange;
 
-    private Being[] shootingTargets;
-    private Being shootingTarget;
+    protected Being[] shootingTargets;
+    protected Being shootingTarget;
 
     protected override void Start()
     {
@@ -26,6 +26,10 @@ public class ShooterEnemy : HomingEnemy
     {
         if (gun == null)
             return;
+
+        // makes knockback work
+        // I know it's sus but whatever
+        rb.mass = takingKnockback ? 1 : 1000000;
 
         // get closest player
         shootingTarget = null;
@@ -57,7 +61,7 @@ public class ShooterEnemy : HomingEnemy
                 transform.position) > moveUntilRange)
         {
             // too far away, we should move closer
-            aiPath.canMove = true;
+            aiPath.canMove = !takingKnockback;
             Move();
         } else
         {

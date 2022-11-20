@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 199976865268941402}
   - component: {fileID: 8117598611154741880}
   - component: {fileID: 5868682441325445403}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SuperBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 0}
-  speed: 10
+  speed: 5
 --- !u!50 &199976865268941402
 Rigidbody2D:
   serializedVersion: 4

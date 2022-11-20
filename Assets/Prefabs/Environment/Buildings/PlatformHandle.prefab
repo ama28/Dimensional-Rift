@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7790684196799328482}
   - component: {fileID: 7790684196799328483}
   - component: {fileID: 2574131564737857147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000023841858, y: -0.21881238}
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  type: 0
   coordinates: {x: 0, y: 0}
   size: {x: 3, y: 1}
   collidable: 0
