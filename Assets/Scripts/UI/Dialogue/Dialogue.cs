@@ -42,24 +42,25 @@ public class Dialogue : MonoBehaviour
         for(int i = 0; i < 5; i++) {
             parsedOutput.Add(parseText(dialogueData[i]));
         }
-        // ChooseDialogue();
+        ChooseDialogue();
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.B))
-        //while (currentLines.Count > 0 && currentLineEnd)
+        // if(Input.GetKeyDown(KeyCode.B))
+        while (currentLines.Count > 0 && currentLineEnd)
         {
-            if (currentLines.Count <= 0)
-            {
-                resetText();
-                resetSpeaker();
-            }
             displayNextLine();
+        }
+        if (currentLines.Count <= 0 && currentLineEnd)
+        {
+            resetText();
+            resetSpeaker();
+            samDialogueBox.SetActive(false);
+            fridaDialogueBox.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
-
         {
             ChooseDialogue();
         }
@@ -98,7 +99,12 @@ public class Dialogue : MonoBehaviour
         //TODO: Add special case for affection 0
 
         int affectionLevel = (GameManager.Instance.Level / roundsPerAffectionLevel) + 1;
-        List<string> randomDialogue = parsedOutput[affectionLevel][UnityEngine.Random.Range(0, parsedOutput[affectionLevel].Count)];
+        if(parsedOutput[affectionLevel].Count <= 0) {
+            return;
+        }
+        int index = UnityEngine.Random.Range(0, parsedOutput[affectionLevel].Count);
+        List<string> randomDialogue = parsedOutput[affectionLevel][index];
+        parsedOutput[affectionLevel].RemoveAt(index);
         foreach (string line in randomDialogue)
         {
             currentLines.Enqueue(line);
@@ -164,14 +170,14 @@ public class Dialogue : MonoBehaviour
     //Coroutine that concatenates a character from the current dialogue line to the actual text being displayed
     IEnumerator displayText(string currentText)
     {
-        yield return new WaitForSeconds(4.0f);
+        // yield return new WaitForSeconds(4.0f);
         currentLineEnd = false;
         resetText();
         for (int i = 0; i < currentText.Length; i++)
         {
             //TODO: add whole text displaying stuff or make new class for it
             dialogueText = string.Concat(dialogueText, currentText[i]);
-            dialogue.SetText(dialogueText.Substring(4));
+            dialogue.SetText(dialogueText);
             Debug.Log(dialogueText);
             print("dialogue" + dialogue.font);
            // Debug.Log(dialogueText);
@@ -188,15 +194,15 @@ public class Dialogue : MonoBehaviour
         print("called rando");
         dialogueText = "";
         dialogue.SetText(dialogueText);
-        samDialogueBox.SetActive(false);
-        fridaDialogueBox.SetActive(false);
+        // samDialogueBox.SetActive(false);
+        // fridaDialogueBox.SetActive(false);
 
     }
     void resetSpeaker()
     {
         speaker.SetText("");
-        //samDialogueBox.SetActive(false);
-        //fridaDialogueBox.SetActive(false);
+        samDialogueBox.SetActive(false);
+        fridaDialogueBox.SetActive(false);
         //dialogue.SetText(dialogueText);
     }
 }

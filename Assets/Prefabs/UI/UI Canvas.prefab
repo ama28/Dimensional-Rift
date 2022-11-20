@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13025c7d81494b9ea4c4075d3501a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &1339092791
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +589,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   healthBarImage: {fileID: 768551630}
+  currentEnemyCount: 0
+  totalEnemyCount: 0
 --- !u!1 &1776438464
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1776438465
 RectTransform:
   m_ObjectHideFlags: 0
@@ -681,7 +684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1794061071
 RectTransform:
   m_ObjectHideFlags: 0
@@ -730,7 +733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -757,8 +760,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28.34
+  m_fontSizeBase: 28.34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1466,6 +1469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   healthBarImage: {fileID: 6468944583906897749}
+  currentEnemyCount: 0
+  totalEnemyCount: 0
 --- !u!1 &7720356629156661524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8143355244292460741
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1833,7 +1838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af00ddf406ec04bfd951c753f0dd5e94, type: 2}
   m_sharedMaterial: {fileID: -5733059261654384886, guid: af00ddf406ec04bfd951c753f0dd5e94, type: 2}
@@ -1914,15 +1919,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f646626638c34088d8372468e14b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 4900000, guid: a22221d562b2bd04da679a2931ee74d5, type: 3}
+  dialogueData:
+  - {fileID: 4900000, guid: b9a7d8ce931374d1fad74a6b7ea70f71, type: 3}
+  - {fileID: 4900000, guid: a22221d562b2bd04da679a2931ee74d5, type: 3}
+  - {fileID: 4900000, guid: 61e590b50534f8843b4a059b1c2dfb21, type: 3}
+  - {fileID: 4900000, guid: b3c533e254f844c43896f2ca0b5be6c1, type: 3}
+  - {fileID: 4900000, guid: 6ced5322ad5a9f5498d3b9479b8364e2, type: 3}
+  - {fileID: 4900000, guid: 1382991a23c619247afda0416650907c, type: 3}
   scrollRate: 0.05
+  pauseAfterLine: 2
   dialogue: {fileID: 5068189102322873134}
   speaker: {fileID: 1794061072}
-  test: 
+  roundsPerAffectionLevel: 7
   satella: {fileID: 11400000, guid: 04859062863094bfab6b4ab80e7dce13, type: 2}
   vt323: {fileID: 11400000, guid: af00ddf406ec04bfd951c753f0dd5e94, type: 2}
   satella_size: 20
   vt323_size: 32
+  samDialogueBox: {fileID: 0}
+  fridaDialogueBox: {fileID: 0}
 --- !u!1 &9075698473585804191
 GameObject:
   m_ObjectHideFlags: 0
