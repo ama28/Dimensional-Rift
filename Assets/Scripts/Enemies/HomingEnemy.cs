@@ -7,7 +7,7 @@ public class HomingEnemy : Enemy
 {
     public float targetingDistance = 10f; //distance below which enemy will attack player instead of farm
     protected AIPath aiPath;
-    protected PlayerFarmer target;
+    protected Being target;
 
     protected bool takingKnockback;
     
