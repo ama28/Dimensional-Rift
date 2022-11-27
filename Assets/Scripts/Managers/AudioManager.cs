@@ -59,18 +59,22 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     // Item and weapon sounds
-    
-    public void Laser() {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/laser");
+
+    public void FireGun(GunSFXType type) {
+        switch (type) {
+            case GunSFXType.Laser: {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/laser");
+                break;
+            }
+            case GunSFXType.Sniper: {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
+                break;
+            }   
+        }
     }
 
-    public void Sniper() {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
-    }
-
-    public void Coin() {
-        int coinSoundChooser = Random.Range(0, 2);
-        if (coinSoundChooser == 1) {
+    public void Coin(int i) {
+        if (i == 1) {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
         } else {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin2");

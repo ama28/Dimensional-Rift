@@ -51,7 +51,7 @@ public class Farm : Building
             farmHealthBar.UpdateHealthBar();
         }
         if(roundsSinceHarvest >= stats.roundsToHarvest) {
-            StartCoroutine(OnHarvest());
+            spriteRenderers[0].sprite = grownSprite;
         }
     }
 
@@ -79,13 +79,18 @@ public class Farm : Building
         }
     }
 
-    protected IEnumerator OnHarvest() {
-        spriteRenderers[0].sprite = grownSprite;
-        yield return new WaitForSeconds(Random.Range(1, 2.5f));
-        GameManager.Instance.currency += stats.coinsOnHarvest;
+    protected IEnumerator OnHarvestAnim() {
         //show small + (coin sprite) x coinsOnHarvest ?
         spriteRenderers[0].sprite = startSprite;
-        roundsSinceHarvest = 0;
         yield return null;
     }
+
+    public virtual void OnHarvest() {
+        if(roundsSinceHarvest >= stats.roundsToHarvest) {
+            roundsSinceHarvest = 0;
+            GameManager.Instance.currency += stats.coinsOnHarvest;
+            StartCoroutine(OnHarvestAnim());
+        }
+    }
+
 }

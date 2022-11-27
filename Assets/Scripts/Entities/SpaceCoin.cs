@@ -14,6 +14,7 @@ public class SpaceCoin : Collectible
         // If player collects coin
         if(c.gameObject.tag == "PlayerFarmer"){
             GameManager.Instance.spaceCurrency++;
+            AudioManager.i.Coin(2);
             base.OnTriggerEnter2D(c); //destroys coin
         }
         

@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum GunSFXType {
+    Laser, Sniper
+}
+
 public class Gun : MonoBehaviour
 {
     [SerializeField]
     public GunInfo gunInfo = new GunInfo();
-    
     public GameObject bullet;
     public Being owner;
+    public GunSFXType sfxType;
 
     private bool canFire_;
     private float timer_;
@@ -40,6 +44,8 @@ public class Gun : MonoBehaviour
         if (CanFire())
         {
             canFire_ = false;
+
+            AudioManager.i.FireGun(sfxType);
 
             Vector3 position = transform.position;
             for (int i = 0; i < Mathf.Max(1, gunInfo.bulletCount); i++)
