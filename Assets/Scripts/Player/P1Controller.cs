@@ -53,7 +53,8 @@ public class P1Controller : PlayerFarmer
     public void Interact(InputAction.CallbackContext context)
     {
         Debug.Log("space");
-        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetector.position, Vector2.up * transform.localScale, rayDist);
+        int layerMask = 1 << LayerMask.NameToLayer("Trigger");
+        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetector.position, Vector2.up * transform.localScale, rayDist, layerMask);
 
         if(grabCheck && grabCheck.transform.GetComponent<Interactable>() != null) {
             heldObject = grabCheck.transform.GetComponent<Interactable>();
