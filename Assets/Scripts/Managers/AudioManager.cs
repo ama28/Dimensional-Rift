@@ -70,7 +70,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void Coin() {
         int coinSoundChooser = Random.Range(0, 2);
-        if (coinSoundChoose == 1) {
+        if (coinSoundChooser == 1) {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
         } else {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin2");

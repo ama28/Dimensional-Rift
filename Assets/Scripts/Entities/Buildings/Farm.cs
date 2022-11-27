@@ -11,7 +11,8 @@ public class Farm : Building
         public int coinsOnHarvest = 5;
     }
 
-    [SerializeField] private FarmStats stats;
+    public FarmStats stats;
+    public FarmHealthBar farmHealthBar;
     
     [Header("Sprites")]
     [SerializeField] private Sprite startSprite;
@@ -34,6 +35,7 @@ public class Farm : Building
     {
         base.Start();
         health = stats.maxHealth;
+        farmHealthBar.gameObject.SetActive(false);
     }
 
     protected virtual void OnActionPhaseStart(Wave wave) {
@@ -41,8 +43,13 @@ public class Farm : Building
     }
 
     protected virtual void OnBuildPhaseStart() {
-        Debug.Log("starting");
         roundsSinceHarvest++;
+        health += Mathf.Clamp(stats.maxHealth/5, 0, stats.maxHealth);
+        if(health == stats.maxHealth) { //hide health bar if full health
+            farmHealthBar.gameObject.SetActive(false);
+        } else {
+            farmHealthBar.UpdateHealthBar();
+        }
         if(roundsSinceHarvest >= stats.roundsToHarvest) {
             StartCoroutine(OnHarvest());
         }
@@ -63,8 +70,10 @@ public class Farm : Building
 
     public override void TakeDamage(HitInfo hit) {
         base.TakeDamage(hit);
-        Debug.Log("farm taking damage");
-        //TODO: update health bar
+        if(!farmHealthBar.gameObject.activeInHierarchy) {
+            farmHealthBar.gameObject.SetActive(true);
+        }
+        farmHealthBar.UpdateHealthBar();
         if(health <= 0) {
             Die();
         }
