@@ -111,7 +111,7 @@ public class ShopManager : Singleton<ShopManager>
     public void OpenShop(ShopType shopType)
     {
         // don't open on first level 
-        if (GameManager.Instance.Level != 0)
+        // if (GameManager.Instance.Level != 0)
         {
             // pause gameplay
             Time.timeScale = 0f;
@@ -174,10 +174,15 @@ public class ShopManager : Singleton<ShopManager>
 
                 if (isFarmerShop){
                     shooterFrame.enabled = false;
-                } else shooterFrame.enabled = true;
+                    farmerFrame.enabled = true;
+                } else {
+                    shooterFrame.enabled = true;
+                    farmerFrame.enabled = false;
+                }
 
                 //header
                 cardTransforms[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
+                Debug.Log(shopOptions[i]);
 
                 //title
                 cardTransforms[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;

@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
   m_Name: BuildTree
   m_EditorClassIdentifier: 
-  actionType: 0
+  cardTier: 0
+  header: {fileID: 0}
+  title: Tree
+  description: reee reee
+  price: 1
+  actionType: 2
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
-  isPlayerFarmer: 0
-  playerStat: 
+  playerStat: 0
+  forWhichCharacter: 0
   playerStatChange: 0
-  newStructure: {fileID: 0}
+  newStructure: {fileID: 2440353998168722426, guid: 71d88354600474ec292b51ec40f2262c, type: 3}
   p2Shooting: {fileID: 0}

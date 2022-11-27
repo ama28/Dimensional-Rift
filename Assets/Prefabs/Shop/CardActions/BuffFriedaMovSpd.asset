@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
   m_Name: BuffFriedaMovSpd
   m_EditorClassIdentifier: 
-  actionType: 0
+  cardTier: 0
+  header: {fileID: 0}
+  title: Move Spd Up
+  description: zoom zoom
+  price: 7
+  actionType: 3
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
-  isPlayerFarmer: 0
-  playerStat: 
-  playerStatChange: 0
+  playerStat: 0
+  forWhichCharacter: 0
+  playerStatChange: 2
   newStructure: {fileID: 0}
   p2Shooting: {fileID: 0}

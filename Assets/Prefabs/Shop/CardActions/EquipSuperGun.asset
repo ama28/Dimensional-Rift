@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
   m_Name: EquipSuperGun
   m_EditorClassIdentifier: 
+  cardTier: 1
+  header: {fileID: 0}
+  title: Super Gun
+  description: Pushes enemies away
+  price: 7
   actionType: 0
-  gunName: 
+  gunName: SuperGun
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
-  isPlayerFarmer: 0
-  playerStat: 
+  playerStat: 0
+  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 0}
   p2Shooting: {fileID: 0}

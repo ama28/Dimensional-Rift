@@ -43,5 +43,7 @@ public class ActionEditor : Editor
                 cardAction.playerStatChange = EditorGUILayout.IntField("Stat Change Amount", cardAction.playerStatChange);
                 break;
         }
+
+        EditorUtility.SetDirty(cardAction);
     }
 }
