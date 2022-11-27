@@ -57,6 +57,33 @@ public class AudioManager : Singleton<AudioManager>
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
-    
 
+    // Item and weapon sounds
+    
+    public void Laser() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/laser");
+    }
+
+    public void Sniper() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
+    }
+
+    public void Coin() {
+        int coinSoundChooser = Random.Range(0, 2);
+        if (coinSoundChoose == 1) {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
+        } else {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin2");
+        }
+    }
+
+    // UI Sounds
+
+    public void ShopClick() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/shopclick");
+    }
+
+    public void TBD() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/idk");
+    }
 }
