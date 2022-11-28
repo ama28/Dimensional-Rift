@@ -18,12 +18,12 @@ MonoBehaviour:
   description: Good at close range
   price: 10
   actionType: 0
+  forWhichCharacter: 1
   gunName: Shotgun
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 0}
   p2Shooting: {fileID: 0}

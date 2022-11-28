@@ -315,18 +315,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DontDestroy: 0
-  farmerShopOptions:
+  allOptions:
   - {fileID: 11400000, guid: 7adeb6be1db944e118c14420c5503dc8, type: 2}
+  - {fileID: 11400000, guid: 5db46d58c0a6c4f6dbc37c09cd7d5a17, type: 2}
   - {fileID: 11400000, guid: 0917357abadf745279db1d3df3eebe03, type: 2}
   - {fileID: 11400000, guid: 2ed0a80c8709b4025a992f3648ddc428, type: 2}
   - {fileID: 11400000, guid: 4781a75464a8d40c391de4e2ab8ad78c, type: 2}
   - {fileID: 11400000, guid: 1351c4afc7aa54ecb9a01c01a5b3eeb1, type: 2}
-  shooterShopOptions:
-  - {fileID: 11400000, guid: 51705b447ce0e443cbabe7078b56299d, type: 2}
-  - {fileID: 11400000, guid: b6dd7220d63434b62a9e784521e91109, type: 2}
-  - {fileID: 11400000, guid: 1c3706347ad5e44bdbdbc4bb9b307d3c, type: 2}
   - {fileID: 11400000, guid: 127e18bd7c7d946f39f2e82dfdc3d514, type: 2}
-  - {fileID: 11400000, guid: 5db46d58c0a6c4f6dbc37c09cd7d5a17, type: 2}
+  - {fileID: 11400000, guid: 1c3706347ad5e44bdbdbc4bb9b307d3c, type: 2}
+  - {fileID: 11400000, guid: b6dd7220d63434b62a9e784521e91109, type: 2}
+  - {fileID: 11400000, guid: 51705b447ce0e443cbabe7078b56299d, type: 2}
+  - {fileID: 11400000, guid: 764bcf72d085643cda3f7799383f25b9, type: 2}
   optionCount: 3
   cardTransforms: []
   shopUI: {fileID: 271150914354983736}

@@ -18,12 +18,11 @@ MonoBehaviour:
   description: Pushes enemies away
   price: 7
   actionType: 0
+  forWhichCharacter: 1
   gunName: SuperGun
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 0}
-  p2Shooting: {fileID: 0}

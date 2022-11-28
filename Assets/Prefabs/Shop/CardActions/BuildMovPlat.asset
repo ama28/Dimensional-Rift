@@ -18,12 +18,12 @@ MonoBehaviour:
   description: Moveable platform for Sam to stand
   price: 5
   actionType: 2
+  forWhichCharacter: 0
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 7790684196799328476, guid: 240ebfdf0efd54b0eb02d2e2fed138e5, type: 3}
   p2Shooting: {fileID: 0}

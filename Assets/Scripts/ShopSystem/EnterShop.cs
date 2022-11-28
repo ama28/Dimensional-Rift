@@ -11,12 +11,10 @@ public class EnterShop : MonoBehaviour
     {
         if (shopType == ShopManager.ShopType.farmer && col.tag == "PlayerFarmer")
         {
-            Debug.Log("farm shop entered");
             GameManager.Instance.shopManager.OpenShop(shopType);
         }
         else if (shopType == ShopManager.ShopType.shooter && col.tag == "PlayerShooter")
         {
-            Debug.Log("cyber shop entered");
             GameManager.Instance.shopManager.OpenShop(shopType);
         }
     }

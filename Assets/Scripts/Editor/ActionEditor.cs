@@ -10,6 +10,7 @@ public class ActionEditor : Editor
     {
         CardAction cardAction = (CardAction)target;
 
+        cardAction.forWhichCharacter = (CardAction.Char)EditorGUILayout.EnumPopup("Char Target", cardAction.forWhichCharacter);
         cardAction.cardTier = (CardAction.Tier)EditorGUILayout.EnumPopup("Card Tier", cardAction.cardTier);
 
         EditorGUILayout.BeginHorizontal();
@@ -17,7 +18,6 @@ public class ActionEditor : Editor
         cardAction.header = (Sprite)EditorGUILayout.ObjectField(cardAction.header, typeof(Sprite), allowSceneObjects: true);
         EditorGUILayout.EndHorizontal();
 
-        //cardAction.header = (Sprite)EditorGUILayout.ObjectField("Background Sprite", cardAction.header);
         cardAction.title = EditorGUILayout.TextField("Title", cardAction.title);
         cardAction.description = EditorGUILayout.TextField("Description", cardAction.description);
         cardAction.price = EditorGUILayout.IntField("Price", cardAction.price);
@@ -38,7 +38,6 @@ public class ActionEditor : Editor
                 cardAction.newStructure = (GameObject)EditorGUILayout.ObjectField("New Structure", cardAction.newStructure, typeof(GameObject), true);
                 break;
             case CardAction.ActionType.StatBoost:
-                cardAction.forWhichCharacter = (CardAction.Char)EditorGUILayout.EnumPopup("Char Target", cardAction.forWhichCharacter);
                 cardAction.playerStat = (CardAction.StatType)EditorGUILayout.EnumPopup("Stat Type", cardAction.playerStat);
                 cardAction.playerStatChange = EditorGUILayout.IntField("Stat Change Amount", cardAction.playerStatChange);
                 break;

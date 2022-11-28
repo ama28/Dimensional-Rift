@@ -13,12 +13,6 @@ public class ButtonPrompt : MonoBehaviour, Interactable
         canvas = GetComponentInChildren<Canvas>();
     }
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Slash)) {
-            Debug.Log("kdjsfkld");
-        }
-    }
-
     public void OnInteract(Player player) {
         ButtonPress(player);
     }
@@ -43,9 +37,7 @@ public class ButtonPrompt : MonoBehaviour, Interactable
 
     void OnTriggerStay2D(Collider2D col){
         if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter"){
-            Debug.Log("hello");
             if (Input.GetKey(KeyCode.Slash)) {
-                Debug.Log("AAAAAAAA");
                 ButtonPress(col.transform.GetComponent<Player>());
             }
         }

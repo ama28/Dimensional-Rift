@@ -18,12 +18,12 @@ MonoBehaviour:
   description: reee reee
   price: 1
   actionType: 2
+  forWhichCharacter: 0
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 2440353998168722426, guid: 71d88354600474ec292b51ec40f2262c, type: 3}
   p2Shooting: {fileID: 0}

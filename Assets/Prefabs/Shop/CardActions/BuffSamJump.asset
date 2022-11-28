@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
-  m_Name: BuildStatPlat
+  m_Name: BuffSamJump
   m_EditorClassIdentifier: 
-  cardTier: 0
-  header: {fileID: 0}
-  title: 'Fence '
-  description: Stationary Platform for Sam to stand
-  price: 5
-  actionType: 2
-  forWhichCharacter: 0
+  cardTier: 2
+  header: {fileID: 21300000, guid: 18e941c62fc564d5c8573c991269ebc2, type: 3}
+  title: Jump Height+
+  description: frog mode
+  price: 10
+  actionType: 3
+  forWhichCharacter: 1
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
-  playerStat: 0
-  playerStatChange: 0
-  newStructure: {fileID: 2440353998168722426, guid: e58c25d1a9776422fa4310c4d98c5c8f, type: 3}
-  p2Shooting: {fileID: 0}
+  playerStat: 1
+  playerStatChange: 2
+  newStructure: {fileID: 0}

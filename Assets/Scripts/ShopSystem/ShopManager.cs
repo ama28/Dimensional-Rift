@@ -8,9 +8,11 @@ using TMPro;
 public class ShopManager : Singleton<ShopManager>
 {
     [SerializeField]
-    private List<CardAction> farmerShopOptions;
-    [SerializeField]
-    private List<CardAction> shooterShopOptions;
+    private List<CardAction> allOptions;
+    [HideInInspector]
+    public List<CardAction> farmerShopOptions;
+    [HideInInspector]
+    public List<CardAction> shooterShopOptions;
     [SerializeField]
     private int optionCount = 3;
     [SerializeField]
@@ -43,6 +45,12 @@ public class ShopManager : Singleton<ShopManager>
         {
             GameObject temp = Instantiate(cardPrefab, shopUI.GetComponentInChildren<HorizontalLayoutGroup>().transform);
             cardTransforms.Add(temp.transform);
+        }
+
+        foreach (CardAction option in allOptions){
+            if (option.forWhichCharacter == CardAction.Char.farmer) 
+                farmerShopOptions.Add(option);
+            else shooterShopOptions.Add(option);
         }
     }
 
@@ -182,7 +190,6 @@ public class ShopManager : Singleton<ShopManager>
 
                 //header
                 cardTransforms[i].GetChild(1).GetComponent<Image>().sprite = shopOptions[i].header;
-                Debug.Log(shopOptions[i]);
 
                 //title
                 cardTransforms[i].GetChild(3).GetComponent<TextMeshProUGUI>().text = shopOptions[i].title;
@@ -202,6 +209,7 @@ public class ShopManager : Singleton<ShopManager>
             shopUI.transform.GetChild(2).GetChild(1).GetComponent<Image>().sprite = isFarmerShop ? farmerCoinIcon : shooterCoinIcon;
             shopUI.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
             shopUI.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>().fontSize = isFarmerShop ? 30 : 20;
+            shopUI.transform.GetChild(2).GetChild(2).GetComponent<CoinIndicator>().type = isFarmerShop ? CoinIndicator.coinType.farm : CoinIndicator.coinType.cyber;
 
             shopUI.enabled = true;
         }
