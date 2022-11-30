@@ -83,6 +83,18 @@ public class AudioManager : Singleton<AudioManager>
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/shopclick");
     }
 
+    public void Mouseover() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/mouseover");
+    }
+
+    public void Click() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/click");
+    }
+
+    public void Back() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/back");
+    }
+
     public void TBD() {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/idk");
     }
