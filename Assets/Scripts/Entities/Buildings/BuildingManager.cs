@@ -79,6 +79,8 @@ public class BuildingManager : MonoBehaviour
             if(inventory.Count > 0) {
                 currentBuilding = inventory[0].GetComponent<Building>();
                 currentBuilding.OnSelect();
+            } else {
+                currentBuilding = null;
             }
         }
     }
