@@ -7,12 +7,12 @@ public class Gun : MonoBehaviour
 {
     [SerializeField]
     public GunInfo gunInfo = new GunInfo();
-    
+
     public GameObject bullet;
     public Being owner;
 
-    protected uint currentAmmo;
-    protected uint heldAmmo;
+    [HideInInspector] public uint currentAmmo;
+    [HideInInspector] public uint heldAmmo;
 
     private bool canFire_;
     private float timer_;
@@ -23,8 +23,8 @@ public class Gun : MonoBehaviour
 
     void Awake()
     {
-       canFire_ = true;
-       timer_ = 0;
+        canFire_ = true;
+        timer_ = 0;
     }
 
     protected virtual void Start()
@@ -39,6 +39,11 @@ public class Gun : MonoBehaviour
     {
         if (spriteRenderer != null)
             spriteRenderer.enabled = gunActive;
+    }
+
+    public void ReloadGun()
+    {
+        heldAmmo = gunInfo.maxAmmo;
     }
 
     public bool CanFire()
