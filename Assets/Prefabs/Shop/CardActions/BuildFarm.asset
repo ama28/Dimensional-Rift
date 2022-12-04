@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 2
   header: {fileID: 0}
-  title: Build Farm
-  description: Generates money each round but can be destroyed
+  title: Tomato Farm
+  description: "\u201CA good starter crop. Make sure to check in on them and don\u2019t
+    get lost in the sauce, haha!\u201D"
   price: 10
   actionType: 2
   forWhichCharacter: 0

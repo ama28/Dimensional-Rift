@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 0
   header: {fileID: 21300000, guid: 8313030e6639f445d84ca2d9a7fdc09c, type: 3}
-  title: Mov Spd Up
-  description: zoom zoom
+  title: Speed++
+  description: "\u201CSome prime, high quality nanotech that\u2019ll give your body
+    the speed it needs, whether you want it or not.\u201D"
   price: 7
   actionType: 3
   forWhichCharacter: 1

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 0
   header: {fileID: 0}
-  title: 'Fence '
-  description: Stationary Platform for Sam to stand
+  title: Wood Fence
+  description: "\u201CYou want to be careful - the coyotes have been hounding us
+    lately and this\u2019ll keep them out just fine.\u201D"
   price: 5
   actionType: 2
   forWhichCharacter: 0

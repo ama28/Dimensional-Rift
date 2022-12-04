@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 2
   header: {fileID: 21300000, guid: 4c6ddc1d9c7f2441d8696104385f7dc4, type: 3}
-  title: Shotgun
-  description: Good at close range
+  title: "\u201CLight Work\u201D"
+  description: "\u201CThis one\u2019s illegal, so \u2026 it\u2019s our little secret.
+    A blast of energy that\u2019ll disintegrate anything too close.\u201D"
   price: 20
   actionType: 0
   forWhichCharacter: 1

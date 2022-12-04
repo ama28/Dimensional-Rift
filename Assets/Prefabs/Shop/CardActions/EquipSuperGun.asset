@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 1
   header: {fileID: 0}
-  title: Super Gun
-  description: Pushes enemies away
+  title: Shoo-ver
+  description: "\u201CDon\u2019t let the design confuse you. It pushes enemies away,
+    not sucks them in. It doesn\u2019t actually do any damage though, so ...\u201D"
   price: 7
   actionType: 0
   forWhichCharacter: 1

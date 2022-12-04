@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 0
   header: {fileID: 0}
-  title: Tree
-  description: reee reee
+  title: Trees
+  description: "\u201CAren\u2019t they pretty this time of year? It\u2019s nice to
+    know that you can always count on a tree sticking around.\u201D"
   price: 1
   actionType: 2
   forWhichCharacter: 0

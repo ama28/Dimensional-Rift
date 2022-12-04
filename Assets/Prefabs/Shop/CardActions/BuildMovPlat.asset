@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 0
   header: {fileID: 0}
-  title: Moveable Hay
-  description: Moveable platform for Sam to stand
+  title: Haybale
+  description: "\u201CA bit of effort to lug around, but you can always count on
+    it to be where you need it to if you put in the work.\u201D"
   price: 5
   actionType: 2
   forWhichCharacter: 0

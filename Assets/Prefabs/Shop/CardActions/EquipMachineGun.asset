@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTier: 2
   header: {fileID: 21300000, guid: 77a9dbaec8df84d789182b67caa71632, type: 3}
-  title: Machine Gun
-  description: Fast rate of fire but burns through ammo
+  title: N3-RF O-R0
+  description: "\u201CDon\u2019t think too hard. Just hold down the trigger, Sam,
+    and let your machine gun rapid-fire away with reckless abandon.\u201D"
   price: 20
   actionType: 0
   forWhichCharacter: 1
