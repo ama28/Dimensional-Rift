@@ -7,6 +7,7 @@ using TMPro;
 public class WeaponsMenu : MonoBehaviour
 {
     public TextMeshProUGUI currentAmmo;
+    public TextMeshProUGUI currentClip;
     public TextMeshProUGUI currentHeldAmmo;
     public Image gun0Image;
 
@@ -32,6 +33,7 @@ public class WeaponsMenu : MonoBehaviour
 
         currentAmmo.text = p2Shooting.GetGun(0).GetCurrentAmmo();
         currentAmmo.fontSize = (currentAmmo.text == "\u221E") ? 48 : 36;
+        currentClip.text = p2Shooting.GetGun(0).gunInfo.clipSize.ToString();
         currentHeldAmmo.text = p2Shooting.GetGun(0).GetHeldAmmo();
         currentHeldAmmo.fontSize = (currentAmmo.text == "\u221E") ? 24 : 18;
         gun0Image.sprite = p2Shooting.GetGun(0).gunInfo.uiSprite;
