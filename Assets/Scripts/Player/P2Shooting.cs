@@ -31,6 +31,7 @@ public class P2Shooting : MonoBehaviour
         EquipGun("BasicGun");
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
+        guns[gunIdx].gunActive = true;
     }
 
     // Start is called before the first frame update
@@ -84,10 +85,10 @@ public class P2Shooting : MonoBehaviour
     {
         if (context.performed)
         {
-            guns[gunIdx].gameObject.SetActive(false);
+            guns[gunIdx].gunActive = (false);
             gunIdx = (gunIdx + 1) % guns.Count;
-            guns[gunIdx].gameObject.SetActive(true);
-            Debug.Log("weapon toggled");
+            guns[gunIdx].gunActive = (true);
+            Debug.Log("Weapon toggled to " + guns[gunIdx].name);
         }
     }
 
@@ -97,8 +98,17 @@ public class P2Shooting : MonoBehaviour
         } 
         Gun newGun = Instantiate(gunMap[gun], transform);
         newGun.owner = GameManager.Instance.playerShooter;
-        newGun.gameObject.SetActive(false);
+        newGun.gameObject.SetActive(true);
+        newGun.gunActive = false;
         guns.Add(newGun);
         return true;
+    }
+
+    // for UI use only!
+    public Gun GetGun(int gun)
+    {
+        if (guns.Count <= gun) { return null; }
+        gun = (gun + gunIdx) % guns.Count;
+        return guns[gun];
     }
 }

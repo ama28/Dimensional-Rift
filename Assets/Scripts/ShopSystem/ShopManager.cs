@@ -88,6 +88,7 @@ public class ShopManager : Singleton<ShopManager>
         if (Input.GetKeyDown(KeyCode.J))
         {
             OpenShop(ShopType.farmer);
+            GameManager.Instance.currency += 50;
         } else if (Input.GetKeyDown(KeyCode.K))
         {
             OpenShop(ShopType.shooter);

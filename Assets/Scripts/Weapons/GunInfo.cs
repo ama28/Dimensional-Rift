@@ -12,6 +12,12 @@ public class GunInfo
 
     public FireType fireType = FireType.Normal;
 
+    [Tooltip("Max ammo the gun can hold after reloading")]
+    public uint clipSize = uint.MaxValue;
+    public uint maxAmmo = uint.MaxValue;
+    [Tooltip("Amount of time it takes to reload the gun")]
+    public float reloadTime = 1f;
+
     public float fireRate = 0.3f;
     public float range = 10;
     public bool falloff = false;
@@ -21,7 +27,9 @@ public class GunInfo
     public float knockback = 10.0f;
     public int pierce = 1;
     public float splashRange = 0.0f;
-    [Tooltip("Spread range in degrees (TODO: maybe change later)")]
+    [Tooltip("Spread range in degrees")]
     public float accuracy = 0.0f;
-    public int bulletCount = 1;
+    public uint bulletCount = 1;
+
+    public Sprite uiSprite;
 }
