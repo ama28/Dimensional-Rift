@@ -84,6 +84,8 @@ public class GameManager : Singleton<GameManager>
 
     void Update() {
 
+        currency = 9999;
+
         //for debug TODO CHANGE
         if(Input.GetKeyDown(KeyCode.H) && BuildingManager.GetNumBuildingsInInventory() == 0) {
             if(gameState == GameStateType.BuildPhase) {
