@@ -18,6 +18,8 @@ public class ButtonPrompt : MonoBehaviour, Interactable
     }
 
     public void OnInteract(Player player) {
+        if (GameManager.Instance.GameState != GameManager.GameStateType.BuildPhase) return;
+
         if(type == PlayerTarget.Harvest) {
             farm.Harvest();
         } else {

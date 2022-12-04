@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
     [HideInInspector]
     public bool gunActive;
     private SpriteRenderer spriteRenderer;
+    private Transform bulletOrigin;
 
     void Awake()
     {
@@ -32,7 +33,8 @@ public class Gun : MonoBehaviour
         bullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
         currentAmmo = gunInfo.clipSize;
         heldAmmo = gunInfo.maxAmmo;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        bulletOrigin = gameObject.transform.GetChild(1).transform;
     }
 
     private void Update()
@@ -79,7 +81,7 @@ public class Gun : MonoBehaviour
         {
             canFire_ = false;
 
-            Vector3 position = transform.position;
+            Vector3 position = bulletOrigin.position;
             for (int i = 0; i < Mathf.Max(1, gunInfo.bulletCount); i++)
             {
                 GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
