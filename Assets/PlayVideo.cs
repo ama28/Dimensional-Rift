@@ -14,6 +14,7 @@ public class PlayVideo : MonoBehaviour
     }
     public void Play(VideoPlayer vp)
     {
+        AudioManager.Instance.StartCutsceneMusic();
         GameManager.Instance.StartGame();
     }
 
