@@ -33,7 +33,7 @@ public class CardAction : ScriptableObject
 
     public void performAction()
     {
-        AudioManager.ShopClick();
+        AudioManager.Instance.ShopClick();
         switch (actionType)
         {
             case ActionType.NewWeapon:

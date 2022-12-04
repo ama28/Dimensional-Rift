@@ -63,6 +63,21 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    //Speaking
+    public void Speak(string character) {
+        switch(character) {
+            case("Frieda"): {
+                FMODUnity.RuntimeManager.PlayOneShot("event::SFX/Voices/Freida");
+                break;
+            }
+            case("Sam"): {
+                FMODUnity.RuntimeManager.PlayOneShot("event::SFX/Voices/Sam");
+                break;
+            }
+
+        }
+    }
+
     // Item and weapon sounds
     
     public void Laser() {

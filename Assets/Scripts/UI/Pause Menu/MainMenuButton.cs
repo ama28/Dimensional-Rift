@@ -6,7 +6,7 @@ namespace UI {
     public class MainMenuButton : MonoBehaviour
     {
         public void GoToMainMenu() {
-            AudioManager.Click();
+            AudioManager.Instance.Click();
             GameManager.Instance.SetGameState(GameManager.GameStateType.MainMenu);
         }
     }

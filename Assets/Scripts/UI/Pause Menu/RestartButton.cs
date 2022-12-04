@@ -6,7 +6,7 @@ namespace UI {
     public class RestartButton : MonoBehaviour
     {
         public void OnClick() {
-            AudioManager.Click();
+            AudioManager.Instance.Click();
             GameManager.Instance.Restart();
         }
     }
