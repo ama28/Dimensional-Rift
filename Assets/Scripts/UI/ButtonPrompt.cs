@@ -5,16 +5,24 @@ using UnityEngine;
 public class ButtonPrompt : MonoBehaviour, Interactable
 {
     private Canvas canvas;
-    private enum PlayerTarget {Farmer, Shooter};
+    private enum PlayerTarget {Farmer, Shooter, Harvest};
     [SerializeField]
     private PlayerTarget type;
+    private Farm farm;
 
     void Start() {
         canvas = GetComponentInChildren<Canvas>();
+        if(type == PlayerTarget.Harvest) {
+            farm = transform.parent.GetComponent<Farm>();
+        }
     }
 
     public void OnInteract(Player player) {
-        ButtonPress(player);
+        if(type == PlayerTarget.Harvest) {
+            farm.Harvest();
+        } else {
+            ButtonPress(player);
+        }
     }
 
     public void OnRelease(Player player) {
@@ -26,10 +34,15 @@ public class ButtonPrompt : MonoBehaviour, Interactable
             canvas.enabled = true;
         else if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter")
             canvas.enabled = true;
+        else if (type == PlayerTarget.Harvest && col.tag == "PlayerFarmer") {
+            if(farm.isHarvestable()) {
+                canvas.enabled = true;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        if (type == PlayerTarget.Farmer && col.tag == "PlayerFarmer")
+        if ((type == PlayerTarget.Farmer || type == PlayerTarget.Harvest) && col.tag == "PlayerFarmer")
             canvas.enabled = false;
         else if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter")
             canvas.enabled = false;
