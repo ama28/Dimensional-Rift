@@ -26,3 +26,4 @@ MonoBehaviour:
   playerStat: 0
   playerStatChange: 0
   newStructure: {fileID: 9123086491540199019, guid: 2d8c338726fcc427c9439abda118450f, type: 3}
+  p2Shooting: {fileID: 0}

@@ -56,7 +56,6 @@ MonoBehaviour:
     pierce: 1
     splashRange: 0
     accuracy: 20
-    bulletCount: 1
   bullet: {fileID: 4691203068273349001, guid: 3fddd943804b9654f95bf4db707692c3, type: 3}
   owner: {fileID: 0}
 --- !u!212 &6796674200991469289
@@ -100,8 +99,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23769ec9456374e59af6402d5074694c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: bcac16ed93af74adeae16ab957ada1ef, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.04076171, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
