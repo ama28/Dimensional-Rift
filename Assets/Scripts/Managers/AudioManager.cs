@@ -66,14 +66,17 @@ public class AudioManager : Singleton<AudioManager>
     //Speaking
     public void Speak(string character) {
         switch(character) {
-            case("Frieda"): {
-                FMODUnity.RuntimeManager.PlayOneShot("event::SFX/Voices/Freida");
+            case("Freida"): {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Voices/Freida");
                 break;
             }
             case("Sam"): {
-                FMODUnity.RuntimeManager.PlayOneShot("event::SFX/Voices/Sam");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Voices/Sam");
                 break;
             }
+            default:
+                Debug.LogError("invalid character: " + character);
+                break;
 
         }
     }
