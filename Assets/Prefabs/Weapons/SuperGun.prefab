@@ -47,9 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunInfo:
     fireType: 0
-    clipSize: 3
-    maxAmmo: 20
-    reloadTime: 1
     fireRate: 0.5
     range: 6
     falloff: 0
@@ -59,11 +56,8 @@ MonoBehaviour:
     pierce: 2
     splashRange: 0
     accuracy: 0
-    bulletCount: 1
-    uiSprite: {fileID: 21300000, guid: b694a8a761c5742eaa4a41e29cc2aac1, type: 3}
   bullet: {fileID: 4691203068273349001, guid: 4f29b6af3ade4537fa0ff63d9c4bd1b5, type: 3}
   owner: {fileID: 0}
-  gunActive: 0
 --- !u!212 &6796674200991469289
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -126,7 +126,6 @@ public class HomingEnemy : Enemy
             yield return new WaitForEndOfFrame();
         }
 
-        spriteRenderer.color = Color.white;
         takingKnockback = false;
         aiPath.canMove = true;
     }

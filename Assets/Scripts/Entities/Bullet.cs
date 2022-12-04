@@ -86,10 +86,9 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if (being != null && ((being is not Building)
-            || (being is Building && source is Enemy)))
+        if (being != null)
         {
-            // we shot an something!
+            // we shot an enemy!
             SetHitInfo();
             Debug.Log(hitInfo.damage);
             being.TakeDamage(hitInfo);

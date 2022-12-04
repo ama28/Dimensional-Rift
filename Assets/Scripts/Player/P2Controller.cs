@@ -87,7 +87,7 @@ public class P2Controller : PlayerShooter
                 grounded = hit.collider;
             }
             
-            // Debug.Log(grounded);
+            //Debug.Log(grounded);
             if(grounded) {
                 // transform.SetParent(hit.transform);
                 parent = hit.transform;
