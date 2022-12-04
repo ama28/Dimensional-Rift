@@ -6,6 +6,7 @@ namespace UI {
     public class PlayButton : MonoBehaviour
     {
         public void Play() {
+            AudioManager.Click();
             GameManager.Instance.StartGame();
         }
     }
