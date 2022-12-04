@@ -87,6 +87,10 @@ crashlytics-build.properties
 /[Aa]ssets/**/FMODStudioCache.asset.meta
 /[Aa]ssets/Plugins/FMOD/Cache.meta
 /[Aa]ssets/Plugins/FMOD/Cache/Editor.meta
+/FMOD/Dimensional Rift/.cache/
+/FMOD/Dimensional Rift/.user/
+/FMOD/Dimensional Rift/.unsaved/
+/FMOD/Dimensional Rift/.restore/
                     
 # Ignore bank files in the StreamingAssets folder.
 /[Aa]ssets/StreamingAssets/**/*.bank
