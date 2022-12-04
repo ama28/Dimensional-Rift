@@ -24,7 +24,7 @@ public class ActionManager : MonoBehaviour
                 {
                     myAction.performAction();
                     gameObject.GetComponentInParent<Canvas>().enabled = false;
-                    GameManager.Instance.currency = Mathf.Clamp(GameManager.Instance.spaceCurrency - cost, 0, 999);
+                    GameManager.Instance.spaceCurrency = Mathf.Clamp(GameManager.Instance.spaceCurrency - cost, 0, 999);
                     Time.timeScale = 1f;
                 } else Debug.Log("can't afford");
                 break;
