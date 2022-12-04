@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,8 +11,15 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public Being owner;
 
+    protected uint currentAmmo;
+    protected uint heldAmmo;
+
     private bool canFire_;
     private float timer_;
+
+    [HideInInspector]
+    public bool gunActive;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -23,6 +30,15 @@ public class Gun : MonoBehaviour
     protected virtual void Start()
     {
         bullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
+        currentAmmo = gunInfo.clipSize;
+        heldAmmo = gunInfo.maxAmmo;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = gunActive;
     }
 
     public bool CanFire()
@@ -33,6 +49,23 @@ public class Gun : MonoBehaviour
     public float GetTimer()
     {
         return timer_;
+    }
+
+    public string GetCurrentAmmo()
+    {
+        return (currentAmmo > 999) ? "\u221E" : currentAmmo.ToString();
+    }
+
+    public string GetHeldAmmo()
+    {
+        return (heldAmmo > 999) ? "\u221E" : heldAmmo.ToString();
+    }
+
+    public string GetTotalAmmo()
+    {
+        uint totalAmmo = (uint)(Mathf.Min(currentAmmo, int.MaxValue / 2)) + (uint)(
+            Mathf.Min(heldAmmo, int.MaxValue / 2));
+        return (totalAmmo > 999*2) ? "\u221E" : totalAmmo.ToString();
     }
 
     public void Fire()
@@ -48,6 +81,9 @@ public class Gun : MonoBehaviour
                 newBullet.GetComponent<Bullet>().SetUpBullet(owner, gunInfo);
                 AimBullet(newBullet);
             }
+
+            if (currentAmmo < int.MaxValue)
+                currentAmmo--;
         }
     }
 
@@ -67,7 +103,7 @@ public class Gun : MonoBehaviour
         if (!canFire_)
         {
             timer_ += Time.deltaTime;
-            if (timer_ > gunInfo.fireRate)
+            if (timer_ > gunInfo.fireRate && currentAmmo > 0)
             {
                 canFire_ = true;
                 timer_ = 0;
