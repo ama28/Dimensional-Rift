@@ -16,6 +16,7 @@ public class Coin : Collectible
         if(c.gameObject.tag == "PlayerFarmer"){
             //coinSpawnHandler.SpawnCoin(); // Spawn new coin
             coinSpawnHandler.OnCollect(); // Decrement coin
+            AudioManager.Instance.Coin(0);
             GameManager.Instance.currency++;
             base.OnTriggerEnter2D(c); //destroys coin
         }

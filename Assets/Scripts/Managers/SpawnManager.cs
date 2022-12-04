@@ -75,6 +75,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnLoop()
     {
+        yield return new WaitForSeconds(0.3f);
         // get the list of enemies from the wave
         List<Enemy> enemiesToSpawn = currentWave.GetEnemyList();
         waveSize = enemiesToSpawn.Count;

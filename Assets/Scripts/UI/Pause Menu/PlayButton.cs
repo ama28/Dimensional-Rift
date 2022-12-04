@@ -11,13 +11,11 @@ namespace UI {
         public void playVideo()
         {
             videoPlayer.SetActive(true);
+            AudioManager.Instance.StartCutsceneMusic();
+            AudioManager.Instance.Click();
             print("playing video" + videoPlayer);
             /*videoPlayer = GetComponent<VideoPlayer>();*/
             videoPlayer.GetComponent<VideoPlayer>().Play();
-        }
-        public void Play() {
-            AudioManager.Instance.Click();
-            GameManager.Instance.StartGame();
         }
     }
 }

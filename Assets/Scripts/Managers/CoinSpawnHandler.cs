@@ -37,7 +37,6 @@ public class CoinSpawnHandler : MonoBehaviour
     }
     
     public void OnCollect(){ // This is shitty code design but it works
-        AudioManager.Instance.Coin();
         currCoins--;
     }
 

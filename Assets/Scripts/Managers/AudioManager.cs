@@ -16,6 +16,13 @@ public class AudioManager : Singleton<AudioManager>
         GameManager.OnMainMenu += StartMusic;
     }
 
+    void OnDisable() {
+        GameManager.OnBuildPhaseStart -= StartMusic;
+        GameManager.OnActionPhaseStart -= StartMusic;
+        GameManager.OnGameOver -= StartMusic;
+        GameManager.OnMainMenu -= StartMusic;
+    }
+
     void Start()
     {
         StartMusic();
@@ -25,8 +32,11 @@ public class AudioManager : Singleton<AudioManager>
         StartMusic();
     }
 
+    void Update() {
+        Debug.Log(GameManager.Instance.GameState);
+    }
+
     public void StartMusic() {
-        Debug.Log("????");
         StopMusic();
         //switch music using game state
         string eventString;
@@ -56,6 +66,7 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     public void StartCutsceneMusic() {
+        Debug.Log("Test2");
         StopMusic();
         Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Cutscene");
         Music.start();
@@ -64,10 +75,11 @@ public class AudioManager : Singleton<AudioManager>
 
 
     public void StopMusic() {
-        if(Music.isValid()) {
+        // if(Music.isValid()) {
+            Debug.Log("Test");
             Music.release();
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        }
+        // }
     }
 
     //Speaking
@@ -98,9 +110,8 @@ public class AudioManager : Singleton<AudioManager>
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
     }
 
-    public void Coin() { //done
-        int coinSoundChooser = Random.Range(1, 2);
-        if (coinSoundChooser == 1) {
+    public void Coin(int coinType) { //done
+        if (coinType == 1) {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
         } else {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin2");
