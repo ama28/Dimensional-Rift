@@ -55,6 +55,13 @@ public class AudioManager : Singleton<AudioManager>
         Music.start();
     }
 
+    public void StartCutsceneMusic() {
+        StopMusic();
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Cutscene");
+        Music.start();
+
+    }
+
 
     public void StopMusic() {
         if(Music.isValid()) {
