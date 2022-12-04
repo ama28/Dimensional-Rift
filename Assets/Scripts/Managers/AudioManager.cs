@@ -43,7 +43,12 @@ public class AudioManager : Singleton<AudioManager>
                 eventString = "event:/Music/Battle Music";
                 break;
             case (GameManager.GameStateType.GameOver):
-                eventString = "event:/Music/Game Over";
+                int gameOverChooser = Random.Range(1, 10);
+                if (gameOverChooser > 1) {
+                    eventString = "event:/Music/Game Over 1";
+                } else {
+                    eventString = "event:/Music/Game Over 2";
+                }
                 break;
         }
         Music = FMODUnity.RuntimeManager.CreateInstance(eventString);
@@ -69,7 +74,7 @@ public class AudioManager : Singleton<AudioManager>
     }
 
     public void Coin() {
-        int coinSoundChooser = Random.Range(0, 2);
+        int coinSoundChooser = Random.Range(1, 2);
         if (coinSoundChooser == 1) {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
         } else {
