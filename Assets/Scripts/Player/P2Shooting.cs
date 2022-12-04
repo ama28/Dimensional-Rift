@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class P2Shooting : MonoBehaviour
@@ -20,6 +21,11 @@ public class P2Shooting : MonoBehaviour
     public GameObject frontArm;
     public GameObject backArm;
 
+    public GameObject ReloadCanvas;
+    private GameObject reloadCanvas;
+    private Image reloadProgress;
+    private bool isReloading;
+
     void Awake()
     {
         guns = new List<Gun>();
@@ -32,6 +38,16 @@ public class P2Shooting : MonoBehaviour
         gunIdx = 0;
         guns[gunIdx].gameObject.SetActive(true);
         guns[gunIdx].gunActive = true;
+
+        isReloading = false;
+        reloadCanvas = Instantiate(ReloadCanvas);
+        reloadCanvas.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+        foreach(Image i in reloadCanvas.GetComponentsInChildren<Image>())
+        {
+            if (i.gameObject.name == "indicator")
+                reloadProgress = i;
+        }
+        reloadCanvas.SetActive(isReloading);
     }
 
     // Start is called before the first frame update
@@ -64,6 +80,14 @@ public class P2Shooting : MonoBehaviour
         {
             guns[gunIdx].Fire();
         }
+
+        if (Input.GetButton("Reload") && !isReloading)
+        {
+            StartCoroutine(Reload());
+        }
+
+        reloadCanvas.SetActive(isReloading);
+        reloadCanvas.transform.position = transform.position + new Vector3(0.8f, 0.6f);
     }
 
     public void Fire(InputAction.CallbackContext context)
@@ -71,6 +95,8 @@ public class P2Shooting : MonoBehaviour
         if(context.performed) {
             if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
                 //fire
+                StopAllCoroutines();
+                isReloading = false;
                 guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
                     && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
@@ -85,6 +111,8 @@ public class P2Shooting : MonoBehaviour
     {
         if (context.performed)
         {
+            StopAllCoroutines();
+            isReloading = false;
             guns[gunIdx].gunActive = (false);
             gunIdx = (gunIdx + 1) % guns.Count;
             guns[gunIdx].gunActive = (true);
@@ -102,6 +130,45 @@ public class P2Shooting : MonoBehaviour
         newGun.gunActive = false;
         guns.Add(newGun);
         return true;
+    }
+
+    // reload script
+    public IEnumerator Reload()
+    {
+        if (guns[gunIdx].heldAmmo == 0 ||
+                guns[gunIdx].currentAmmo == guns[gunIdx].gunInfo.clipSize)
+            yield return new WaitForEndOfFrame();
+
+        else
+        {
+            isReloading = true;
+
+            float t = 0;
+            while (t < guns[gunIdx].gunInfo.reloadTime)
+            {
+                reloadProgress.fillAmount = t / guns[gunIdx].gunInfo.reloadTime;
+                t += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            uint reloadAmount = (uint)Mathf.Min(guns[gunIdx].gunInfo.clipSize - guns[gunIdx].currentAmmo,
+                                            guns[gunIdx].heldAmmo);
+
+            if (guns[gunIdx].heldAmmo < int.MaxValue)
+                guns[gunIdx].heldAmmo -= reloadAmount;
+            guns[gunIdx].currentAmmo += reloadAmount;
+
+            isReloading = false;
+        }
+    }
+
+    // public: reloads guns
+    public void RestockAllAmmo()
+    {
+        foreach (Gun gun in guns)
+        {
+            gun.ReloadGun();
+        }
     }
 
     // for UI use only!
