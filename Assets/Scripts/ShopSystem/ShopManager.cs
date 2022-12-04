@@ -206,11 +206,12 @@ public class ShopManager : Singleton<ShopManager>
             }
 
             //change card and button font
-            shopUI.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
-            shopUI.transform.GetChild(2).GetChild(1).GetComponent<Image>().sprite = isFarmerShop ? farmerCoinIcon : shooterCoinIcon;
-            shopUI.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
-            shopUI.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>().fontSize = isFarmerShop ? 30 : 20;
-            shopUI.transform.GetChild(2).GetChild(2).GetComponent<CoinIndicator>().type = isFarmerShop ? CoinIndicator.coinType.farm : CoinIndicator.coinType.cyber;
+            shopUI.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(4).GetChild(1).GetComponent<Image>().sprite = isFarmerShop ? farmerCoinIcon : shooterCoinIcon;
+            shopUI.transform.GetChild(4).GetChild(2).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(4).GetChild(2).GetComponent<TextMeshProUGUI>().fontSize = isFarmerShop ? 30 : 20;
+            shopUI.transform.GetChild(4).GetChild(2).GetComponent<CoinIndicator>().type = isFarmerShop ? CoinIndicator.coinType.farm : CoinIndicator.coinType.cyber;
 
             shopUI.enabled = true;
         }
