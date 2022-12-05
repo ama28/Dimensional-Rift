@@ -18,7 +18,7 @@ public class ButtonPrompt : MonoBehaviour, Interactable
     }
 
     public void OnInteract(Player player) {
-        if (GameManager.Instance.GameState != GameManager.GameStateType.BuildPhase) return;
+        //if (GameManager.Instance.GameState != GameManager.GameStateType.BuildPhase) return;
 
         if(type == PlayerTarget.Harvest) {
             farm.Harvest();
@@ -32,6 +32,8 @@ public class ButtonPrompt : MonoBehaviour, Interactable
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        //if (GameManager.Instance.GameState != GameManager.GameStateType.BuildPhase) return;
+        
         if (type == PlayerTarget.Farmer && col.tag == "PlayerFarmer")
             canvas.enabled = true;
         else if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter")
