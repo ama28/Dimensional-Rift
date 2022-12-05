@@ -88,8 +88,8 @@ public class GameManager : Singleton<GameManager>
         spaceCurrency = 0;
         level = 0;
         // OnRestart?.Invoke();
-        GameManager.Instance.GameState = GameStateType.ActionPhase;
         SceneManager.LoadScene("MainScene");
+        GameManager.Instance.GameState = GameStateType.ActionPhase;
         // AudioManager.Instance.StartMusic();
     }
 
