@@ -74,6 +74,7 @@ public class Farm : Building
 
     public override void TakeDamage(HitInfo hit) {
         base.TakeDamage(hit);
+        AudioManager.Instance.FarmDamage();
         if(!farmHealthBar.gameObject.activeInHierarchy) {
             farmHealthBar.gameObject.SetActive(true);
         }
@@ -88,6 +89,7 @@ public class Farm : Building
     }
 
     protected IEnumerator OnHarvest() {
+        AudioManager.Instance.FarmHarvest();
         GameManager.Instance.currency += stats.coinsOnHarvest;
         //show small + (coin sprite) x coinsOnHarvest ?
         spriteRenderers[0].sprite = startSprite;

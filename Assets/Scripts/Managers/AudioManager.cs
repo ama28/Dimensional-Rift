@@ -100,7 +100,37 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
+    //Damage
+    public void FarmDamage() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Damage/FarmDamage");
+    }
+
+    public void EnemyDamage() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Damage/EnemyDamage");
+    }
+
+    public void FreidaDamage() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Damage/FreidaDamage");
+    }
+
     // Item and weapon sounds
+
+    public void FireGun(GunInfo.SFXType sfxType) {
+        switch(sfxType) {
+            case GunInfo.SFXType.Gunshot:
+                Gun();
+                break;
+            case GunInfo.SFXType.Pistol:
+                Pistol();
+                break;
+            case GunInfo.SFXType.Sniper:
+                Sniper();
+                break;
+            case GunInfo.SFXType.Laser:
+                Laser();
+                break;
+        }
+    }
     
     public void Laser() {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/laser");
@@ -109,13 +139,25 @@ public class AudioManager : Singleton<AudioManager>
     public void Sniper() {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
     }
+    public void Pistol() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/pistol");
+    }
+    public void Gun() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/gunshot");
+    }
 
     public void Coin(int coinType) { //done
         if (coinType == 1) {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
         } else {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin2");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin 2");
         }
+    }
+    public void FarmPlace() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/FarmPlace");
+    }
+    public void FarmHarvest() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/FarmHarvest");
     }
 
     // UI Sounds

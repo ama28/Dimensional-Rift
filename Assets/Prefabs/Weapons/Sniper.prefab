@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunInfo:
     fireType: 1
+    sfxType: 1
     clipSize: 6
     maxAmmo: 24
     reloadTime: 1.5

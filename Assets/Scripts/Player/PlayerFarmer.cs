@@ -21,6 +21,8 @@ public class PlayerFarmer : Player
     public override void TakeDamage(HitInfo hit) {
         base.TakeDamage(hit);
         if(!invulnerable) {
+            AudioManager.Instance.FreidaDamage();
+
             //knockback
             Vector2 knockback = (transform.position - hit.sourcePos).normalized;
             knockback *= hit.knockbackScalar * 1000;

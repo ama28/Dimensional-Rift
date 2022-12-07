@@ -10,7 +10,12 @@ public class GunInfo
         Continuous = 1
     }
 
+    public enum SFXType {
+        Gunshot, Sniper, Pistol, Laser
+    }
+
     public FireType fireType = FireType.Normal;
+    public SFXType sfxType = SFXType.Gunshot;
 
     [Tooltip("Max ammo the gun can hold after reloading")]
     public uint clipSize = uint.MaxValue;

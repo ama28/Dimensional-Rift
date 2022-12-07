@@ -81,6 +81,8 @@ public class Gun : MonoBehaviour
         {
             canFire_ = false;
 
+            AudioManager.Instance.FireGun(gunInfo.sfxType);
+
             Vector3 position = bulletOrigin.position;
             for (int i = 0; i < Mathf.Max(1, gunInfo.bulletCount); i++)
             {

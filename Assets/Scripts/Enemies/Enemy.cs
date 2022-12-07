@@ -41,6 +41,7 @@ public abstract class Enemy : Being
     public override void TakeDamage(HitInfo hit)
     {
         base.TakeDamage(hit);
+        AudioManager.Instance.EnemyDamage();
         if (health <= 0)
         {
             Die();

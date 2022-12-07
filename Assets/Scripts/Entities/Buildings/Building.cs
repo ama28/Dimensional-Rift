@@ -39,6 +39,7 @@ public class Building : Being
     }
 
     public virtual void OnPlace() { //when building is placed
+        AudioManager.Instance.FarmPlace();
         gameObject.SetActive(true);
         //enable colliders after placing
         colliders.ForEach(x => x.enabled = true);

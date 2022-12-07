@@ -66,9 +66,9 @@
 	<object class="MarkerTrack" id="{ad53f1f4-dca6-485b-bc37-f3a272425ccf}" />
 	<object class="GroupTrack" id="{8fcfa104-e957-47d2-9f2e-c081e6dbeacb}">
 		<relationship name="modules">
-			<destination>{ded2fefa-70f2-4e66-957e-1a2e003f4610}</destination>
 			<destination>{820a9a2a-98af-4484-8286-d2756f866f3d}</destination>
 			<destination>{05fa6779-6a70-4d88-a234-9b5546dec9b9}</destination>
+			<destination>{f615bf43-0451-4e09-a6fc-6e2c462250df}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{7c70a049-4d7e-4e89-9726-4337c95e93e9}</destination>
@@ -76,7 +76,7 @@
 	</object>
 	<object class="Timeline" id="{f042c71c-340f-41c9-9bd5-502150817505}">
 		<relationship name="modules">
-			<destination>{ded2fefa-70f2-4e66-957e-1a2e003f4610}</destination>
+			<destination>{f615bf43-0451-4e09-a6fc-6e2c462250df}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{8be6f3ae-6e51-402f-aae8-8c813d24a01b}</destination>
@@ -117,14 +117,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3989ca4a-353d-4ffa-bcb8-c6628821db53}" />
-	<object class="SingleSound" id="{ded2fefa-70f2-4e66-957e-1a2e003f4610}">
-		<property name="length">
-			<value>120</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{1a15a3b8-e8ed-426d-83ec-95710dde14ef}</destination>
-		</relationship>
-	</object>
 	<object class="TransitionSourceSound" id="{820a9a2a-98af-4484-8286-d2756f866f3d}">
 		<property name="length">
 			<value>4</value>
@@ -141,7 +133,18 @@
 			<destination>{3da716bc-e1fa-4b44-a9b0-783b21d00a28}</destination>
 		</relationship>
 	</object>
+	<object class="SingleSound" id="{f615bf43-0451-4e09-a6fc-6e2c462250df}">
+		<property name="length">
+			<value>117.36816326530612</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{1a15a3b8-e8ed-426d-83ec-95710dde14ef}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{7c70a049-4d7e-4e89-9726-4337c95e93e9}">
+		<property name="volume">
+			<value>-2.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
