@@ -88,14 +88,16 @@ MonoBehaviour:
     falloff: 1
     damage: 4
     bulletSpeed: 12
-    knockback: 2
+    knockback: 4
     pierce: 1
     splashRange: 0
     accuracy: 30
-    bulletCount: 5
+    bulletCount: 10
     uiSprite: {fileID: 21300000, guid: d51f6164a75764757b91155bbdc58b49, type: 3}
   bullet: {fileID: 4691203068273349001, guid: 7ad87aaa817154384a05ba297c3b05fb, type: 3}
   owner: {fileID: 0}
+  currentAmmo: 0
+  heldAmmo: 0
   gunActive: 0
 --- !u!212 &6796674200991469289
 SpriteRenderer:

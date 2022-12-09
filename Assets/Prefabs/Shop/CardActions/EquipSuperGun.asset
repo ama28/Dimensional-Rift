@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: EquipSuperGun
   m_EditorClassIdentifier: 
   cardTier: 1
-  header: {fileID: 0}
+  header: {fileID: 21300000, guid: b8edda4792739448a963b00557c999bf, type: 3}
   title: Shoo-ver
   description: "\u201CDon\u2019t let the design confuse you. It pushes enemies away,
     not sucks them in. It doesn\u2019t actually do any damage though, so ...\u201D"
-  price: 7
+  price: 10
   actionType: 0
   forWhichCharacter: 1
   gunName: SuperGun

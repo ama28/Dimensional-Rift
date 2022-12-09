@@ -33,6 +33,12 @@ public class ShopManager : Singleton<ShopManager>
     public Sprite farmerCoinIcon;
     public Sprite shooterCoinIcon;
 
+    public Sprite farmerShopkeeperFrame;
+    public Sprite shooterShopkeeperFrame;
+
+    public Sprite farmerShopkeeper;
+    public Sprite shooterShopkeeper;
+
     public enum ShopType {farmer, shooter};
 
     private void Start()
@@ -207,11 +213,19 @@ public class ShopManager : Singleton<ShopManager>
 
             //change card and button font
             shopUI.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
-            shopUI.transform.GetChild(3).GetChild(0).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
+            shopUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = isFarmerShop ? "press [_] to reroll" : "exit and re-open to reroll";
             shopUI.transform.GetChild(4).GetChild(1).GetComponent<Image>().sprite = isFarmerShop ? farmerCoinIcon : shooterCoinIcon;
             shopUI.transform.GetChild(4).GetChild(2).GetComponent<TextMeshProUGUI>().font = isFarmerShop ? farmFont : cyberFont;
             shopUI.transform.GetChild(4).GetChild(2).GetComponent<TextMeshProUGUI>().fontSize = isFarmerShop ? 30 : 20;
             shopUI.transform.GetChild(4).GetChild(2).GetComponent<CoinIndicator>().type = isFarmerShop ? CoinIndicator.coinType.farm : CoinIndicator.coinType.cyber;
+
+            //change dialogue
+            shopUI.transform.GetChild(5).GetChild(0).GetComponent<Image>().sprite = isFarmerShop ? farmerShopkeeperFrame : shooterShopkeeperFrame;
+            shopUI.transform.GetChild(5).GetChild(1).GetComponent<Image>().sprite = isFarmerShop ? farmerShopkeeper : shooterShopkeeper;
+            shopUI.transform.GetChild(5).GetChild(2).GetComponent<TextMeshProUGUI>().text = isFarmerShop ? 
+                "Howdy there, Frieda — nice seeing you on this fine and relaxing day! What can I do for you?" : 
+                "Yo, Sam. Hexbot stuff going rough out there, huh - let’s see what we can do about that.";
 
             shopUI.enabled = true;
         }

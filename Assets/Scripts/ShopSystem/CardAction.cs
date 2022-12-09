@@ -15,7 +15,7 @@ public class CardAction : ScriptableObject
     public int price;
 
     // card action functionality
-    public enum ActionType {NewWeapon, WeaponUpgrade, NewStructure, StatBoost}
+    public enum ActionType {NewWeapon, WeaponUpgrade, NewStructure, StatBoost, Reload}
     public ActionType actionType;
     public enum Char {farmer, shooter}
     public Char forWhichCharacter;
@@ -25,7 +25,7 @@ public class CardAction : ScriptableObject
     public string gunStat;
     public int gunStatChange;
 
-    public enum StatType {Speed, JumpHeight}
+    public enum StatType {Speed, JumpHeight, Health}
     public StatType playerStat;
     public int playerStatChange;
     
@@ -47,6 +47,9 @@ public class CardAction : ScriptableObject
                 break;
             case ActionType.StatBoost:
                 boostStat();
+                break;
+            case ActionType.Reload:
+                reloadAllAmmo();
                 break;
         }
         Debug.Log(actionType);
@@ -78,6 +81,10 @@ public class CardAction : ScriptableObject
                     break;
                 case StatType.JumpHeight:
                     break;
+                case StatType.Health:
+                    GameManager.Instance.playerFarmer.gameObject.GetComponent<P1Controller>().health += playerStatChange;
+                    GameManager.Instance.mainUI.transform.GetChild(1).GetComponent<HealthBar>().UpdateHealthBar();
+                    break;
             }
         }
         else // forWhichCharacter == Char.shooter
@@ -92,5 +99,9 @@ public class CardAction : ScriptableObject
                     break;
             }
         }
+    }
+
+    void reloadAllAmmo() {
+        GameManager.Instance.playerShooter.GetComponentInChildren<P2Shooting>().RestockAllAmmo();
     }
 }

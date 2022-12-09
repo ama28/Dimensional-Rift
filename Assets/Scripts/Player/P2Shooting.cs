@@ -88,11 +88,9 @@ public class P2Shooting : MonoBehaviour
 
         reloadCanvas.SetActive(isReloading);
         reloadCanvas.transform.position = transform.position + new Vector3(0.8f, 0.6f);
-    }
 
-    public void Fire(InputAction.CallbackContext context)
-    {
-        if(context.performed) {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
             if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
                 //fire
                 StopAllCoroutines();
@@ -105,19 +103,51 @@ public class P2Shooting : MonoBehaviour
                 GameManager.Instance.BuildingManager.OnPlaceButton();
             }
         }
+
+        if (Input.GetKey(KeyCode.DownArrow)) 
+        {
+            ToggleWeapon();
+        }
     }
 
-    public void ToggleWeapon(InputAction.CallbackContext context)
+    // public void Fire(InputAction.CallbackContext context)
+    // {
+    //     if(context.performed) {
+    //         if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
+    //             //fire
+    //             StopAllCoroutines();
+    //             isReloading = false;
+    //             guns[gunIdx].Fire();
+    //         } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
+    //                 && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
+    //             //TODO: Add shop closed check
+    //             //place building
+    //             GameManager.Instance.BuildingManager.OnPlaceButton();
+    //         }
+    //     }
+    // }
+
+    // public void ToggleWeapon(InputAction.CallbackContext context)
+    // {
+    //     if (context.performed)
+    //     {
+    //         StopAllCoroutines();
+    //         isReloading = false;
+    //         guns[gunIdx].gunActive = (false);
+    //         gunIdx = (gunIdx + 1) % guns.Count;
+    //         guns[gunIdx].gunActive = (true);
+    //         Debug.Log("Weapon toggled to " + guns[gunIdx].name);
+    //     }
+    // }
+
+    public void ToggleWeapon()
     {
-        if (context.performed)
-        {
-            StopAllCoroutines();
-            isReloading = false;
-            guns[gunIdx].gunActive = (false);
-            gunIdx = (gunIdx + 1) % guns.Count;
-            guns[gunIdx].gunActive = (true);
-            Debug.Log("Weapon toggled to " + guns[gunIdx].name);
-        }
+        StopAllCoroutines();
+        isReloading = false;
+        guns[gunIdx].gunActive = (false);
+        gunIdx = (gunIdx + 1) % guns.Count;
+        guns[gunIdx].gunActive = (true);
+        Debug.Log("Weapon toggled to " + guns[gunIdx].name);
     }
 
     public bool EquipGun(string gun) {

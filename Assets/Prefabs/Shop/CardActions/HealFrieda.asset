@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
-  m_Name: BuildTree
+  m_Name: HealFrieda
   m_EditorClassIdentifier: 
-  cardTier: 0
-  header: {fileID: 21300000, guid: 6451f2a6e709e41ebb78e34625769299, type: 3}
-  title: Trees
-  description: "\u201CAren\u2019t they pretty this time of year? It\u2019s nice to
-    know that you can always count on a tree sticking around.\u201D"
-  price: 1
-  actionType: 2
+  cardTier: 2
+  header: {fileID: 21300000, guid: 97c951b9c24274c2bb798f73583a5029, type: 3}
+  title: Full Restore
+  description: Restore Frieda to Full Health
+  price: 15
+  actionType: 3
   forWhichCharacter: 0
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
-  playerStat: 0
-  playerStatChange: 0
-  newStructure: {fileID: 2440353998168722426, guid: 71d88354600474ec292b51ec40f2262c, type: 3}
+  playerStat: 2
+  playerStatChange: 2
+  newStructure: {fileID: 0}
