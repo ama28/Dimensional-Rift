@@ -93,10 +93,9 @@ public class P2Shooting : MonoBehaviour
     public void Fire(InputAction.CallbackContext context)
     {
         if(context.performed) {
-            if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
+            if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase
+                && !isReloading) {
                 //fire
-                StopAllCoroutines();
-                isReloading = false;
                 guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
                     && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
@@ -109,10 +108,8 @@ public class P2Shooting : MonoBehaviour
 
     public void ToggleWeapon(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isReloading)
         {
-            StopAllCoroutines();
-            isReloading = false;
             guns[gunIdx].gunActive = (false);
             gunIdx = (gunIdx + 1) % guns.Count;
             guns[gunIdx].gunActive = (true);
