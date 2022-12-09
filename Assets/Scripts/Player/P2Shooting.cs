@@ -91,10 +91,9 @@ public class P2Shooting : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase) {
+            if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase
+                && !isReloading) {
                 //fire
-                StopAllCoroutines();
-                isReloading = false;
                 guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
                     && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
@@ -142,12 +141,12 @@ public class P2Shooting : MonoBehaviour
 
     public void ToggleWeapon()
     {
-        StopAllCoroutines();
-        isReloading = false;
-        guns[gunIdx].gunActive = (false);
-        gunIdx = (gunIdx + 1) % guns.Count;
-        guns[gunIdx].gunActive = (true);
-        Debug.Log("Weapon toggled to " + guns[gunIdx].name);
+        if (isReloading = false) {
+            guns[gunIdx].gunActive = (false);
+            gunIdx = (gunIdx + 1) % guns.Count;
+            guns[gunIdx].gunActive = (true);
+            Debug.Log("Weapon toggled to " + guns[gunIdx].name);
+        }
     }
 
     public bool EquipGun(string gun) {
