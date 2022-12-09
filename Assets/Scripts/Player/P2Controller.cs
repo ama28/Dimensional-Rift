@@ -109,7 +109,22 @@ public class P2Controller : PlayerShooter
                 groundedMultiplier = stats.airMovementPenalty;
             }
         }
+        Debug.Log(grounded);
     }
+
+    // private bool IsGrounded() {
+    //     float extraHeightTest = .01f;
+    //     RaycastHit2D raycastHit = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + extraHeightTest, LayerMask.GetMask("Wall"));
+    //     Color rayColor;
+    //     if (raycastHit.collider != null) {
+    //         rayColor = Color.green;
+    //     } else {
+    //         rayColor = Color.red;
+    //     }
+    //     Debug.DrawRay(collider.bounds.center, Vector2.down * (collider.bounds.extents.y + extraHeightTest), rayColor);
+    //     Debug.Log(raycastHit.collider);
+    //     return raycastHit.collider != null;
+    // }
 
     // public void Move(InputAction.CallbackContext context)
     // {
