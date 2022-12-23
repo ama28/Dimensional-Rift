@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildStatPlat
   m_EditorClassIdentifier: 
   cardTier: 0
-  header: {fileID: 0}
+  header: {fileID: 21300000, guid: 9cc3c58d5eeb44189bdc1e529299adb9, type: 3}
   title: Wood Fence
   description: "\u201CYou want to be careful - the coyotes have been hounding us
     lately and this\u2019ll keep them out just fine.\u201D"

@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "\u201CIt\u2019s weird seeing you \u2026 jump in this world. Well,
     I\u2019m glad you still have a Y-axis, Sam - this\u2019ll give ya some juice
     for that.\u201D"
-  price: 10
+  price: 15
   actionType: 3
   forWhichCharacter: 1
   gunName: 

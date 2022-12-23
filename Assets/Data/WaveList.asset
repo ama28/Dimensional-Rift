@@ -31,8 +31,8 @@ MonoBehaviour:
     baseEnemyBudget: 3
     extraEnemyBudget: 0
     enemySpawnDelay: 0.6
-    maxCoinTotal: 1
-    coinSpawnTimer: 3
+    maxCoinTotal: 3
+    coinSpawnTimer: 4
   - waveRange: {x: 2, y: 3}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
@@ -41,8 +41,8 @@ MonoBehaviour:
     - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
       cost: 2
       weight: 1
-    baseEnemyBudget: 7
-    extraEnemyBudget: 5
+    baseEnemyBudget: 6
+    extraEnemyBudget: 4
     enemySpawnDelay: 0.5
     maxCoinTotal: 5
     coinSpawnTimer: 3
@@ -54,12 +54,12 @@ MonoBehaviour:
     - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
       cost: 5
       weight: 3
-    baseEnemyBudget: 30
+    baseEnemyBudget: 27
     extraEnemyBudget: 0
     enemySpawnDelay: 0.5
     maxCoinTotal: 7
     coinSpawnTimer: 3
-  - waveRange: {x: 5, y: 6}
+  - waveRange: {x: 5, y: 5}
     enemies:
     - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
       cost: 1
@@ -71,7 +71,118 @@ MonoBehaviour:
       cost: 2
       weight: 1
     baseEnemyBudget: 14
-    extraEnemyBudget: 4
-    enemySpawnDelay: 0.5
-    maxCoinTotal: 10
+    extraEnemyBudget: 0
+    enemySpawnDelay: 0.4
+    maxCoinTotal: 7
     coinSpawnTimer: 3
+  - waveRange: {x: 6, y: 6}
+    enemies:
+    - enemy: {fileID: 5522479861997919670, guid: 7d00ec85730e3834db8e58764747a591, type: 3}
+      cost: 1
+      weight: 1
+    baseEnemyBudget: 5
+    extraEnemyBudget: 0
+    enemySpawnDelay: 2
+    maxCoinTotal: 6
+    coinSpawnTimer: 3
+  - waveRange: {x: 7, y: 8}
+    enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      cost: 2
+      weight: 4
+    - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      cost: 3
+      weight: 3
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 3
+      weight: 3
+    - enemy: {fileID: 7365922932667486472, guid: 67e4d00c587abe647beeaa9aa3a977ed, type: 3}
+      cost: 4
+      weight: 4
+    baseEnemyBudget: 28
+    extraEnemyBudget: 6
+    enemySpawnDelay: 0.3
+    maxCoinTotal: 10
+    coinSpawnTimer: 2.5
+  - waveRange: {x: 9, y: 9}
+    enemies:
+    - enemy: {fileID: 5522479861997919670, guid: 7d00ec85730e3834db8e58764747a591, type: 3}
+      cost: 1
+      weight: 1
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 1
+      weight: 1
+    baseEnemyBudget: 10
+    extraEnemyBudget: 0
+    enemySpawnDelay: 1
+    maxCoinTotal: 6
+    coinSpawnTimer: 3
+  - waveRange: {x: 10, y: 10}
+    enemies:
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 2
+      weight: 3
+    - enemy: {fileID: 7365922932667486472, guid: 67e4d00c587abe647beeaa9aa3a977ed, type: 3}
+      cost: 2
+      weight: 3
+    - enemy: {fileID: 3329864664568628342, guid: a26f8e02538d8e143aabc2e11a0e9174, type: 3}
+      cost: 3
+      weight: 2
+    baseEnemyBudget: 40
+    extraEnemyBudget: 0
+    enemySpawnDelay: 0.3
+    maxCoinTotal: 12
+    coinSpawnTimer: 2
+  - waveRange: {x: 11, y: 12}
+    enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      cost: 1
+      weight: 4
+    - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      cost: 1
+      weight: 4
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 2
+      weight: 5
+    - enemy: {fileID: 7365922932667486472, guid: 67e4d00c587abe647beeaa9aa3a977ed, type: 3}
+      cost: 2
+      weight: 5
+    - enemy: {fileID: 3329864664568628342, guid: a26f8e02538d8e143aabc2e11a0e9174, type: 3}
+      cost: 3
+      weight: 5
+    - enemy: {fileID: 7365922932667486472, guid: bee5717157de4b44391a73f167fedbb1, type: 3}
+      cost: 3
+      weight: 5
+    baseEnemyBudget: 37
+    extraEnemyBudget: 7
+    enemySpawnDelay: 0.25
+    maxCoinTotal: 12
+    coinSpawnTimer: 2
+  - waveRange: {x: 12, y: 9999}
+    enemies:
+    - enemy: {fileID: 5393616833037949083, guid: 8ca8c3e4ca6eb42e185481027cfd871a, type: 3}
+      cost: 1
+      weight: 8
+    - enemy: {fileID: 5988899761858989650, guid: faedff240709d3e40816c58be4eeeba7, type: 3}
+      cost: 1
+      weight: 12
+    - enemy: {fileID: 3329864664568628342, guid: 98e2c8144e6c0624ea97054d82e24e6c, type: 3}
+      cost: 2
+      weight: 28
+    - enemy: {fileID: 7365922932667486472, guid: 67e4d00c587abe647beeaa9aa3a977ed, type: 3}
+      cost: 2
+      weight: 24
+    - enemy: {fileID: 3329864664568628342, guid: a26f8e02538d8e143aabc2e11a0e9174, type: 3}
+      cost: 3
+      weight: 20
+    - enemy: {fileID: 7365922932667486472, guid: bee5717157de4b44391a73f167fedbb1, type: 3}
+      cost: 3
+      weight: 20
+    - enemy: {fileID: 5522479861997919670, guid: 7d00ec85730e3834db8e58764747a591, type: 3}
+      cost: 2
+      weight: 4
+    baseEnemyBudget: 50
+    extraEnemyBudget: 5
+    enemySpawnDelay: 0.25
+    maxCoinTotal: 15
+    coinSpawnTimer: 2
