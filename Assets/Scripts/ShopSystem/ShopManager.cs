@@ -103,7 +103,7 @@ public class ShopManager : Singleton<ShopManager>
 
     public void waveEnd()
     {
-        if (GameManager.Instance.Level > 1)
+        if (GameManager.Instance.Level > 0)
         {
             StartCoroutine(showWaveComplete());
         }

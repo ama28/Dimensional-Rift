@@ -89,11 +89,15 @@ public class P2Shooting : MonoBehaviour
         reloadCanvas.SetActive(isReloading);
         reloadCanvas.transform.position = transform.position + new Vector3(0.8f, 0.6f);
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (GameManager.Instance.GameState == GameManager.GameStateType.ActionPhase
                 && !isReloading) {
                 //fire
+                if (guns[gunIdx].currentAmmo == 0)
+                {
+                    StartCoroutine(Reload());
+                } 
                 guns[gunIdx].Fire();
             } else if(GameManager.Instance.GameState == GameManager.GameStateType.BuildPhase 
                     && GameManager.Instance.BuildingManager.GetNumBuildingsInInventory() > 0) {
@@ -141,7 +145,7 @@ public class P2Shooting : MonoBehaviour
 
     public void ToggleWeapon()
     {
-        if (isReloading = false) {
+        if (isReloading == false) {
             guns[gunIdx].gunActive = (false);
             gunIdx = (gunIdx + 1) % guns.Count;
             guns[gunIdx].gunActive = (true);

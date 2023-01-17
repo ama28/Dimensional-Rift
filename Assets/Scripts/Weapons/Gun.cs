@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public Being owner;
 
-    [HideInInspector] public uint currentAmmo;
+    public uint currentAmmo;
     [HideInInspector] public uint heldAmmo;
 
     private bool canFire_;
