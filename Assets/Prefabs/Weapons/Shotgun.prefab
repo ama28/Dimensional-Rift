@@ -94,7 +94,7 @@ MonoBehaviour:
     splashRange: 0
     accuracy: 30
     bulletCount: 10
-    uiSprite: {fileID: 21300000, guid: d51f6164a75764757b91155bbdc58b49, type: 3}
+    uiSprite: {fileID: 21300000, guid: e439d7a984157445a9e578d70592ab53, type: 3}
   bullet: {fileID: 4691203068273349001, guid: 7ad87aaa817154384a05ba297c3b05fb, type: 3}
   owner: {fileID: 0}
   currentAmmo: 0

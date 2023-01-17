@@ -51,7 +51,7 @@ MonoBehaviour:
   gunInfo:
     fireType: 0
     sfxType: 2
-    clipSize: 10
+    clipSize: 6
     maxAmmo: 4294967295
     reloadTime: 0.75
     fireRate: 0.3

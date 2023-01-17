@@ -17,7 +17,7 @@ MonoBehaviour:
   title: "\u201CLight Work\u201D"
   description: "\u201CThis one\u2019s illegal, so \u2026 it\u2019s our little secret.
     A blast of energy that\u2019ll disintegrate anything too close.\u201D"
-  price: 20
+  price: 10
   actionType: 0
   forWhichCharacter: 1
   gunName: Shotgun

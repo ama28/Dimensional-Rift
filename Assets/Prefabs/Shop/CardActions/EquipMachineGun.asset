@@ -17,7 +17,7 @@ MonoBehaviour:
   title: N3-RF O-R0
   description: "\u201CDon\u2019t think too hard. Just hold down the trigger, Sam,
     and let your machine gun rapid-fire away with reckless abandon.\u201D"
-  price: 20
+  price: 10
   actionType: 0
   forWhichCharacter: 1
   gunName: RapidFire

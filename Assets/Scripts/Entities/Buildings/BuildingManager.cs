@@ -61,7 +61,8 @@ public class BuildingManager : MonoBehaviour
 
     void OnBuildPhaseStart() {
         if(GameManager.Instance.Level == 1) {
-            startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
+            StartCoroutine(WaitBeforeAddingStartBuildings());
+            //startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
         }
 
         if(inventory.Count > 0) {
@@ -70,6 +71,12 @@ public class BuildingManager : MonoBehaviour
         else {
             currentBuilding = null;
         }
+    }
+
+    public IEnumerator WaitBeforeAddingStartBuildings()
+    {
+        yield return new WaitForSeconds(3f);
+        startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
     }
 
     public void OnPlaceButton() {
