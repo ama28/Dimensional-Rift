@@ -9,13 +9,25 @@ public class ActionManager : MonoBehaviour
 
     public void Activate()
     {
-        if (GameManager.Instance.currency >= cost)
-        {
-            myAction.performAction();
-            gameObject.GetComponentInParent<Canvas>().enabled = false;
-            GameManager.Instance.currency = Mathf.Clamp(GameManager.Instance.currency - cost, 0, 100);
-            Time.timeScale = 1f;
-        }
-        Debug.Log("can't afford");
+        switch (myAction.forWhichCharacter){
+            case CardAction.Char.farmer: 
+                if (GameManager.Instance.currency >= cost)
+                {
+                    myAction.performAction();
+                    gameObject.GetComponentInParent<Canvas>().enabled = false;
+                    GameManager.Instance.currency = Mathf.Clamp(GameManager.Instance.currency - cost, 0, 999);
+                    Time.timeScale = 1f;
+                } else Debug.Log("can't afford");
+                break;
+            case CardAction.Char.shooter: 
+                if (GameManager.Instance.spaceCurrency >= cost)
+                {
+                    myAction.performAction();
+                    gameObject.GetComponentInParent<Canvas>().enabled = false;
+                    GameManager.Instance.spaceCurrency = Mathf.Clamp(GameManager.Instance.spaceCurrency - cost, 0, 999);
+                    Time.timeScale = 1f;
+                } else Debug.Log("can't afford");
+                break;
+        };
     }
 }

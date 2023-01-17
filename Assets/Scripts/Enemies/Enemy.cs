@@ -9,11 +9,13 @@ public abstract class Enemy : Being
 
     protected Rigidbody2D rb;
     private float initTime;
+    protected SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         initTime = Time.timeSinceLevelLoad;
     }
 
@@ -39,6 +41,7 @@ public abstract class Enemy : Being
     public override void TakeDamage(HitInfo hit)
     {
         base.TakeDamage(hit);
+        AudioManager.Instance.EnemyDamage();
         if (health <= 0)
         {
             Die();
@@ -48,5 +51,6 @@ public abstract class Enemy : Being
     public virtual void TakeKnockback(Vector2 kb)
     {
         rb.AddForce(kb * 50);
+        spriteRenderer.color = Color.red;
     }
 }

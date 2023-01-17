@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: BuildMovPlat
   m_EditorClassIdentifier: 
   cardTier: 0
-  header: {fileID: 0}
-  title: Moveable Hay
-  description: Moveable platform for Sam to stand
+  header: {fileID: 21300000, guid: 3aa624b75276b451eb670ac5a9175782, type: 3}
+  title: Haybale
+  description: "\u201CA bit of effort to lug around, but you can always count on
+    it to be where you need it to if you put in the work.\u201D"
   price: 5
   actionType: 2
+  forWhichCharacter: 0
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 7790684196799328476, guid: 240ebfdf0efd54b0eb02d2e2fed138e5, type: 3}
-  p2Shooting: {fileID: 0}

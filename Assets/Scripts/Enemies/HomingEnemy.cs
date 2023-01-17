@@ -84,6 +84,7 @@ public class HomingEnemy : Enemy
     }
 
     protected virtual void SetTarget() {
+        if(GameManager.Instance.playerFarmer == null) return;
         Vector2 distance = GameManager.Instance.playerFarmer.transform.position - transform.position;
         if(distance.magnitude < targetingDistance || GameManager.Instance.BuildingManager.targetableBuildings.Count == 0) { //attack player if within range
             target = GameManager.Instance.playerFarmer;
@@ -126,6 +127,7 @@ public class HomingEnemy : Enemy
             yield return new WaitForEndOfFrame();
         }
 
+        spriteRenderer.color = Color.white;
         takingKnockback = false;
         aiPath.canMove = true;
     }

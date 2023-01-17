@@ -55,6 +55,11 @@ public class P2Controller : PlayerShooter
 
     private void FixedUpdate()
     {
+        //old movement system movement 
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+        moveDirection = new Vector2(inputX, inputY);
+
         // rb.velocity = new Vector2(moveDirection.x * stats.speed, rb.velocity.y);
         if(moveDirection == Vector2.zero) {
             // if(rb.velocity.magnitude > 1) {
@@ -70,6 +75,10 @@ public class P2Controller : PlayerShooter
                 rb.AddRelativeForce(new Vector2(moveDirection.x * stats.speed * 40 * groundedMultiplier, 0));
             }
         }
+
+        //jump
+        if (Input.GetKey(KeyCode.UpArrow))
+            Jump();
 
         { //grounded check
             Vector3 offset = new Vector3(collider.offset.x, collider.offset.y, 0);
@@ -87,7 +96,7 @@ public class P2Controller : PlayerShooter
                 grounded = hit.collider;
             }
             
-            //Debug.Log(grounded);
+            // Debug.Log(grounded);
             if(grounded) {
                 // transform.SetParent(hit.transform);
                 parent = hit.transform;
@@ -100,23 +109,48 @@ public class P2Controller : PlayerShooter
                 groundedMultiplier = stats.airMovementPenalty;
             }
         }
+        Debug.Log(grounded);
     }
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        if(context.performed) {
-            if(Mathf.Abs(context.ReadValue<Vector2>().x - moveDirection.x) > 1) {
-                //turn-around force
-                rb.AddForce(new Vector2(moveDirection.x * stats.turnAroundScalar * groundedMultiplier, 0));
-            }
-        }
-        moveDirection = context.ReadValue<Vector2>();
-        Debug.Log(moveDirection);
-    }
+    // private bool IsGrounded() {
+    //     float extraHeightTest = .01f;
+    //     RaycastHit2D raycastHit = Physics2D.Raycast(collider.bounds.center, Vector2.down, collider.bounds.extents.y + extraHeightTest, LayerMask.GetMask("Wall"));
+    //     Color rayColor;
+    //     if (raycastHit.collider != null) {
+    //         rayColor = Color.green;
+    //     } else {
+    //         rayColor = Color.red;
+    //     }
+    //     Debug.DrawRay(collider.bounds.center, Vector2.down * (collider.bounds.extents.y + extraHeightTest), rayColor);
+    //     Debug.Log(raycastHit.collider);
+    //     return raycastHit.collider != null;
+    // }
 
-    public void Jump(InputAction.CallbackContext context)
+    // public void Move(InputAction.CallbackContext context)
+    // {
+    //     if(context.performed) {
+    //         if(Mathf.Abs(context.ReadValue<Vector2>().x - moveDirection.x) > 1) {
+    //             //turn-around force
+    //             rb.AddForce(new Vector2(moveDirection.x * stats.turnAroundScalar * groundedMultiplier, 0));
+    //         }
+    //     }
+    //     moveDirection = context.ReadValue<Vector2>();
+    //     Debug.Log(moveDirection);
+    // }
+
+    // new input system
+    // public void Jump(InputAction.CallbackContext context)
+    // {
+    //     if (context.performed && grounded)
+    //     {
+    //         StartCoroutine(jumpTrigger());
+    //         rb.AddForce(new Vector2(0, stats.jumpForce * 100));
+    //     }
+    // }
+
+    public void Jump()
     {
-        if (context.performed && grounded)
+        if (grounded)
         {
             StartCoroutine(jumpTrigger());
             rb.AddForce(new Vector2(0, stats.jumpForce * 100));

@@ -15,35 +15,25 @@ public class CardAction : ScriptableObject
     public int price;
 
     // card action functionality
-    public enum ActionType {NewWeapon, WeaponUpgrade, NewStructure, StatBoost}
+    public enum ActionType {NewWeapon, WeaponUpgrade, NewStructure, StatBoost, Reload}
     public ActionType actionType;
     public enum Char {farmer, shooter}
+    public Char forWhichCharacter;
 
     public string gunName;
     public int gunIndex;
     public string gunStat;
     public int gunStatChange;
 
-    public enum StatType {Speed, JumpHeight}
+    public enum StatType {Speed, JumpHeight, Health}
     public StatType playerStat;
-    public Char forWhichCharacter;
     public int playerStatChange;
     
     public GameObject newStructure;
 
-    private GameObject player1;
-    private GameObject player2;
-    public P2Shooting p2Shooting;
-
-    void Start()
-    {
-        player1 = GameManager.Instance.playerFarmer.gameObject;
-        player2 = GameManager.Instance.playerShooter.gameObject;
-        p2Shooting = player2.GetComponentInChildren<P2Shooting>();
-    }
-
     public void performAction()
     {
+        AudioManager.Instance.ShopClick();
         switch (actionType)
         {
             case ActionType.NewWeapon:
@@ -58,18 +48,21 @@ public class CardAction : ScriptableObject
             case ActionType.StatBoost:
                 boostStat();
                 break;
+            case ActionType.Reload:
+                reloadAllAmmo();
+                break;
         }
         Debug.Log(actionType);
     }
 
     void equipWeapon()
     {
-        p2Shooting.EquipGun(gunName);
+        GameManager.Instance.playerShooter.gameObject.GetComponentInChildren<P2Shooting>().EquipGun(gunName);
     }
 
     void upgradeWeapon()
     {
-        p2Shooting.allGuns[gunIndex].GetComponent<Gun>().gunInfo.damage += gunStatChange;
+        GameManager.Instance.playerShooter.gameObject.GetComponentInChildren<P2Shooting>().allGuns[gunIndex].GetComponent<Gun>().gunInfo.damage += gunStatChange;
     }
 
     void buildStructure()
@@ -84,9 +77,13 @@ public class CardAction : ScriptableObject
             switch (playerStat)
             {
                 case StatType.Speed:
-                    player1.GetComponent<P1Controller>().stats.speed += playerStatChange;
+                    GameManager.Instance.playerFarmer.gameObject.GetComponent<P1Controller>().stats.speed += playerStatChange;
                     break;
                 case StatType.JumpHeight:
+                    break;
+                case StatType.Health:
+                    GameManager.Instance.playerFarmer.gameObject.GetComponent<P1Controller>().health += playerStatChange;
+                    GameManager.Instance.mainUI.transform.GetChild(1).GetComponent<HealthBar>().UpdateHealthBar();
                     break;
             }
         }
@@ -95,11 +92,16 @@ public class CardAction : ScriptableObject
             switch (playerStat)
             {
                 case StatType.Speed:
-                    player2.GetComponent<P2Controller>().stats.speed += playerStatChange;
+                    GameManager.Instance.playerShooter.gameObject.GetComponent<P2Controller>().stats.speed += playerStatChange;
                     break;
                 case StatType.JumpHeight:
+                    GameManager.Instance.playerShooter.gameObject.GetComponent<P2Controller>().stats.jumpForce += playerStatChange;
                     break;
             }
         }
+    }
+
+    void reloadAllAmmo() {
+        GameManager.Instance.playerShooter.GetComponentInChildren<P2Shooting>().RestockAllAmmo();
     }
 }

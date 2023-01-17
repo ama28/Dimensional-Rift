@@ -15,7 +15,7 @@ S:: Save your effort on saving yourself, Frieda. He's a bit too cuckoo to be red
 F:: Oh ...
 S:: Yeah. Too much curiosity and too many portals can't be good for anyone.
 --
-F:: When we first met, you called <Awesome321's Farm> a ... liminal space.
+F:: When we first met, you called <EvilCreeper321's Farm> a ... liminal space.
 S:: Yeah.
 F:: What does that mean?
 S:: It's a technical term. We use it to describe the void between portal jumps.
@@ -31,11 +31,11 @@ F:: Oh.
 S:: Sometimes, you don't want to run towards them and you don't want to run away from them.
 S:: This is the compromise.
 --
-S:: Why is this place called <Awesome321's Farm>?
+S:: Why is this place called <EvilCreeper321's Farm>?
 F:: It just is!
 S:: But why?
 F:: It just is. It was the name this place had when I moved here.
-S:: Who's ... <Awesome321>, then?
+S:: Who's ... <EvilCreeper321>, then?
 F:: I don't know. But I'm sure this farm wouldn't be here without them!
 S:: ... it unnerves me how confident you are about things you don't know.
 --

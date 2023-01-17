@@ -13,17 +13,16 @@ MonoBehaviour:
   m_Name: EquipSniper
   m_EditorClassIdentifier: 
   cardTier: 2
-  header: {fileID: 0}
-  title: Sniper
-  description: I've got you in my sights
-  price: 10
+  header: {fileID: 21300000, guid: 3db9da590df384c678ab4ce321f6e3f8, type: 3}
+  title: Hellion Rifle
+  description: '"Steady, aim, and shoot. Packs a punch, but keep your distance, huh?"'
+  price: 15
   actionType: 0
-  gunName: LaserGun
+  forWhichCharacter: 1
+  gunName: Sniper
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 0}
-  p2Shooting: {fileID: 0}

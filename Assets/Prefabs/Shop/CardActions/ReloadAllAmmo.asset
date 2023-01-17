@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
+  m_Name: ReloadAllAmmo
+  m_EditorClassIdentifier: 
+  cardTier: 1
+  header: {fileID: 21300000, guid: 631cd0890a304454e85220d36d88eead, type: 3}
+  title: Reload
+  description: Refills all ammo
+  price: 10
+  actionType: 4
+  forWhichCharacter: 1
+  gunName: 
+  gunIndex: 0
+  gunStat: 
+  gunStatChange: 0
+  playerStat: 0
+  playerStatChange: 0
+  newStructure: {fileID: 0}

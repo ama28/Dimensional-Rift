@@ -8,7 +8,7 @@ using System;
 public class Dialogue : MonoBehaviour
 {
     public List<TextAsset> dialogueData; //original txt file s
-    public float scrollRate = 0.1f; //character is added to string every scrollRate seconds
+    public float scrollRate = 0.03f; //character is added to string every scrollRate seconds
     public float pauseAfterLine = 2f; //Time break after each line
     public TMP_Text dialogue; //text mesh pro gameobject
     public TMP_Text speaker; //text mesh pro gameobject for name of speaker character 
@@ -24,6 +24,8 @@ public class Dialogue : MonoBehaviour
     public GameObject samDialogueBox;
     public GameObject fridaDialogueBox;
     public bool speaking; //is there speech happening
+
+    private int charCount = 0;
 
     void OnEnable() {
         GameManager.OnBuildPhaseStart += ChooseDialogue; 
@@ -132,7 +134,7 @@ public class Dialogue : MonoBehaviour
         switch (speakerCode)
         {
             case "S::":
-                currentSpeaker = "sam";
+                currentSpeaker = "Sam";
                 speaker.SetText("Sam");
                 dialogue.font = satella;
                 speaker.font = satella;
@@ -141,10 +143,11 @@ public class Dialogue : MonoBehaviour
 
                 samDialogueBox.SetActive(true);
                 fridaDialogueBox.SetActive(false);
-                print("what why");
+                // print("what why");
                 break;
             case "F::":
-                speaker.SetText("Frida");
+                currentSpeaker = "Freida";
+                speaker.SetText("Freida");
                 dialogue.font = vt323;
                 speaker.font = vt323;
                 speaker.fontSize = vt323_size;
@@ -188,6 +191,14 @@ public class Dialogue : MonoBehaviour
         resetText();
         for (int i = 0; i < currentText.Length; i++)
         {
+            //SFX
+            if(currentText.Substring(currentText.Length - 1, 1) != " " && currentText.Substring(currentText.Length - 1, 1) != "-") {
+                charCount = (charCount + 1) % 2;
+                if(charCount == 0) {
+                    AudioManager.Instance.Speak(currentSpeaker);
+                }
+            }
+            
             //TODO: add whole text displaying stuff or make new class for it
             dialogueText = string.Concat(dialogueText, currentText[i]);
             dialogue.SetText(dialogueText);
@@ -199,6 +210,7 @@ public class Dialogue : MonoBehaviour
         yield return new WaitForSeconds(pauseAfterLine);
         resetText();
         currentLineEnd = true;
+        
     }
 
     //changes the displayed string to the empty string

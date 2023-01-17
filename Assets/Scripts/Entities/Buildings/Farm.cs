@@ -50,9 +50,13 @@ public class Farm : Building
         } else {
             farmHealthBar.UpdateHealthBar();
         }
-        if(roundsSinceHarvest >= stats.roundsToHarvest) {
+        if(isHarvestable()) {
             spriteRenderers[0].sprite = grownSprite;
         }
+    }
+
+    public bool isHarvestable() {
+        return roundsSinceHarvest >= stats.roundsToHarvest;
     }
 
     public override void OnPlace()
@@ -70,6 +74,7 @@ public class Farm : Building
 
     public override void TakeDamage(HitInfo hit) {
         base.TakeDamage(hit);
+        AudioManager.Instance.FarmDamage();
         if(!farmHealthBar.gameObject.activeInHierarchy) {
             farmHealthBar.gameObject.SetActive(true);
         }
@@ -79,18 +84,16 @@ public class Farm : Building
         }
     }
 
-    protected IEnumerator OnHarvestAnim() {
+    public void Harvest() {
+        StartCoroutine(OnHarvest());
+    }
+
+    protected IEnumerator OnHarvest() {
+        AudioManager.Instance.FarmHarvest();
+        GameManager.Instance.currency += stats.coinsOnHarvest;
         //show small + (coin sprite) x coinsOnHarvest ?
         spriteRenderers[0].sprite = startSprite;
+        roundsSinceHarvest = 0;
         yield return null;
     }
-
-    public virtual void OnHarvest() {
-        if(roundsSinceHarvest >= stats.roundsToHarvest) {
-            roundsSinceHarvest = 0;
-            GameManager.Instance.currency += stats.coinsOnHarvest;
-            StartCoroutine(OnHarvestAnim());
-        }
-    }
-
 }

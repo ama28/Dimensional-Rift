@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: BuildTree
   m_EditorClassIdentifier: 
   cardTier: 0
-  header: {fileID: 0}
-  title: Tree
-  description: reee reee
+  header: {fileID: 21300000, guid: 6451f2a6e709e41ebb78e34625769299, type: 3}
+  title: Trees
+  description: "\u201CAren\u2019t they pretty this time of year? It\u2019s nice to
+    know that you can always count on a tree sticking around.\u201D"
   price: 1
   actionType: 2
+  forWhichCharacter: 0
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 2440353998168722426, guid: 71d88354600474ec292b51ec40f2262c, type: 3}
-  p2Shooting: {fileID: 0}

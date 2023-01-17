@@ -61,7 +61,8 @@ public class BuildingManager : MonoBehaviour
 
     void OnBuildPhaseStart() {
         if(GameManager.Instance.Level == 1) {
-            startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
+            StartCoroutine(WaitBeforeAddingStartBuildings());
+            //startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
         }
 
         if(inventory.Count > 0) {
@@ -72,6 +73,12 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
+    public IEnumerator WaitBeforeAddingStartBuildings()
+    {
+        yield return new WaitForSeconds(3f);
+        startBuildings.ForEach(x => AddBuildingToInventory(x.gameObject));
+    }
+
     public void OnPlaceButton() {
         Debug.Log("Place: " +  IsBuildingValid(currentBuilding, mousePosTile));
         if(IsBuildingValid(currentBuilding, mousePosTile)) {
@@ -79,6 +86,8 @@ public class BuildingManager : MonoBehaviour
             if(inventory.Count > 0) {
                 currentBuilding = inventory[0].GetComponent<Building>();
                 currentBuilding.OnSelect();
+            } else {
+                currentBuilding = null;
             }
         }
     }

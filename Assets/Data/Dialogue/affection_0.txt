@@ -1,4 +1,4 @@
-F:: Woah, a stranger! Looks like you popped out of nowhere - welcome to <Awesome321’s Farm>. What’s your name-
+F:: Woah, a stranger! Looks like you popped out of nowhere - welcome to <EvilCreeper321’s Farm>. What’s your name-
 S:: Shut it! Don’t know what you are, but stay away! Hostiles approaching in multiple directions.
 F:: Oh, okay, uh-
 S:: Gut feeling tells me they’ll hurt you way more than me while I’m in … whatever liminal space this is, so I said STAY AWAY!
@@ -15,7 +15,7 @@ S:: Yeah. We’re going to need to shore up this place with solid defenses to bu
 S:: Surveillance drones? Laser grids? Automated turrets?
 F:: What’s a … surveillance drone? Is that a new type of bee?
 S:: ... alright, different tack. What do you have, Frieda?
-F:: Oh! Well, we have a lot of things, really! I actually do quite a lot of work around <Awesome321’s Farm>. 
+F:: Oh! Well, we have a lot of things, really! I actually do quite a lot of work around <EvilCreeper321’s Farm>. 
 F:: Tending to the crops, building fences …
 S:: ... we’ll just have to make do with that, then.
 F:: Anything to help, Sam! I can get us started with that!
@@ -24,6 +24,6 @@ F:: Can I help you in any way? What you’re doing seems so dangerous!
 S:: Uhh … why don’t you just keep doing your, uh, farm thing and help me move around? 
 S:: Wherever we are, the … physics of this place doesn’t agree with me, so I’ll need your help. 
 F:: You’re right … you don’t look like you belong here, Sam - not that that’s a bad thing! 
-F:: <Awesome321’s Farm> is a welcome home for everyone - so you can count on me to be there for you!
+F:: <EvilCreeper321’s Farm> is a welcome home for everyone - so you can count on me to be there for you!
 S:: ... great. Anyways, stay sharp, hostiles are on the move.
 --

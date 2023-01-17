@@ -138,9 +138,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1272256843146799981}
     m_Modifications:
+    - target: {fileID: 3528230216762700287, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5819811803646495801, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529442392321959180, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_text
+      value: /
       objectReference: {fileID: 0}
     - target: {fileID: 6703524051224786215, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_RootOrder
@@ -148,11 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6703524051224786215, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 6703524051224786215, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.31
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 6703524051224786215, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -187,16 +195,56 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8505119531912697332, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_Size.x
+      value: 4.028617
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505119531912697332, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_Size.y
-      value: 4.926643
+      value: 4.6019597
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505119531912697332, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.04355955
       objectReference: {fileID: 0}
     - target: {fileID: 8505119531912697332, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_Offset.y
-      value: -3.2073743
+      value: -3.0450327
       objectReference: {fileID: 0}
     - target: {fileID: 8701547447718429405, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
       propertyPath: m_Name
       value: ButtonPrompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.21029907
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.21029907
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.21029907
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148965401157699806, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b5e904b6c8345a29d97c2a89830cdb, type: 3}

@@ -5,22 +5,26 @@ using UnityEngine;
 public class ButtonPrompt : MonoBehaviour, Interactable
 {
     private Canvas canvas;
-    private enum PlayerTarget {Farmer, Shooter};
+    private enum PlayerTarget {Farmer, Shooter, Harvest};
     [SerializeField]
     private PlayerTarget type;
+    private Farm farm;
 
     void Start() {
         canvas = GetComponentInChildren<Canvas>();
-    }
-
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Slash)) {
-            Debug.Log("kdjsfkld");
+        if(type == PlayerTarget.Harvest) {
+            farm = transform.parent.GetComponent<Farm>();
         }
     }
 
     public void OnInteract(Player player) {
-        ButtonPress(player);
+        //if (GameManager.Instance.GameState != GameManager.GameStateType.BuildPhase) return;
+
+        if(type == PlayerTarget.Harvest) {
+            farm.Harvest();
+        } else {
+            ButtonPress(player);
+        }
     }
 
     public void OnRelease(Player player) {
@@ -28,14 +32,21 @@ public class ButtonPrompt : MonoBehaviour, Interactable
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        //if (GameManager.Instance.GameState != GameManager.GameStateType.BuildPhase) return;
+        
         if (type == PlayerTarget.Farmer && col.tag == "PlayerFarmer")
             canvas.enabled = true;
         else if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter")
             canvas.enabled = true;
+        else if (type == PlayerTarget.Harvest && col.tag == "PlayerFarmer") {
+            if(farm.isHarvestable()) {
+                canvas.enabled = true;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D col) {
-        if (type == PlayerTarget.Farmer && col.tag == "PlayerFarmer")
+        if ((type == PlayerTarget.Farmer || type == PlayerTarget.Harvest) && col.tag == "PlayerFarmer")
             canvas.enabled = false;
         else if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter")
             canvas.enabled = false;
@@ -43,9 +54,7 @@ public class ButtonPrompt : MonoBehaviour, Interactable
 
     void OnTriggerStay2D(Collider2D col){
         if (type == PlayerTarget.Shooter && col.tag == "PlayerShooter"){
-            Debug.Log("hello");
             if (Input.GetKey(KeyCode.Slash)) {
-                Debug.Log("AAAAAAAA");
                 ButtonPress(col.transform.GetComponent<Player>());
             }
         }

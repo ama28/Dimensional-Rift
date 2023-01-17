@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f233aef9875f5415786c1cef8ead068e, type: 3}
   m_Name: BuffFriedaMovSpd
   m_EditorClassIdentifier: 
-  cardTier: 0
-  header: {fileID: 0}
-  title: Move Spd Up
-  description: zoom zoom
-  price: 7
+  cardTier: 2
+  header: {fileID: 21300000, guid: 3c68976e3a7574fc9a62fbd33e3770c7, type: 3}
+  title: "\u201CSugar\u201D"
+  description: "\u201CCan\u2019t find anything sweeter. A bump of this will give
+    you the kick you need to move around faster - all the time!\u201D"
+  price: 20
   actionType: 3
+  forWhichCharacter: 0
   gunName: 
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 2
   newStructure: {fileID: 0}
-  p2Shooting: {fileID: 0}

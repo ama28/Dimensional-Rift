@@ -16,6 +16,13 @@ public class AudioManager : Singleton<AudioManager>
         GameManager.OnMainMenu += StartMusic;
     }
 
+    void OnDisable() {
+        GameManager.OnBuildPhaseStart -= StartMusic;
+        GameManager.OnActionPhaseStart -= StartMusic;
+        GameManager.OnGameOver -= StartMusic;
+        GameManager.OnMainMenu -= StartMusic;
+    }
+
     void Start()
     {
         StartMusic();
@@ -25,8 +32,11 @@ public class AudioManager : Singleton<AudioManager>
         StartMusic();
     }
 
+    void Update() {
+        Debug.Log(GameManager.Instance.GameState);
+    }
+
     public void StartMusic() {
-        Debug.Log("????");
         StopMusic();
         //switch music using game state
         string eventString;
@@ -43,48 +53,129 @@ public class AudioManager : Singleton<AudioManager>
                 eventString = "event:/Music/Battle Music";
                 break;
             case (GameManager.GameStateType.GameOver):
-                eventString = "event:/Music/Game Over";
+                int gameOverChooser = Random.Range(1, 10);
+                if (gameOverChooser > 1) {
+                    eventString = "event:/Music/Game Over 1";
+                } else {
+                    eventString = "event:/Music/Game Over 2";
+                }
                 break;
         }
         Music = FMODUnity.RuntimeManager.CreateInstance(eventString);
         Music.start();
     }
 
+    public void StartCutsceneMusic() {
+        Debug.Log("Test2");
+        StopMusic();
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Cutscene");
+        Music.start();
+
+    }
+
 
     public void StopMusic() {
-        if(Music.isValid()) {
+        // if(Music.isValid()) {
+            Debug.Log("Test");
             Music.release();
             Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        // }
+    }
+
+    //Speaking
+    public void Speak(string character) {
+        switch(character) {
+            case("Freida"): {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Voices/Freida");
+                break;
+            }
+            case("Sam"): {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Voices/Sam");
+                break;
+            }
+            default:
+                Debug.LogError("invalid character: " + character);
+                break;
+
         }
+    }
+
+    //Damage
+    public void FarmDamage() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Damage/FarmDamage");
+    }
+
+    public void EnemyDamage() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Damage/EnemyDamage");
+    }
+
+    public void FreidaDamage() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Damage/FreidaDamage");
     }
 
     // Item and weapon sounds
 
-    public void FireGun(GunSFXType type) {
-        switch (type) {
-            case GunSFXType.Laser: {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/laser");
+    public void FireGun(GunInfo.SFXType sfxType) {
+        switch(sfxType) {
+            case GunInfo.SFXType.Gunshot:
+                Gun();
                 break;
-            }
-            case GunSFXType.Sniper: {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
+            case GunInfo.SFXType.Pistol:
+                Pistol();
                 break;
-            }   
+            case GunInfo.SFXType.Sniper:
+                Sniper();
+                break;
+            case GunInfo.SFXType.Laser:
+                Laser();
+                break;
         }
     }
+    
+    public void Laser() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/laser");
+    }
 
-    public void Coin(int i) {
-        if (i == 1) {
+    public void Sniper() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/sniper");
+    }
+    public void Pistol() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/pistol");
+    }
+    public void Gun() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/gunshot");
+    }
+
+    public void Coin(int coinType) { //done
+        if (coinType == 1) {
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin");
         } else {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin2");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/coin 2");
         }
+    }
+    public void FarmPlace() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/FarmPlace");
+    }
+    public void FarmHarvest() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Items/FarmHarvest");
     }
 
     // UI Sounds
 
-    public void ShopClick() {
+    public void ShopClick() { //done
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/shopclick");
+    }
+
+    public void Mouseover() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/mouseover");
+    }
+
+    public void Click() { //done
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/click");
+    }
+
+    public void Back() {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/back");
     }
 
     public void TBD() {

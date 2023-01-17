@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: EquipMachineGun
   m_EditorClassIdentifier: 
   cardTier: 2
-  header: {fileID: 0}
-  title: Machine Gun
-  description: Fast rate of fire but burns through ammo
+  header: {fileID: 21300000, guid: 77a9dbaec8df84d789182b67caa71632, type: 3}
+  title: N3-RF O-R0
+  description: "\u201CDon\u2019t think too hard. Just hold down the trigger, Sam,
+    and let your machine gun rapid-fire away with reckless abandon.\u201D"
   price: 10
   actionType: 0
+  forWhichCharacter: 1
   gunName: RapidFire
   gunIndex: 0
   gunStat: 
   gunStatChange: 0
   playerStat: 0
-  forWhichCharacter: 0
   playerStatChange: 0
   newStructure: {fileID: 0}
-  p2Shooting: {fileID: 0}

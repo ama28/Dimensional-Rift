@@ -6,7 +6,7 @@ using TMPro;
 public class CoinIndicator : MonoBehaviour
 {
     public enum coinType {farm, cyber}
-    [SerializeField] private coinType type;
+    public coinType type;
 
     // Update is called once per frame
     void Update()

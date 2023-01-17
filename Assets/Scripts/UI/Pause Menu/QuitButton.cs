@@ -6,6 +6,7 @@ namespace UI {
     public class QuitButton : MonoBehaviour
     {
         public void QuitGame() {
+            AudioManager.Instance.Click();
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else

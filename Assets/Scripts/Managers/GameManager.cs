@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
         get { return gameState; } 
         set { SetGameState(value); }
     }
-    private GameStateType gameState;
+    private GameStateType gameState = GameStateType.MainMenu;
 
     [Header("Managers")]
     public SpawnManager spawnManager;
@@ -71,7 +71,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     public virtual void Start() {
-        GameManager.Instance.SetGameState(GameStateType.ActionPhase);
+        GameManager.Instance.SetGameState(GameStateType.MainMenu);
     }
 
     public void Restart() {
@@ -87,8 +87,10 @@ public class GameManager : Singleton<GameManager>
         currency = 0;
         spaceCurrency = 0;
         level = 0;
-        OnRestart?.Invoke();
+        // OnRestart?.Invoke();
         SceneManager.LoadScene("MainScene");
+        GameManager.Instance.GameState = GameStateType.ActionPhase;
+        // AudioManager.Instance.StartMusic();
     }
 
     void Update() {
